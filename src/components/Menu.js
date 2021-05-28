@@ -115,43 +115,44 @@ class Menu extends React.Component {
             justifyContent="center"
             mx="auto"
             // backgroundColor="#37393E"
-            // backgroundColor="#4F5054"
-            backgroundColor="#84878D"
+            backgroundColor="#4F5054"
+            // backgroundColor="#84878D"
+            // backgroundColor="#"
             height="8vh"
           >
             <MenuList type="none">
               <Flex flexDirection="row">
-                <Linker to={ROUTES.HOMEPAGE_ROUTE} style={{ backgroundColor: '#2A2E39', textDecoration: "none" }}>
+                <Linker to={ROUTES.HOMEPAGE_ROUTE} style={{ backgroundColor: '#4F5054', textDecoration: "none" }}>
                   <MenuItem icon={<HomeIcon />} color="#00D5FF"> Homepage </MenuItem>
                 </Linker>
-                <Link href="https://bondintelligence.cloud.looker.com/browse" target="_blank" style={{ textDecoration: 'none', backgroundColor: '#2A2E39' }}>
+                <Link href="https://bondintelligence.cloud.looker.com/browse" target="_blank" style={{ textDecoration: 'none', backgroundColor: '#4F5054' }}>
                   <MenuItem icon={<Dashboard />} color="#00D5FF"> Dashboards </MenuItem>
                 </Link>
                 <Link href="https://bondintelligence.cloud.looker.com/extensions/data_dictionary::data-dictionary/"
                   target="_blank"
-                  style={{ textDecoration: '#00FFFF', backgroundColor: '#2A2E39' }}
+                  style={{ textDecoration: '#00FFFF', backgroundColor: '#4F5054' }}
                 >
                   <MenuItem icon={<MenuBook />} color="#00D5FF"> Data Dictionary </MenuItem>
                 </Link>
-                <Linker to={ROUTES.MODELS_ROUTE} style={{ backgroundColor: '#2A2E39', textDecoration: "none" }}>
+                <Linker to={ROUTES.MODELS_ROUTE} style={{ backgroundColor: '#4F5054', textDecoration: "none" }}>
                   <MenuItem icon={<ModelTraining />} color="#00D5FF"> Models </MenuItem>
                 </Linker>
-                <Linker to={ROUTES.SCREENER_ROUTE} style={{ backgroundColor: '#2A2E39', textDecoration: "none" }}>
+                <Linker to={ROUTES.SCREENER_ROUTE} style={{ backgroundColor: '#4F5054', textDecoration: "none" }}>
                   <MenuItem icon={<FilterAlt />} color="#00D5FF"> Screener </MenuItem>
                 </Linker>
-                <Linker to={ROUTES.RELVAL_ROUTE} style={{ backgroundColor: '#2A2E39', textDecoration: "none" }}>
+                <Linker to={ROUTES.RELVAL_ROUTE} style={{ backgroundColor: '#4F5054', textDecoration: "none" }}>
                   <MenuItem icon={<ScatterPlot />} color="#00D5FF"> RelVal </MenuItem>
                 </Linker>
-                <Linker to={ROUTES.ETRADE_ROUTE} style={{ backgroundColor: '#2A2E39', textDecoration: "none" }}>
+                <Linker to={ROUTES.ETRADE_ROUTE} style={{ backgroundColor: '#4F5054', textDecoration: "none" }}>
                   <MenuItem icon={<SwapHoriz />} color="#00D5FF"> Etrade </MenuItem>
                 </Linker>
-                <Linker to={ROUTES.INSIGHT_ROUTE} style={{ backgroundColor: '#2A2E39', textDecoration: "none" }}>
+                <Linker to={ROUTES.INSIGHT_ROUTE} style={{ backgroundColor: '#4F5054', textDecoration: "none" }}>
                   <MenuItem icon={<Lightbulb />} color="#00D5FF"> Insights </MenuItem>
                 </Linker>
-                <Linker to={ROUTES.MARKETDATA_ROUTE} style={{ backgroundColor: '#2A2E39', textDecoration: "none" }}>
+                <Linker to={ROUTES.MARKETDATA_ROUTE} style={{ backgroundColor: '#4F5054', textDecoration: "none" }}>
                   <MenuItem icon={<Money />} color="#00D5FF"> MarketData </MenuItem>
                 </Linker>
-                <Linker to={ROUTES.FORECAST_ROUTE} style={{ backgroundColor: '#2A2E39', textDecoration: "none" }}>
+                <Linker to={ROUTES.FORECAST_ROUTE} style={{ backgroundColor: '#4F5054', textDecoration: "none" }}>
                   <MenuItem icon={<StackedLineChart />} color="00D5FF"> Forecasts </MenuItem>
                 </Linker>
               </Flex>
