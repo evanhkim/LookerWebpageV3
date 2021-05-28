@@ -96,9 +96,8 @@ import {
   Menu as Menu1,
   MenuOpen,
   SwapVert,
-  Mode
+  Mode,
 } from '@styled-icons/material'
-
 
 class Menu extends React.Component {
   render() {
@@ -122,38 +121,100 @@ class Menu extends React.Component {
           >
             <MenuList type="none">
               <Flex flexDirection="row">
-                <Linker to={ROUTES.HOMEPAGE_ROUTE} style={{ backgroundColor: '#4F5054', textDecoration: "none" }}>
-                  <MenuItem icon={<HomeIcon />} color="#00D5FF"> Homepage </MenuItem>
-                </Linker>
-                <Link href="https://bondintelligence.cloud.looker.com/browse" target="_blank" style={{ textDecoration: 'none', backgroundColor: '#4F5054' }}>
-                  <MenuItem icon={<Dashboard />} color="#00D5FF"> Dashboards </MenuItem>
-                </Link>
-                <Link href="https://bondintelligence.cloud.looker.com/extensions/data_dictionary::data-dictionary/"
-                  target="_blank"
-                  style={{ textDecoration: '#00FFFF', backgroundColor: '#4F5054' }}
+                <Linker
+                  to={ROUTES.HOMEPAGE_ROUTE}
+                  style={{ backgroundColor: '#4F5054', textDecoration: 'none' }}
                 >
-                  <MenuItem icon={<MenuBook />} color="#00D5FF"> Data Dictionary </MenuItem>
+                  <MenuItem icon={<HomeIcon />} color="#00D5FF">
+                    {' '}
+                    Homepage{' '}
+                  </MenuItem>
+                </Linker>
+                <Link
+                  href="https://bondintelligence.cloud.looker.com/browse"
+                  target="_blank"
+                  style={{ textDecoration: 'none', backgroundColor: '#4F5054' }}
+                >
+                  <MenuItem icon={<Dashboard />} color="#00D5FF">
+                    {' '}
+                    Dashboards{' '}
+                  </MenuItem>
                 </Link>
-                <Linker to={ROUTES.MODELS_ROUTE} style={{ backgroundColor: '#4F5054', textDecoration: "none" }}>
-                  <MenuItem icon={<ModelTraining />} color="#00D5FF"> Models </MenuItem>
+                <Link
+                  href="https://bondintelligence.cloud.looker.com/extensions/data_dictionary::data-dictionary/"
+                  target="_blank"
+                  style={{
+                    textDecoration: '#00FFFF',
+                    backgroundColor: '#4F5054',
+                  }}
+                >
+                  <MenuItem icon={<MenuBook />} color="#00D5FF">
+                    {' '}
+                    Data Dictionary{' '}
+                  </MenuItem>
+                </Link>
+                <Linker
+                  to={ROUTES.MODELS_ROUTE}
+                  style={{ backgroundColor: '#4F5054', textDecoration: 'none' }}
+                >
+                  <MenuItem icon={<ModelTraining />} color="#00D5FF">
+                    {' '}
+                    Models{' '}
+                  </MenuItem>
                 </Linker>
-                <Linker to={ROUTES.SCREENER_ROUTE} style={{ backgroundColor: '#4F5054', textDecoration: "none" }}>
-                  <MenuItem icon={<FilterAlt />} color="#00D5FF"> Screener </MenuItem>
+                <Linker
+                  to={ROUTES.SCREENER_ROUTE}
+                  style={{ backgroundColor: '#4F5054', textDecoration: 'none' }}
+                >
+                  <MenuItem icon={<FilterAlt />} color="#00D5FF">
+                    {' '}
+                    Screener{' '}
+                  </MenuItem>
                 </Linker>
-                <Linker to={ROUTES.RELVAL_ROUTE} style={{ backgroundColor: '#4F5054', textDecoration: "none" }}>
-                  <MenuItem icon={<ScatterPlot />} color="#00D5FF"> RelVal </MenuItem>
+                <Linker
+                  to={ROUTES.RELVAL_ROUTE}
+                  style={{ backgroundColor: '#4F5054', textDecoration: 'none' }}
+                >
+                  <MenuItem icon={<ScatterPlot />} color="#00D5FF">
+                    {' '}
+                    RelVal{' '}
+                  </MenuItem>
                 </Linker>
-                <Linker to={ROUTES.ETRADE_ROUTE} style={{ backgroundColor: '#4F5054', textDecoration: "none" }}>
-                  <MenuItem icon={<SwapHoriz />} color="#00D5FF"> Etrade </MenuItem>
+                <Linker
+                  to={ROUTES.ETRADE_ROUTE}
+                  style={{ backgroundColor: '#4F5054', textDecoration: 'none' }}
+                >
+                  <MenuItem icon={<SwapHoriz />} color="#00D5FF">
+                    {' '}
+                    Etrade{' '}
+                  </MenuItem>
                 </Linker>
-                <Linker to={ROUTES.INSIGHT_ROUTE} style={{ backgroundColor: '#4F5054', textDecoration: "none" }}>
-                  <MenuItem icon={<Lightbulb />} color="#00D5FF"> Insights </MenuItem>
+                <Linker
+                  to={ROUTES.INSIGHT_ROUTE}
+                  style={{ backgroundColor: '#4F5054', textDecoration: 'none' }}
+                >
+                  <MenuItem icon={<Lightbulb />} color="#00D5FF">
+                    {' '}
+                    Insights{' '}
+                  </MenuItem>
                 </Linker>
-                <Linker to={ROUTES.MARKETDATA_ROUTE} style={{ backgroundColor: '#4F5054', textDecoration: "none" }}>
-                  <MenuItem icon={<Money />} color="#00D5FF"> MarketData </MenuItem>
+                <Linker
+                  to={ROUTES.MARKETDATA_ROUTE}
+                  style={{ backgroundColor: '#4F5054', textDecoration: 'none' }}
+                >
+                  <MenuItem icon={<Money />} color="#00D5FF">
+                    {' '}
+                    Market Data{' '}
+                  </MenuItem>
                 </Linker>
-                <Linker to={ROUTES.FORECAST_ROUTE} style={{ backgroundColor: '#4F5054', textDecoration: "none" }}>
-                  <MenuItem icon={<StackedLineChart />} color="00D5FF"> Forecasts </MenuItem>
+                <Linker
+                  to={ROUTES.FORECAST_ROUTE}
+                  style={{ backgroundColor: '#4F5054', textDecoration: 'none' }}
+                >
+                  <MenuItem icon={<StackedLineChart />} color="00D5FF">
+                    {' '}
+                    Forecasts{' '}
+                  </MenuItem>
                 </Linker>
               </Flex>
             </MenuList>
@@ -164,4 +225,4 @@ class Menu extends React.Component {
   }
 }
 
-export default Menu;
+export default Menu
