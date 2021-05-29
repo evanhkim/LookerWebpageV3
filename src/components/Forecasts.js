@@ -38,10 +38,12 @@ import {
 import { ROUTES } from '../Router'
 import { Link as Linker, LinkProps } from 'react-router-dom'
 import Menu from './Menu'
+import { StackedLineChart as ForecastsIcon } from '@styled-icons/material'
+import { iconStyle } from './HomePage.js'
 
 const boxStyle = {
   width: '350px',
-  height: '330px',
+  height: '390px',
   borderRadius: '10px',
   backgroundColor: '#2A2E39',
 }
@@ -52,7 +54,7 @@ class Forecast extends React.Component {
       <>
         <ComponentsProvider>
           <Menu />
-          <Space p="xxxxxlarge" width="100%" height="50vh" around>
+          <Space p="xxxxxlarge" width="100%" height="30vh" around>
             <Text p="xxxxxlarge" fontSize="xxxxxlarge" color="white">
               Forecasts
             </Text>
@@ -66,12 +68,15 @@ class Forecast extends React.Component {
                   target="_blank"
                   sandbox="allow-scripts allow-modals allow-popups"
                 >
-                  <img
+                  {/* <img
                     id="dashboards"
                     src="https://marketplace-api.looker.com/visualization-screenshots/report_table_icon.png"
                     height="280"
                     width="350"
-                  ></img>
+                  ></img> */}
+                  <Flex justifyContent="space-around">
+                    <ForecastsIcon style={iconStyle}></ForecastsIcon>
+                  </Flex>
                   <Flex justifyContent="space-around">
                     <text style={{ color: 'white' }}>Corp Forecast {'>'}</text>
                   </Flex>
@@ -85,19 +90,22 @@ class Forecast extends React.Component {
                   target="_blank"
                   sandbox="allow-scripts allow-modals allow-popups"
                 >
-                  <img
+                  {/* <img
                     id="dashboards"
                     src="https://marketplace-api.looker.com/visualization-screenshots/report_table_icon.png"
                     height="280"
                     width="350"
-                  ></img>
+                  ></img> */}
+                  <Flex justifyContent="space-around">
+                    <ForecastsIcon style={iconStyle}></ForecastsIcon>
+                  </Flex>
                   <Flex justifyContent="space-around">
                     <text style={{ color: 'white' }}>Muni Forecast {'>'}</text>
                   </Flex>
                 </Link>
               </Box>
             </Flex>
-            <Space height="50px"></Space>
+            <Space height="50px" />
           </Flex>
         </ComponentsProvider>
       </>

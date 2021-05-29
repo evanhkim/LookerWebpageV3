@@ -45,7 +45,7 @@ class MarketData extends React.Component {
       <>
         <ComponentsProvider>
           <Menu />
-          <Space p="large" width="100%" height="25vh" around>
+          <Space p="large" width="100%" height="20vh" around>
             <Text p="xxxxxlarge" fontSize="xxxxxlarge" color="white">
               Market Data
             </Text>

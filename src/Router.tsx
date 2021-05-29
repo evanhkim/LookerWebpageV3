@@ -22,8 +22,9 @@
  * THE SOFTWARE.
  */
 
-import React, { useEffect, useState, useContext, Suspense } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import React, { useEffect, useState, useContext, Suspense, useRef } from 'react'
+import { Switch, Route, BrowserRouter } from 'react-router-dom'
+import { Link as Linker, LinkProps } from 'react-router-dom'
 import { intersects } from 'semver'
 import { Looker40SDK } from '@looker/sdk'
 import {
@@ -44,8 +45,9 @@ import Model from './components/Models.js'
 import Etrade from './components/Etrades.js'
 import Forecast from './components/Forecasts.js'
 import MarketData from './components/MarketDatas.js'
-import Relval from './components/Relvals.js'
+import Relval from './components/RelVals.js'
 import Insight from './components/insights.js'
+import ScrollToTop from './ScrollToTop.js'
 
 // URL Routes for Routing
 export enum ROUTES {
@@ -93,6 +95,7 @@ export const Router = () => {
 
   // Getting rid of useEffect() will screw up the format of the Market Overview Looks
   useEffect(() => {
+
     const initialize = async () => {
       // Context requires Looker version 7.14.0. If not supported provide
       // default configuration object and disable saving of context data.
@@ -119,35 +122,38 @@ export const Router = () => {
     <>
       <ComponentsProvider>
         {/* <Section> */}
-          {/* This <Suspense> tag is needed to render the second part of Market Overview look (under graph) */}
-          <Suspense fallback={<></>}>
-            <Switch>
-              <Route path={ROUTES.MODELS_ROUTE}>
-                <Model />
-              </Route>
-              <Route path={ROUTES.SCREENER_ROUTE}>
-                <Screener />
-              </Route>
-              <Route path={ROUTES.RELVAL_ROUTE}>
-                <Relval />
-              </Route>
-              <Route path={ROUTES.ETRADE_ROUTE}>
-                <Etrade />
-              </Route>
-              <Route path={ROUTES.INSIGHT_ROUTE}>
-                <Insight />
-              </Route>
-              <Route path={ROUTES.MARKETDATA_ROUTE}>
-                <MarketData />
-              </Route>
-              <Route path={ROUTES.FORECAST_ROUTE}>
-                <Forecast />
-              </Route>
-              <Route>
-                <HomePage />
-              </Route>
-            </Switch>
-          </Suspense>
+        {/* This <Suspense> tag is needed to render the second part of Market Overview look (under graph) */}
+        <Suspense fallback={<></>}>
+
+          {/* Scroll Function that moves window to top of page before rendering page */}
+          <ScrollToTop />
+          <Switch>
+            <Route path={ROUTES.MODELS_ROUTE}>
+              <Model />
+            </Route>
+            <Route path={ROUTES.SCREENER_ROUTE}>
+              <Screener />
+            </Route>
+            <Route path={ROUTES.RELVAL_ROUTE}>
+              <Relval />
+            </Route>
+            <Route path={ROUTES.ETRADE_ROUTE}>
+              <Etrade />
+            </Route>
+            <Route path={ROUTES.INSIGHT_ROUTE}>
+              <Insight />
+            </Route>
+            <Route path={ROUTES.MARKETDATA_ROUTE}>
+              <MarketData />
+            </Route>
+            <Route path={ROUTES.FORECAST_ROUTE}>
+              <Forecast />
+            </Route>
+            <Route>
+              <HomePage />
+            </Route>
+          </Switch>
+        </Suspense>
         {/* </Section> */}
       </ComponentsProvider>
     </>

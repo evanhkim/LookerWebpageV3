@@ -27,7 +27,6 @@ import { ExtensionProvider2 } from '@looker/extension-sdk-react'
 import { hot } from 'react-hot-loader/root'
 import { Looker40SDK } from '@looker/sdk'
 import { Router } from './Router'
-import { library } from '@fortawesome/fontawesome-svg-core'
 
 export const App: React.FC = hot(() => {
   const [route, setRoute] = useState('')
