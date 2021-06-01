@@ -44,7 +44,12 @@ import {
   MenuBook as DataDictionaryIcon,
 } from '@styled-icons/material'
 import { ExtensionContext } from '@looker/extension-sdk-react'
-import { Link as RouterLink, LinkProps, Link as Linker, BrowserRouter } from 'react-router-dom'
+import {
+  Link as RouterLink,
+  LinkProps,
+  Link as Linker,
+  BrowserRouter,
+} from 'react-router-dom'
 import { ROUTES } from '../Router.tsx'
 // import Message from './Hooks.js'
 
@@ -96,14 +101,13 @@ var datetime =
 class HomePage extends React.Component {
   render() {
     return (
-
       <div>
         <ComponentsProvider>
           {/* Ticker at Top */}
           <iframe
             width="100%"
             frameBorder="0"
-            height="70"
+            height="70vh"
             src="https://s.tradingview.com/embed-widget/tickers/?locale=en#%7B%22symbols%22%3A%5B%7B%22proName%22%3A%22OANDA%3ASPX500USD%22%2C%22title%22%3A%22S%26P%20500%22%7D%2C%7B%22description%22%3A%22PIMCO%20ETF%22%2C%22proName%22%3A%22BOND%22%7D%2C%7B%22description%22%3A%22BLACKROCK%22%2C%22proName%22%3A%22NYSE%3ABBF%22%7D%2C%7B%22description%22%3A%22PIMCO%20MUNI%22%2C%22proName%22%3A%22AMEX%3AMUNI%22%7D%2C%7B%22description%22%3A%22VANGAURD%22%2C%22proName%22%3A%22NASDAQ%3ABND%22%7D%2C%7B%22description%22%3A%22ISHARE%20MUNI%22%2C%22proName%22%3A%22BOND%22%7D%2C%7B%22description%22%3A%22PGIM%20HY%22%2C%22proName%22%3A%22NYSE%3AISD%22%7D%2C%7B%22description%22%3A%22HARTFORD%22%2C%22proName%22%3A%22BOND%22%7D%5D%2C%22colorTheme%22%3A%22dark%22%2C%22isTransparent%22%3Afalse%2C%22width%22%3A%22100%25%22%2C%22height%22%3A72%2C%22utm_source%22%3A%22%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22tickers%22%7D"
           ></iframe>
 
@@ -116,7 +120,13 @@ class HomePage extends React.Component {
           </Space>
 
           {/* Time Display */}
-          <Box style={{ width: '100vw', height: '3vh', backgroundColor: '#00B9F3', }}>
+          <Box
+            style={{
+              width: '100vw',
+              height: '3vh',
+              backgroundColor: '#00B9F3',
+            }}
+          >
             <div align="center" style={{ color: '#f3efeb' }} my="auto">
               <h3 my="auto"> {datetime} </h3>
             </div>
@@ -125,9 +135,14 @@ class HomePage extends React.Component {
 
           {/* Market Overview */}
           <div align="center">
-            <Text backgroundColor="#131722" color="white" fontSize="37px" padding="30px 10px 40px 10px">
+            <Text
+              backgroundColor="#131722"
+              color="white"
+              fontSize="37px"
+              padding="30px 10px 40px 10px"
+            >
               Market Overview
-              </Text>
+            </Text>
             <Space height="5vh" />
           </div>
           <iframe
@@ -140,16 +155,31 @@ class HomePage extends React.Component {
           <Space width="100%" height="5vh" />
 
           {/* Two Looks at Top */}
-          <Flex alignItems="center" flexDirection="column" justifyContent="space-around">
+          <Flex
+            alignItems="center"
+            flexDirection="column"
+            justifyContent="space-around"
+          >
             {/* Top 10 Undervalued */}
             <FlexItem marginBottom="30px">
               <div align="center">
-                <Text color="white" fontSize="37px" padding="50px 10px 50px 5px">
+                <Text
+                  color="white"
+                  fontSize="37px"
+                  padding="50px 10px 50px 5px"
+                >
                   Here are the top 10 undervalued bonds
-                  </Text>
+                </Text>
                 <Space height="5vh" />
               </div>
-              <Box style={{ width: '100vw', height: '293px', borderRadius: '5px', backgroundColor: '#3B4346', }}>
+              <Box
+                style={{
+                  width: '100vw',
+                  height: '293px',
+                  borderRadius: '5px',
+                  backgroundColor: '#3B4346',
+                }}
+              >
                 <div align="center">
                   <iframe
                     frameBorder="0"
@@ -165,12 +195,23 @@ class HomePage extends React.Component {
             {/* Recommendation Engine */}
             <FlexItem marginBottom="50px" backgroundColor="#131722">
               <div align="center">
-                <Text color="white" fontSize="37px" padding="50px 10px 50px 5px">
+                <Text
+                  color="white"
+                  fontSize="37px"
+                  padding="50px 10px 50px 5px"
+                >
                   Here are the recommendations for you today
                 </Text>
                 <Space height="5vh" />
               </div>
-              <Box style={{ width: '100vw', height: '293px', borderRadius: '5px', backgroundColor: '#3B4346' }}>
+              <Box
+                style={{
+                  width: '100vw',
+                  height: '293px',
+                  borderRadius: '5px',
+                  backgroundColor: '#3B4346',
+                }}
+              >
                 <div align="center">
                   <iframe
                     frameBorder="0"
@@ -209,9 +250,7 @@ class HomePage extends React.Component {
                         <DashboardsIcon style={iconStyle} />
                       </Flex>
                       <Flex justifyContent="space-around">
-                        <Text style={{ color: 'white' }}>
-                          Dashboards {'>'}
-                        </Text>
+                        <Text style={{ color: 'white' }}>Dashboards {'>'}</Text>
                       </Flex>
                     </Link>
                   </Box>
@@ -254,7 +293,11 @@ class HomePage extends React.Component {
                         <ModelsIcon style={iconStyle} />
                       </Flex>
                       <Flex justifyContent="space-around">
-                        <Text style={{ color: 'white' }} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                        <Text
+                          style={{ color: 'white' }}
+                          onMouseOver={underlineText}
+                          onMouseLeave={noUnderline}
+                        >
                           Models {'>'}
                         </Text>
                       </Flex>
@@ -279,7 +322,11 @@ class HomePage extends React.Component {
                         <ScreenerIcon style={iconStyle} />
                       </Flex>
                       <Flex justifyContent="space-around">
-                        <Text style={{ color: 'white' }} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                        <Text
+                          style={{ color: 'white' }}
+                          onMouseOver={underlineText}
+                          onMouseLeave={noUnderline}
+                        >
                           Screener {'>'}
                         </Text>
                       </Flex>
@@ -300,7 +347,11 @@ class HomePage extends React.Component {
                         <RelValIcon style={iconStyle} />
                       </Flex>
                       <Flex justifyContent="space-around">
-                        <Text style={{ color: 'white' }} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                        <Text
+                          style={{ color: 'white' }}
+                          onMouseOver={underlineText}
+                          onMouseLeave={noUnderline}
+                        >
                           Relval {'>'}
                         </Text>
                       </Flex>
@@ -321,7 +372,11 @@ class HomePage extends React.Component {
                         <EtradeIcon style={iconStyle} />
                       </Flex>
                       <Flex justifyContent="space-around">
-                        <Text style={{ color: 'white' }} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                        <Text
+                          style={{ color: 'white' }}
+                          onMouseOver={underlineText}
+                          onMouseLeave={noUnderline}
+                        >
                           Etrade {'>'}
                         </Text>
                       </Flex>
@@ -346,7 +401,11 @@ class HomePage extends React.Component {
                         <InsightsIcon style={iconStyle} />
                       </Flex>
                       <Flex justifyContent="space-around">
-                        <Text style={{ color: 'white' }} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                        <Text
+                          style={{ color: 'white' }}
+                          onMouseOver={underlineText}
+                          onMouseLeave={noUnderline}
+                        >
                           Insights {'>'}
                         </Text>
                       </Flex>
@@ -367,7 +426,11 @@ class HomePage extends React.Component {
                         <MarketDataIcon style={iconStyle} />
                       </Flex>
                       <Flex justifyContent="space-around">
-                        <Text style={{ color: 'white' }} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                        <Text
+                          style={{ color: 'white' }}
+                          onMouseOver={underlineText}
+                          onMouseLeave={noUnderline}
+                        >
                           Market Data {'>'}
                         </Text>
                       </Flex>
@@ -388,7 +451,11 @@ class HomePage extends React.Component {
                         <ForecastsIcon style={iconStyle} />
                       </Flex>
                       <Flex justifyContent="space-around">
-                        <Text style={{ color: 'white' }} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                        <Text
+                          style={{ color: 'white' }}
+                          onMouseOver={underlineText}
+                          onMouseLeave={noUnderline}
+                        >
                           Forecasts {'>'}
                         </Text>
                       </Flex>
@@ -405,4 +472,4 @@ class HomePage extends React.Component {
   }
 }
 
-export default HomePage;
+export default HomePage

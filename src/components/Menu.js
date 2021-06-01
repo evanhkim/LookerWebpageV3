@@ -111,10 +111,13 @@ class Menu extends React.Component {
                     content={
                       <>
                         <MenuItem icon={<ModelsIcon />} color="#00D5FF">
-                          Models
+                          Price Prediction Model
                         </MenuItem>
                         <MenuItem icon={<ModelsIcon />} color="#00D5FF">
-                          Models
+                          Corp Risk Prediction Model
+                        </MenuItem>
+                        <MenuItem icon={<ModelsIcon />} color="#00D5FF">
+                          Muni Risk Prediction Model
                         </MenuItem>
                       </>
                     }
