@@ -5,8 +5,8 @@
   "main": "dist/bundle.js",
   "scripts": {
     "analyze": "export ANALYZE_MODE=static && yarn build",
-    "build": "export BABEL_ENV=build && webpack --config webpack.prod.js",
-    "clean": "rm -rf dist",
+    "build": "set BABEL_ENV=build && webpack --config webpack.prod.js",
+    "clean": "rimraf dist",
     "develop": "webpack serve --hot --port 8080 --disable-host-check --config webpack.develop.js",
     "prebuild": "yarn clean",
     "lint:es": "eslint 'src/**/*.ts{,x}' --cache",
@@ -37,6 +37,7 @@
     "react-dom": "^16.14.0",
     "react-is": "^16.13.1",
     "react-router-dom": "^5.1.2",
+    "rimraf": "^3.0.2",
     "semver": "^7.3.4",
     "styled-components": "^5.2.1"
   },

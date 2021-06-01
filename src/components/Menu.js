@@ -34,6 +34,7 @@ import {
   FlexItem,
   MenuList,
   MenuItem,
+  Menu as MenuHeader,
   MenuItemProps,
 } from '@looker/components'
 import { ROUTES } from '../Router'
@@ -93,7 +94,10 @@ class Menu extends React.Component {
                 <Link
                   href="https://bondintelligence.cloud.looker.com/extensions/data_dictionary::data-dictionary/"
                   target="_blank"
-                  style={{textDecoration: '#00FFFF', backgroundColor: '#4F5054'}}
+                  style={{
+                    textDecoration: '#00FFFF',
+                    backgroundColor: '#4F5054',
+                  }}
                 >
                   <MenuItem icon={<DataDictionaryIcon />} color="#00D5FF">
                     Data Dictionary
@@ -103,9 +107,22 @@ class Menu extends React.Component {
                   to={ROUTES.MODELS_ROUTE}
                   style={{ backgroundColor: '#4F5054', textDecoration: 'none' }}
                 >
-                  <MenuItem icon={<ModelsIcon />} color="#00D5FF">
-                    Models
-                  </MenuItem>
+                  <MenuHeader
+                    content={
+                      <>
+                        <MenuItem icon={<ModelsIcon />} color="#00D5FF">
+                          Models
+                        </MenuItem>
+                        <MenuItem icon={<ModelsIcon />} color="#00D5FF">
+                          Models
+                        </MenuItem>
+                      </>
+                    }
+                  >
+                    <MenuItem icon={<ModelsIcon />} color="#00D5FF">
+                      Models
+                    </MenuItem>
+                  </MenuHeader>
                 </Linker>
                 <Linker
                   to={ROUTES.SCREENER_ROUTE}
@@ -164,4 +181,4 @@ class Menu extends React.Component {
   }
 }
 
-export default Menu;
+export default Menu
