@@ -107,7 +107,7 @@ class Menu extends React.Component {
                   to={ROUTES.MODELS_ROUTE}
                   style={{ backgroundColor: '#4F5054', textDecoration: 'none' }}
                 >
-                  <MenuHeader
+                  {/* <MenuHeader
                     content={
                       <>
                         <MenuItem icon={<ModelsIcon />} color="#00D5FF">
@@ -125,7 +125,10 @@ class Menu extends React.Component {
                     <MenuItem icon={<ModelsIcon />} color="#00D5FF">
                       Models
                     </MenuItem>
-                  </MenuHeader>
+                  </MenuHeader> */}
+                  <MenuItem icon={<ModelsIcon />} color="#00D5FF">
+                    Models
+                  </MenuItem>
                 </Linker>
                 <Linker
                   to={ROUTES.SCREENER_ROUTE}
