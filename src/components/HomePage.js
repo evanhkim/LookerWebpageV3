@@ -45,27 +45,32 @@ import {
   Analytics,
   Insights,
   TrendingUp,
-  Speed
+  Speed,
 } from '@styled-icons/material'
 import { ExtensionContext } from '@looker/extension-sdk-react'
-import { Link as RouterLink, LinkProps, Link as Linker, BrowserRouter } from 'react-router-dom'
+import {
+  Link as RouterLink,
+  LinkProps,
+  Link as Linker,
+  BrowserRouter,
+} from 'react-router-dom'
 import { ROUTES } from '../Router.tsx'
 // import Message from './Hooks.js'
 
 const boxStyle = {
-  width: '23vw',
-  height: '50vh',
+  width: '390px',
+  height: '390px',
   borderRadius: '10px',
   backgroundColor: '#2A2E39',
 }
 
 export const mainTextColor = {
-  color: "#9B9EA3"
+  color: '#9B9EA3',
 }
 
 export const buttonFont = {
-  color: "#9B9EA3", 
-  fontSize: "40"
+  color: '#9B9EA3',
+  fontSize: '40',
 }
 
 export const iconStyle = {
@@ -107,7 +112,6 @@ var datetime =
   min
 
 class HomePage extends React.Component {
-
   // const { core40SDK } = useContext(ExtensionContext)
   // const [message, setMessage] = useState()
 
@@ -145,8 +149,14 @@ class HomePage extends React.Component {
           </Space>
 
           {/* Time Display */}
-          <Box style={{ width: '100vw', height: '3vh', backgroundColor: '#00B9F3', }}>
-            <div align="center" style={{color: "#black"}} my="auto">
+          <Box
+            style={{
+              width: '100vw',
+              height: '3vh',
+              backgroundColor: '#00B9F3',
+            }}
+          >
+            <div align="center" style={{ color: '#black' }} my="auto">
               <h3 my="auto"> {datetime} </h3>
             </div>
           </Box>
@@ -154,9 +164,14 @@ class HomePage extends React.Component {
 
           {/* Market Overview */}
           <div align="center">
-            <Text backgroundColor="#131722" color={mainTextColor} fontSize="37px" padding="30px 10px 40px 10px">
+            <Text
+              backgroundColor="#131722"
+              color={mainTextColor}
+              fontSize="37px"
+              padding="30px 10px 40px 10px"
+            >
               Market Overview
-              </Text>
+            </Text>
             <Space height="5vh" />
           </div>
           <iframe
@@ -169,16 +184,31 @@ class HomePage extends React.Component {
           <Space width="100%" height="5vh" />
 
           {/* Two Looks at Top */}
-          <Flex alignItems="center" flexDirection="column" justifyContent="space-around">
+          <Flex
+            alignItems="center"
+            flexDirection="column"
+            justifyContent="space-around"
+          >
             {/* Top 10 Undervalued */}
             <FlexItem marginBottom="30px">
               <div align="center">
-                <Text color={mainTextColor} fontSize="37px" padding="50px 10px 50px 5px">
+                <Text
+                  color={mainTextColor}
+                  fontSize="37px"
+                  padding="50px 10px 50px 5px"
+                >
                   Here are the top 10 undervalued bonds
-                  </Text>
+                </Text>
                 <Space height="5vh" />
               </div>
-              <Box style={{ width: '100vw', height: '35vh', borderRadius: '5px', backgroundColor: '#3B4346', }}>
+              <Box
+                style={{
+                  width: '100vw',
+                  height: '35vh',
+                  borderRadius: '5px',
+                  backgroundColor: '#3B4346',
+                }}
+              >
                 <div align="center">
                   <iframe
                     frameBorder="0"
@@ -194,12 +224,23 @@ class HomePage extends React.Component {
             {/* Recommendation Engine */}
             <FlexItem marginBottom="50px" backgroundColor="#131722">
               <div align="center">
-                <Text color={mainTextColor} fontSize="37px" padding="50px 10px 50px 5px">
+                <Text
+                  color={mainTextColor}
+                  fontSize="37px"
+                  padding="50px 10px 50px 5px"
+                >
                   Here are the recommendations for you today
                 </Text>
                 <Space height="5vh" />
               </div>
-              <Box style={{ width: '100vw', height: '35vh', borderRadius: '5px', backgroundColor: '#3B4346' }}>
+              <Box
+                style={{
+                  width: '100vw',
+                  height: '35vh',
+                  borderRadius: '5px',
+                  backgroundColor: '#3B4346',
+                }}
+              >
                 <div align="center">
                   <iframe
                     frameBorder="0"
@@ -210,7 +251,7 @@ class HomePage extends React.Component {
                   />
                 </div>
               </Box>
-              <Space p="large" />
+              <Space height="30vh" p="large" />
 
               {/* BUTTON GALLERY BELOW
                        wwwwwww
@@ -235,12 +276,10 @@ class HomePage extends React.Component {
                           width="350"
                         ></img> */}
                       <Flex justifyContent="space-around">
-                        <DashboardsIcon style={iconStyle} size="340"/>
+                        <DashboardsIcon style={iconStyle} size="340" />
                       </Flex>
                       <Flex justifyContent="space-around">
-                        <Text style={buttonFont}>
-                          Dashboards
-                        </Text>
+                        <Text style={buttonFont}>Dashboards</Text>
                       </Flex>
                     </Link>
                   </Box>
@@ -259,12 +298,10 @@ class HomePage extends React.Component {
                           width="350"
                         ></img> */}
                       <Flex justifyContent="space-around">
-                        <DataDictionaryIcon style={iconStyle} size="340"/>
+                        <DataDictionaryIcon style={iconStyle} size="340" />
                       </Flex>
                       <Flex justifyContent="space-around">
-                        <Text style={buttonFont}>
-                          Data Dictionary
-                        </Text>
+                        <Text style={buttonFont}>Data Dictionary</Text>
                       </Flex>
                     </Link>
                   </Box>
@@ -280,10 +317,14 @@ class HomePage extends React.Component {
                           onMouseOver={cursorHand}
                         ></img> */}
                       <Flex justifyContent="space-around">
-                        <ModelsIcon style={iconStyle} size="340"/>
+                        <ModelsIcon style={iconStyle} size="340" />
                       </Flex>
                       <Flex justifyContent="space-around">
-                        <Text style={buttonFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                        <Text
+                          style={buttonFont}
+                          onMouseOver={underlineText}
+                          onMouseLeave={noUnderline}
+                        >
                           Models
                         </Text>
                       </Flex>
@@ -305,10 +346,14 @@ class HomePage extends React.Component {
                           onMouseOver={cursorHand}
                         ></img> */}
                       <Flex justifyContent="space-around">
-                        <ScreenerIcon style={iconStyle} size="340"/>
+                        <ScreenerIcon style={iconStyle} size="340" />
                       </Flex>
                       <Flex justifyContent="space-around">
-                        <Text style={buttonFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                        <Text
+                          style={buttonFont}
+                          onMouseOver={underlineText}
+                          onMouseLeave={noUnderline}
+                        >
                           Screener
                         </Text>
                       </Flex>
@@ -326,10 +371,14 @@ class HomePage extends React.Component {
                           onMouseOver={cursorHand}
                         ></img> */}
                       <Flex justifyContent="space-around">
-                        <RelValIcon style={iconStyle} size="340"/>
+                        <RelValIcon style={iconStyle} size="340" />
                       </Flex>
                       <Flex justifyContent="space-around">
-                        <Text style={buttonFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                        <Text
+                          style={buttonFont}
+                          onMouseOver={underlineText}
+                          onMouseLeave={noUnderline}
+                        >
                           RelVal
                         </Text>
                       </Flex>
@@ -347,10 +396,14 @@ class HomePage extends React.Component {
                           onMouseOver={cursorHand}
                         ></img> */}
                       <Flex justifyContent="space-around">
-                        <EtradeIcon style={iconStyle} size="340"/>
+                        <EtradeIcon style={iconStyle} size="340" />
                       </Flex>
                       <Flex justifyContent="space-around">
-                        <Text style={buttonFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                        <Text
+                          style={buttonFont}
+                          onMouseOver={underlineText}
+                          onMouseLeave={noUnderline}
+                        >
                           Etrade
                         </Text>
                       </Flex>
@@ -372,10 +425,14 @@ class HomePage extends React.Component {
                           onMouseOver={cursorHand}
                         ></img> */}
                       <Flex justifyContent="space-around">
-                        <Insights style={iconStyle} size="340"/>
+                        <Insights style={iconStyle} size="340" />
                       </Flex>
                       <Flex justifyContent="space-around">
-                        <Text style={buttonFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                        <Text
+                          style={buttonFont}
+                          onMouseOver={underlineText}
+                          onMouseLeave={noUnderline}
+                        >
                           Insights
                         </Text>
                       </Flex>
@@ -393,10 +450,14 @@ class HomePage extends React.Component {
                           onMouseOver={cursorHand}
                         ></img> */}
                       <Flex justifyContent="space-around">
-                        <Analytics style={iconStyle} size="340"/>
+                        <Analytics style={iconStyle} size="340" />
                       </Flex>
                       <Flex justifyContent="space-around">
-                        <Text style={buttonFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                        <Text
+                          style={buttonFont}
+                          onMouseOver={underlineText}
+                          onMouseLeave={noUnderline}
+                        >
                           Market Data
                         </Text>
                       </Flex>
@@ -414,10 +475,14 @@ class HomePage extends React.Component {
                           onMouseOver={cursorHand}
                         ></img> */}
                       <Flex justifyContent="space-around">
-                        <TrendingUp style={iconStyle} size="340"/>
+                        <TrendingUp style={iconStyle} size="340" />
                       </Flex>
                       <Flex justifyContent="space-around">
-                        <Text style={buttonFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                        <Text
+                          style={buttonFont}
+                          onMouseOver={underlineText}
+                          onMouseLeave={noUnderline}
+                        >
                           Forecasts
                         </Text>
                       </Flex>
@@ -433,4 +498,4 @@ class HomePage extends React.Component {
     )
   }
 }
-export default HomePage;
+export default HomePage

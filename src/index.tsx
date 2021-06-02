@@ -27,9 +27,16 @@ import * as ReactDOM from 'react-dom'
 import { App } from './App'
 
 window.addEventListener('DOMContentLoaded', () => {
-  document.body.style.backgroundColor = 'red'
-  document.body.style.margin = "0"
+  document.body.style.backgroundColor = '#131722'
+  document.body.style.margin = '0'
   const root = document.createElement('div')
   document.body.appendChild(root)
+  /*
+  var bg = document.getElementsByClassName(
+    'StyleDefender-sc-1kd51tv-0 bBidDV looker-components-reset'
+  )
+  var realbg = bg[0]
+  realbg.setAttribute('background', '#131722')
+  */
   ReactDOM.render(<App />, root)
 })
