@@ -46,7 +46,7 @@ class Relval extends React.Component {
         <Menu />
         <ComponentsProvider>
           <Space p="xxxxxlarge" width="100%" height="50vh" around>
-            <Text p="xxxxxlarge" fontSize="xxxxxlarge" color="white">
+            <Text p="xxxxxlarge" fontSize="xxxxxlarge" color="#9B9EA3">
               Relval Page
             </Text>
           </Space>

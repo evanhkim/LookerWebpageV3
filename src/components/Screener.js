@@ -50,10 +50,17 @@ class Screener extends React.Component {
           <Menu/>
 
           <Space p="xxxxxlarge" width="100%" height="50vh" around>
-            <Text p="xxxxxlarge" fontSize="xxxxxlarge" color="white">
+            <Text p="xxxxxlarge" fontSize="xxxxxlarge" color="#9B9EA3">
               Screener Page
             </Text>
           </Space>
+
+          <iframe
+            width="100%"
+            frameBorder="0"
+            height="1200px"
+            src="https://bondintelligence.azurewebsites.net/bond-stock-screener/index.html"
+          ></iframe>
         </ComponentsProvider>
       </>
     )

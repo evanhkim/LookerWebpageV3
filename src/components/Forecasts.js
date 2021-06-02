@@ -38,7 +38,7 @@ import {
 import { ROUTES } from '../Router'
 import { Link as Linker, LinkProps } from 'react-router-dom'
 import Menu from './Menu'
-import { StackedLineChart as ForecastsIcon } from '@styled-icons/material'
+import { StackedLineChart as ForecastsIcon, Gavel, Business, CorporateFare} from '@styled-icons/material'
 import { iconStyle } from './HomePage.js'
 
 const boxStyle = {
@@ -55,7 +55,7 @@ class Forecast extends React.Component {
         <ComponentsProvider>
           <Menu />
           <Space p="xxxxxlarge" width="100%" height="30vh" around>
-            <Text p="xxxxxlarge" fontSize="xxxxxlarge" color="white">
+            <Text p="xxxxxlarge" fontSize="xxxxxlarge" color="#9B9EA3">
               Forecasts
             </Text>
           </Space>
@@ -75,10 +75,11 @@ class Forecast extends React.Component {
                     width="350"
                   ></img> */}
                   <Flex justifyContent="space-around">
-                    <ForecastsIcon style={iconStyle}></ForecastsIcon>
+                    <Business style={iconStyle} size="340"/>
+                    {/* <CorporateFare style={iconStyle} size="340"/> */}
                   </Flex>
                   <Flex justifyContent="space-around">
-                    <text style={{ color: 'white' }}>Corp Forecast {'>'}</text>
+                    <Text style={{ color: '#9B9EA3', fontSize: "30" }}> Corp Forecast </Text>
                   </Flex>
                 </Link>
               </Box>
@@ -97,10 +98,10 @@ class Forecast extends React.Component {
                     width="350"
                   ></img> */}
                   <Flex justifyContent="space-around">
-                    <ForecastsIcon style={iconStyle}></ForecastsIcon>
+                    <Gavel style={iconStyle} size="340"/>
                   </Flex>
                   <Flex justifyContent="space-around">
-                    <text style={{ color: 'white' }}>Muni Forecast {'>'}</text>
+                    <Text style={{ color: '#9B9EA3', fontSize: "30"}}> Muni Forecast </Text>
                   </Flex>
                 </Link>
               </Box>

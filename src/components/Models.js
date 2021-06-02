@@ -39,11 +39,13 @@ import { ROUTES } from '../Router'
 import { Link as Linker, LinkProps } from 'react-router-dom'
 import Menu from './Menu'
 import { iconStyle } from './HomePage.js'
-import { ModelTraining as ModelsIcon } from '@styled-icons/material'
+import { ModelTraining as ModelsIcon, AttachMoney, Speed as RiskIcon, RequestQuote as PricePredictionIcon } from '@styled-icons/material'
+import mainTextColor from './HomePage.js'
+import buttonFont from './HomePage.js'
 
 const boxStyle = {
-  width: '350px',
-  height: '390px',
+  width: '23vw',
+  height: '50vh',
   borderRadius: '10px',
   backgroundColor: '#2A2E39',
 }
@@ -58,7 +60,7 @@ class Model extends React.Component {
           <Menu />
 
           <Space p="large" width="100%" height="25vh" around>
-            <Text p="large" fontSize="xxxxxlarge" color="white">
+            <Text p="large" fontSize="xxxxxlarge" color="#9B9EA3">
               Models
             </Text>
           </Space>
@@ -78,11 +80,11 @@ class Model extends React.Component {
                     width="350"
                   ></img> */}
                   <Flex justifyContent="space-around">
-                    <ModelsIcon style={iconStyle} />
+                    <PricePredictionIcon style={iconStyle} size="340"/>
                   </Flex>
                   <Flex justifyContent="space-around">
-                    <Text style={{ color: 'white' }}>
-                      Price Prediction Model {'>'}
+                    <Text style={{ color: '#9B9EA3', fontSize: "30"}}>
+                      Price Prediction
                     </Text>
                   </Flex>
                 </Link>
@@ -102,11 +104,11 @@ class Model extends React.Component {
                     width="350"
                   ></img> */}
                   <Flex justifyContent="space-around">
-                    <ModelsIcon style={iconStyle} />
+                    <RiskIcon style={iconStyle} size="340"/>
                   </Flex>
                   <Flex justifyContent="space-around">
-                    <Text style={{ color: 'white' }}>
-                      Corp Risk Prediction Model {'>'}
+                    <Text style={{ color: '#9B9EA3', fontSize: "30"}}>
+                      Corp Risk Prediction
                     </Text>
                   </Flex>
                 </Link>
@@ -126,11 +128,11 @@ class Model extends React.Component {
                     width="350"
                   ></img> */}
                   <Flex justifyContent="space-around">
-                    <ModelsIcon style={iconStyle} />
+                    <RiskIcon style={iconStyle} size="340"/>
                   </Flex>
                   <Flex justifyContent="space-around">
-                    <Text style={{ color: 'white' }}>
-                      Muni Risk Prediction Model {'>'}
+                    <Text style={{ color: '#9B9EA3', fontSize: "30"  }}>
+                      Muni Risk Prediction
                     </Text>
                   </Flex>
                 </Link>

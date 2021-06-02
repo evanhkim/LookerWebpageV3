@@ -46,7 +46,7 @@ class Etrade extends React.Component {
         <ComponentsProvider>
           <Menu />
           <Space p="xxxxxlarge" width="100%" height="50vh" around>
-            <Text p="xxxxxlarge" fontSize="xxxxxlarge" color="white">
+            <Text p="xxxxxlarge" fontSize="xxxxxlarge" color="#9B9EA3">
               Etrade Page
             </Text>
           </Space>
