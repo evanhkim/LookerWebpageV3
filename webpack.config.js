@@ -63,6 +63,10 @@ module.exports = {
         include: /src/,
         sideEffects: false,
       },
+      { 
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
     ],
   },
   resolve: {

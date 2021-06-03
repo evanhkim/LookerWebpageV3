@@ -23,9 +23,6 @@
  */
 
 import React, { useEffect, useState, useContext, Component } from 'react'
-// import css from "file.css";
-// import "@reach/menu-button/styles.css";
-// import './styles.css'
 import { ExtensionContext } from '@looker/extension-sdk-react'
 import {
   Space,
@@ -73,7 +70,6 @@ class Menu extends React.Component {
             // backgroundColor="#4F5054"
             backgroundColor="#29262A"
             // backgroundColor="#84878D"
-            // backgroundColor="#"
             height="8vh"
           >
             <MenuList type="none">
@@ -85,7 +81,7 @@ class Menu extends React.Component {
                     textDecoration: 'none'
                   }}
                 >
-                  <MenuItem className="red-highlight" icon={<HomeIcon />} color="#9B9EA3" onSelect={() => { }}>
+                  <MenuItem icon={<HomeIcon />} color="#9B9EA3">
                     Homepage
                   </MenuItem>
                 </Linker>

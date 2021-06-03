@@ -43,6 +43,10 @@ import { ModelTraining as ModelsIcon, AttachMoney, Speed as RiskIcon, RequestQuo
 import mainTextColor from './HomePage.js'
 import buttonFont from './HomePage.js'
 
+const bgColor = {
+  backgroundColor: "#131722"
+}
+
 const boxStyle = {
   width: '23vw',
   height: '50vh',
@@ -59,12 +63,12 @@ class Model extends React.Component {
           {/* Navigation Bar */}
           <Menu />
 
-          <Space p="large" width="100%" height="25vh" around>
+          <Space style={bgColor} p="large" width="100%" height="25vh" around>
             <Text p="large" fontSize="xxxxxlarge" color="#9B9EA3">
               Models
             </Text>
           </Space>
-          <Flex flexDirection="column" mr="large">
+          <Flex width="100%" flexDirection="column" mr="large" style={bgColor}>
             {/*Price Prediction Model*/}
             <Flex justifyContent="space-around" flexWrap="wrap">
               <Box style={boxStyle}>
@@ -73,17 +77,11 @@ class Model extends React.Component {
                   target="_blank"
                   sandbox="allow-scripts allow-modals allow-popups"
                 >
-                  {/* <img
-                    id="dashboards"
-                    src="https://marketplace-api.looker.com/visualization-screenshots/report_table_icon.png"
-                    height="280"
-                    width="350"
-                  ></img> */}
                   <Flex justifyContent="space-around">
-                    <PricePredictionIcon style={iconStyle} size="340"/>
+                    <PricePredictionIcon style={iconStyle} size="340" />
                   </Flex>
                   <Flex justifyContent="space-around">
-                    <Text style={{ color: '#9B9EA3', fontSize: "30"}}>
+                    <Text style={{ color: '#9B9EA3', fontSize: "30" }}>
                       Price Prediction
                     </Text>
                   </Flex>
@@ -97,17 +95,11 @@ class Model extends React.Component {
                   target="_blank"
                   sandbox="allow-scripts allow-modals allow-popups"
                 >
-                  {/* <img
-                    id="dashboards"
-                    src="https://marketplace-api.looker.com/visualization-screenshots/report_table_icon.png"
-                    height="280"
-                    width="350"
-                  ></img> */}
                   <Flex justifyContent="space-around">
-                    <RiskIcon style={iconStyle} size="340"/>
+                    <RiskIcon style={iconStyle} size="340" />
                   </Flex>
                   <Flex justifyContent="space-around">
-                    <Text style={{ color: '#9B9EA3', fontSize: "30"}}>
+                    <Text style={{ color: '#9B9EA3', fontSize: "30" }}>
                       Corp Risk Prediction
                     </Text>
                   </Flex>
@@ -121,17 +113,11 @@ class Model extends React.Component {
                   target="_blank"
                   sandbox="allow-scripts allow-modals allow-popups"
                 >
-                  {/* <img
-                    id="dashboards"
-                    src="https://marketplace-api.looker.com/visualization-screenshots/report_table_icon.png"
-                    height="280"
-                    width="350"
-                  ></img> */}
                   <Flex justifyContent="space-around">
-                    <RiskIcon style={iconStyle} size="340"/>
+                    <RiskIcon style={iconStyle} size="340" />
                   </Flex>
                   <Flex justifyContent="space-around">
-                    <Text style={{ color: '#9B9EA3', fontSize: "30"  }}>
+                    <Text style={{ color: '#9B9EA3', fontSize: "30" }}>
                       Muni Risk Prediction
                     </Text>
                   </Flex>

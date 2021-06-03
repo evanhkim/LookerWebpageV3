@@ -39,13 +39,17 @@ import { ROUTES } from '../Router'
 import { Link as Linker, LinkProps } from 'react-router-dom'
 import Menu from './Menu'
 
+const bgColor = {
+  backgroundColor: "#131722"
+}
+
 class Relval extends React.Component {
   render() {
     return (
       <>
         <Menu />
         <ComponentsProvider>
-          <Space p="xxxxxlarge" width="100%" height="50vh" around>
+          <Space style={bgColor} p="xxxxxlarge" width="100%" height="25vh" around>
             <Text p="xxxxxlarge" fontSize="xxxxxlarge" color="#9B9EA3">
               Relval Page
             </Text>

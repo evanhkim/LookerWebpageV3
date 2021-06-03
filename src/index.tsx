@@ -27,7 +27,7 @@ import * as ReactDOM from 'react-dom'
 import { App } from './App'
 
 window.addEventListener('DOMContentLoaded', () => {
-  document.body.style.backgroundColor = 'red'
+  document.body.style.backgroundColor = '#131722'
   document.body.style.margin = "0"
   const root = document.createElement('div')
   document.body.appendChild(root)

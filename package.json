@@ -39,6 +39,7 @@
     "react-router-dom": "^5.1.2",
     "rimraf": "^3.0.2",
     "semver": "^7.3.4",
+    "style-loader": "^2.0.0",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
@@ -64,7 +65,7 @@
     "@types/styled-components": "5.1.5",
     "babel-loader": "^8.2.2",
     "babel-preset-nano-react-app": "^0.1.0",
-    
+    "css-loader": "^5.2.6",
     "dotenv": "^8.2.0",
     "eslint": "^7.19.0",
     "eslint-import-resolver-typescript": "^2.0.0",
@@ -93,7 +94,7 @@
       [
         "@babel/plugin-proposal-class-properties",
         {
-          "loose": false
+          "loose": true
         }
       ],
       [
