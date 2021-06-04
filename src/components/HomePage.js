@@ -57,6 +57,10 @@ export const bgColor = {
   backgroundColor: "#131722"
 }
 
+const dateTimeColor = {
+  // backgroundColor: '#00B9F3' this is the old one
+  backgroundColor: "#00a6f3"
+}
 const boxStyle = {
   width: '23vw',
   height: '50vh',
@@ -134,18 +138,19 @@ class HomePage extends React.Component {
           {/* <Message /> */}
 
           {/* Time Display */}
-          <Box my="auto" style={{ width: '100%', height: '5vh', backgroundColor: '#00B9F3', verticalAlign: "center" }}>
-            <div align="center" style={{ color: "black" }} my="auto" >
-              {/* <h3 my="auto"> {datetime} </h3> */}
-              <Text style={{ fontWeight: "bold", fontSize: "27", verticalAlign: "center", lineHeight: "5vh" }}> {datetime} </Text>
+          <Box style={{ width: '100%', height: '5vh', backgroundColor: "#016CC7", verticalAlign: "center" }}>
+            <div align="center" style={{ color: "#131722" }} >
+              <Text style={{ fontWeight: "bold", fontSize: "27", verticalAlign: "center", lineHeight: "5vh" }}>
+                {datetime}
+              </Text>
             </div>
           </Box>
 
           {/* Market Overview */}
           <div align="center" width="100%" height="9vh" style={bgColor}>
-            <Text backgroundColor="#131722" style={{ lineHeight: "9vh" }} color={mainTextColor} fontSize="37px" padding="30px 10px 40px 10px">
+            <Text backgroundColor="#131722" style={{ lineHeight: "9vh" }} color={mainTextColor} fontSize="37px">
               Market Overview
-              </Text>
+            </Text>
           </div>
           <iframe
             width="100%"
@@ -158,8 +163,8 @@ class HomePage extends React.Component {
           <Flex alignItems="center" flexDirection="column" justifyContent="space-around" width="100%">
             {/* Top 10 Undervalued */}
             <FlexItem style={bgColor} width="100%">
-              <div style={bgColor} align="center" height="10vh" width="100%">
-                <Text style={{ color: "#9B9EA3", backgroundColor: "#131722", lineHeight: "10vh" }} fontSize="37px" >
+              <div style={bgColor} align="center" height="12vh" width="100%">
+                <Text style={{ color: "#9B9EA3", backgroundColor: "#131722", lineHeight: "12vh" }} fontSize="37px" >
                   Here are the top 10 undervalued bonds
                 </Text>
               </div>
@@ -178,23 +183,23 @@ class HomePage extends React.Component {
 
             {/* Recommendation Engine */}
             <FlexItem style={bgColor} width="100%">
-              <div style={bgColor} align="center" height="10vh" width="100%">
-                <Text style={{ lineHeight: "10vh" }} color={mainTextColor} fontSize="37px" >
+              <div style={bgColor} align="center" height="12vh" width="100%">
+                <Text style={{ lineHeight: "12vh" }} color={mainTextColor} fontSize="37px" >
                   Here are the recommendations for you today
                 </Text>
               </div>
               <Box style={{ width: '100%', height: '35vh', borderRadius: '5px', backgroundColor: '#3B4346' }}>
-                <div align="center">
+                <div align="center" width="100%">
                   <iframe
                     frameBorder="0"
                     height="282px"
-                    width="99%"
+                    width="100%"
                     id="l15"
                     src="https://bondintelligence.cloud.looker.com/embed/looks/15?allow_login_screen=true/embed_domain=https://bondintelligence.cloud.looker.com"
                   />
                 </div>
               </Box>
-              <Space p="large" />
+              <Space height="10vh" />
 
               {/* BUTTON GALLERY BELOW
                        wwwwwww
@@ -212,12 +217,6 @@ class HomePage extends React.Component {
                       target="_blank"
                       sandbox="allow-scripts allow-modals allow-popups"
                     >
-                      {/* <img
-                          id="dashboards"
-                          src="https://marketplace-api.looker.com/visualization-screenshots/report_table_icon.png"
-                          height="280"
-                          width="350"
-                        ></img> */}
                       <Flex justifyContent="space-around">
                         <DashboardsIcon style={iconStyle} size="340" />
                       </Flex>
@@ -236,12 +235,6 @@ class HomePage extends React.Component {
                       target="_blank"
                       sandbox="allow-scripts allow-modals allow-popups"
                     >
-                      {/* <img
-                          id="datadict"
-                          src="https://marketplace-api.looker.com/visualization-screenshots/calendar_icon.png"
-                          height="280"
-                          width="350"
-                        ></img> */}
                       <Flex justifyContent="space-around">
                         <DataDictionaryIcon style={iconStyle} size="340" />
                       </Flex>
@@ -254,20 +247,13 @@ class HomePage extends React.Component {
                   </Box>
 
                   {/*MODELS BUTTON*/}
-                  <Linker to={ROUTES.MODELS_ROUTE}>
+                  <Linker to={ROUTES.MODELS_ROUTE} style={{textDecoration: "none"}}>
                     <Box style={boxStyle}>
-                      {/* <img
-                          id="models"
-                          src="https://marketplace-api.looker.com/visualization-screenshots/grouped_card_icon.png"
-                          height="280"
-                          width="350"
-                          onMouseOver={cursorHand}
-                        ></img> */}
                       <Flex justifyContent="space-around">
                         <ModelsIcon style={iconStyle} size="340" />
                       </Flex>
                       <Flex justifyContent="space-around">
-                        <Text style={{ color: "#9B9EA3", fontSize: "40", textDecoration: "none" }} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                        <Text style={{ color: "#9B9EA3", fontSize: "40", textDecoration: "none", underlineText: "none" }} onMouseOver={underlineText} onMouseLeave={noUnderline}>
                           Models
                         </Text>
                       </Flex>
@@ -279,15 +265,8 @@ class HomePage extends React.Component {
                 {/*MIDDLE THREE BUTTONS*/}
                 <Flex justifyContent="space-around" flexWrap="wrap">
                   {/*SCREENER BUTTON*/}
-                  <Linker to={ROUTES.SCREENER_ROUTE}>
+                  <Linker to={ROUTES.SCREENER_ROUTE} style={{textDecoration: "none"}}>
                     <Box style={boxStyle}>
-                      {/* <img
-                          id="screener"
-                          height="280"
-                          width="350"
-                          src="https://marketplace-api.looker.com/visualization-screenshots/grouped_card_icon.png"
-                          onMouseOver={cursorHand}
-                        ></img> */}
                       <Flex justifyContent="space-around">
                         <ScreenerIcon style={iconStyle} size="340" />
                       </Flex>
@@ -300,15 +279,8 @@ class HomePage extends React.Component {
                   </Linker>
 
                   {/*RELVAL BUTTON*/}
-                  <Linker to={ROUTES.RELVAL_ROUTE}>
+                  <Linker to={ROUTES.RELVAL_ROUTE} style={{textDecoration: "none"}}>
                     <Box style={boxStyle}>
-                      {/* <img
-                          id="relval"
-                          height="280"
-                          width="350"
-                          src="https://marketplace-api.looker.com/visualization-screenshots/grouped_card_icon.png"
-                          onMouseOver={cursorHand}
-                        ></img> */}
                       <Flex justifyContent="space-around">
                         <RelValIcon style={iconStyle} size="340" />
                       </Flex>
@@ -321,15 +293,8 @@ class HomePage extends React.Component {
                   </Linker>
 
                   {/*ETRADE BUTTON*/}
-                  <Linker to={ROUTES.ETRADE_ROUTE}>
+                  <Linker to={ROUTES.ETRADE_ROUTE} style={{textDecoration: "none"}}>
                     <Box style={boxStyle}>
-                      {/* <img
-                          id="etrade"
-                          height="280"
-                          width="350"
-                          src="https://marketplace-api.looker.com/visualization-screenshots/grouped_card_icon.png"
-                          onMouseOver={cursorHand}
-                        ></img> */}
                       <Flex justifyContent="space-around">
                         <EtradeIcon style={iconStyle} size="340" />
                       </Flex>
@@ -346,15 +311,8 @@ class HomePage extends React.Component {
                 {/*BOTTOM THREE BUTTONS*/}
                 <Flex justifyContent="space-around" flexWrap="wrap">
                   {/*INSIGHTS BUTTON*/}
-                  <Linker to={ROUTES.INSIGHT_ROUTE}>
+                  <Linker to={ROUTES.INSIGHT_ROUTE} style={{textDecoration: "none"}}>
                     <Box style={boxStyle}>
-                      {/* <img
-                          id="insights"
-                          height="280"
-                          width="350"
-                          src="https://marketplace-api.looker.com/visualization-screenshots/grouped_card_icon.png"
-                          onMouseOver={cursorHand}
-                        ></img> */}
                       <Flex justifyContent="space-around">
                         <Insights style={iconStyle} size="340" />
                       </Flex>
@@ -367,15 +325,8 @@ class HomePage extends React.Component {
                   </Linker>
 
                   {/*MARKET DATA BUTTON*/}
-                  <Linker to={ROUTES.MARKETDATA_ROUTE}>
+                  <Linker to={ROUTES.MARKETDATA_ROUTE} style={{textDecoration: "none"}}>
                     <Box style={boxStyle}>
-                      {/* <img
-                          id="marketdata"
-                          height="280"
-                          width="350"
-                          src="https://marketplace-api.looker.com/visualization-screenshots/grouped_card_icon.png"
-                          onMouseOver={cursorHand}
-                        ></img> */}
                       <Flex justifyContent="space-around">
                         <Analytics style={iconStyle} size="340" />
                       </Flex>
@@ -388,15 +339,8 @@ class HomePage extends React.Component {
                   </Linker>
 
                   {/*FORECASTS BUTTON*/}
-                  <Linker to={ROUTES.FORECAST_ROUTE}>
+                  <Linker to={ROUTES.FORECAST_ROUTE} style={{textDecoration: "none"}}>
                     <Box style={boxStyle}>
-                      {/* <img
-                          id="forecasts"
-                          height="280"
-                          width="350"
-                          src="https://marketplace-api.looker.com/visualization-screenshots/grouped_card_icon.png"
-                          onMouseOver={cursorHand}
-                        ></img> */}
                       <Flex justifyContent="space-around">
                         <TrendingUp style={iconStyle} size="340" />
                       </Flex>

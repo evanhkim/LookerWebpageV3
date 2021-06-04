@@ -4,12 +4,12 @@ import { ComponentsProvider } from "@looker/components"
 
 export const Message = () => {
     const [message, setMessage] = useState('')
-    const { core30SDK } = useContext(ExtensionContext)
+    const { core40SDK } = useContext(ExtensionContext)
 
     useEffect(() => {
         const initialize = async () => {
             try {
-                const value = await core30SDK.ok(core30SDK.me())
+                const value = await core40SDK.ok(core40SDK.me())
                 setMessage(
                     `${value.display_name.split(' ')[0]}, Welcome to Bond Intelligence `
                 )
