@@ -39,7 +39,10 @@ import { ROUTES } from '../Router'
 import { Link as Linker, LinkProps } from 'react-router-dom'
 import Menu from './Menu'
 import { iconStyle } from './HomePage.js'
-import { ModelTraining as ModelsIcon, AttachMoney, Speed as RiskIcon, RequestQuote as PricePredictionIcon } from '@styled-icons/material'
+import { 
+  Speed as RiskIcon, 
+  RequestQuote as PricePredictionIcon 
+} from '@styled-icons/material'
 import mainTextColor from './HomePage.js'
 import buttonFont from './HomePage.js'
 

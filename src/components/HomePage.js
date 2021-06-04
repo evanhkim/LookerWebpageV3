@@ -33,24 +33,21 @@ import {
   FlexItem,
 } from '@looker/components'
 import {
-  StackedLineChart as ForecastsIcon,
-  Money as MarketDataIcon,
   Dashboard as DashboardsIcon,
   ModelTraining as ModelsIcon,
   ScatterPlot as RelValIcon,
   SwapHoriz as EtradeIcon,
   FilterAlt as ScreenerIcon,
-  Lightbulb as InsightsIcon,
   MenuBook as DataDictionaryIcon,
-  Analytics,
-  Insights,
-  TrendingUp,
-  Speed
+  Analytics as MarketDataIcon,
+  Insights as InsightsIcon,
+  TrendingUp as ForecastsIcon,
 } from '@styled-icons/material'
 import { ExtensionContext } from '@looker/extension-sdk-react'
+import { ExtensionProvider } from '@looker/extension-sdk-react'
 import { Link as RouterLink, LinkProps, Link as Linker, BrowserRouter } from 'react-router-dom'
 import { ROUTES } from '../Router.tsx'
-import Message from './Hooks.js'
+import { Message } from './Hooks.js'
 import '../App.css'
 
 export const bgColor = {
@@ -59,8 +56,9 @@ export const bgColor = {
 
 const dateTimeColor = {
   // backgroundColor: '#00B9F3' this is the old one
-  backgroundColor: "#00a6f3"
+  // backgroundColor: "#00a6f3"
 }
+
 const boxStyle = {
   width: '23vw',
   height: '50vh',
@@ -84,7 +82,7 @@ export const iconStyle = {
 //Function to style clickable text on mouse over
 function underlineText(e) {
   e.target.style.textDecoration = 'underline'
-  e.target.style.textDecorationColor = 'blue'
+  e.target.style.textDecorationColor = '#016CC7'
   e.target.style.cursor = 'pointer'
 }
 
@@ -119,7 +117,7 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <>
         <ComponentsProvider>
           {/* Ticker at Top */}
           <iframe
@@ -130,15 +128,10 @@ class HomePage extends React.Component {
           />
 
           {/* Welcome Message */}
-          <Space style={bgColor} width="100%" height="10vh" around>
-            <Text fontSize="xxxxxlarge" color={mainTextColor}>
-              Welcome To Our Looker Extension!
-            </Text>
-          </Space>
-          {/* <Message /> */}
+          <Message />
 
           {/* Time Display */}
-          <Box style={{ width: '100%', height: '5vh', backgroundColor: "#016CC7", verticalAlign: "center" }}>
+          <Box style={{ width: '100%', height: '5vh', backgroundColor: "#3e8bcf", verticalAlign: "center" }}>
             <div align="center" style={{ color: "#131722" }} >
               <Text style={{ fontWeight: "bold", fontSize: "27", verticalAlign: "center", lineHeight: "5vh" }}>
                 {datetime}
@@ -247,7 +240,7 @@ class HomePage extends React.Component {
                   </Box>
 
                   {/*MODELS BUTTON*/}
-                  <Linker to={ROUTES.MODELS_ROUTE} style={{textDecoration: "none"}}>
+                  <Linker to={ROUTES.MODELS_ROUTE} style={{ textDecoration: "none" }}>
                     <Box style={boxStyle}>
                       <Flex justifyContent="space-around">
                         <ModelsIcon style={iconStyle} size="340" />
@@ -265,7 +258,7 @@ class HomePage extends React.Component {
                 {/*MIDDLE THREE BUTTONS*/}
                 <Flex justifyContent="space-around" flexWrap="wrap">
                   {/*SCREENER BUTTON*/}
-                  <Linker to={ROUTES.SCREENER_ROUTE} style={{textDecoration: "none"}}>
+                  <Linker to={ROUTES.SCREENER_ROUTE} style={{ textDecoration: "none" }}>
                     <Box style={boxStyle}>
                       <Flex justifyContent="space-around">
                         <ScreenerIcon style={iconStyle} size="340" />
@@ -279,7 +272,7 @@ class HomePage extends React.Component {
                   </Linker>
 
                   {/*RELVAL BUTTON*/}
-                  <Linker to={ROUTES.RELVAL_ROUTE} style={{textDecoration: "none"}}>
+                  <Linker to={ROUTES.RELVAL_ROUTE} style={{ textDecoration: "none" }}>
                     <Box style={boxStyle}>
                       <Flex justifyContent="space-around">
                         <RelValIcon style={iconStyle} size="340" />
@@ -293,7 +286,7 @@ class HomePage extends React.Component {
                   </Linker>
 
                   {/*ETRADE BUTTON*/}
-                  <Linker to={ROUTES.ETRADE_ROUTE} style={{textDecoration: "none"}}>
+                  <Linker to={ROUTES.ETRADE_ROUTE} style={{ textDecoration: "none" }}>
                     <Box style={boxStyle}>
                       <Flex justifyContent="space-around">
                         <EtradeIcon style={iconStyle} size="340" />
@@ -311,10 +304,10 @@ class HomePage extends React.Component {
                 {/*BOTTOM THREE BUTTONS*/}
                 <Flex justifyContent="space-around" flexWrap="wrap">
                   {/*INSIGHTS BUTTON*/}
-                  <Linker to={ROUTES.INSIGHT_ROUTE} style={{textDecoration: "none"}}>
+                  <Linker to={ROUTES.INSIGHT_ROUTE} style={{ textDecoration: "none" }}>
                     <Box style={boxStyle}>
                       <Flex justifyContent="space-around">
-                        <Insights style={iconStyle} size="340" />
+                        <InsightsIcon style={iconStyle} size="340" />
                       </Flex>
                       <Flex justifyContent="space-around">
                         <Text style={buttonFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
@@ -325,10 +318,10 @@ class HomePage extends React.Component {
                   </Linker>
 
                   {/*MARKET DATA BUTTON*/}
-                  <Linker to={ROUTES.MARKETDATA_ROUTE} style={{textDecoration: "none"}}>
+                  <Linker to={ROUTES.MARKETDATA_ROUTE} style={{ textDecoration: "none" }}>
                     <Box style={boxStyle}>
                       <Flex justifyContent="space-around">
-                        <Analytics style={iconStyle} size="340" />
+                        <MarketDataIcon style={iconStyle} size="340" />
                       </Flex>
                       <Flex justifyContent="space-around">
                         <Text style={buttonFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
@@ -339,10 +332,10 @@ class HomePage extends React.Component {
                   </Linker>
 
                   {/*FORECASTS BUTTON*/}
-                  <Linker to={ROUTES.FORECAST_ROUTE} style={{textDecoration: "none"}}>
+                  <Linker to={ROUTES.FORECAST_ROUTE} style={{ textDecoration: "none" }}>
                     <Box style={boxStyle}>
                       <Flex justifyContent="space-around">
-                        <TrendingUp style={iconStyle} size="340" />
+                        <ForecastsIcon style={iconStyle} size="340" />
                       </Flex>
                       <Flex justifyContent="space-around">
                         <Text style={buttonFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
@@ -357,7 +350,7 @@ class HomePage extends React.Component {
             </FlexItem>
           </Flex>
         </ComponentsProvider>
-      </div >
+      </>
     )
   }
 }

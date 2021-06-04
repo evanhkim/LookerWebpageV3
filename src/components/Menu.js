@@ -23,6 +23,10 @@
  */
 
 import React, { useEffect, useState, useContext, Component } from 'react'
+// import css from "file.css";
+// import { Menu as MenuHeader, MenuButton, MenuList, MenuItem } from "@reach/menu-button";
+// import "@reach/menu-button/styles.css";
+import '../App.css'
 import { ExtensionContext } from '@looker/extension-sdk-react'
 import {
   Space,
@@ -52,6 +56,14 @@ import {
   TrendingUp as ForecastsIcon
 } from '@styled-icons/material'
 
+function highlightBackground() {
+  e.target.style.backgroundColor = "red"
+}
+
+function unHighlightBackground(e) {
+  e.target.style.backgroundColor = "#29262A"
+}
+
 class Menu extends React.Component {
   render() {
     return (
@@ -72,8 +84,8 @@ class Menu extends React.Component {
             // backgroundColor="#84878D"
             height="8vh"
           >
-            <MenuList type="none">
-              <Flex flexDirection="row">
+            <MenuList type="none" >
+              <Flex flexDirection="row" >
                 <Linker
                   to={ROUTES.HOMEPAGE_ROUTE}
                   style={{
@@ -81,7 +93,7 @@ class Menu extends React.Component {
                     textDecoration: 'none'
                   }}
                 >
-                  <MenuItem icon={<HomeIcon />} color="#9B9EA3">
+                  <MenuItem icon={<HomeIcon />} color="#9B9EA3" >
                     Homepage
                   </MenuItem>
                 </Linker>
@@ -132,8 +144,8 @@ class Menu extends React.Component {
                       Models
                     </MenuItem>
                   </MenuHeader> */}
-                  <MenuItem icon={<ModelsIcon />} color="#9B9EA3">
-                    Models
+                  <MenuItem icon={<ModelsIcon /> } color="#9B9EA3" >
+                    <span> Models </span>
                   </MenuItem>
                 </Linker>
                 <Linker

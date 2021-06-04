@@ -1,35 +1,35 @@
-import React, { useContext, useState } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
+import { Space, ComponentsProvider, Text } from '@looker/components'
 import { ExtensionContext } from '@looker/extension-sdk-react'
-import { ComponentsProvider } from "@looker/components"
 
 export const Message = () => {
-    const [message, setMessage] = useState('')
+
     const { core40SDK } = useContext(ExtensionContext)
+    const [message, setMessage] = useState()
 
     useEffect(() => {
-        const initialize = async () => {
+        const getMe = async () => {
             try {
-                const value = await core40SDK.ok(core40SDK.me())
-                setMessage(
-                    `${value.display_name.split(' ')[0]}, Welcome to Bond Intelligence `
-                )
+                const me = await core40SDK.ok(core40SDK.me())
+                setMessage(`${me.display_name.split(' ')[0]}, Welcome to Bond Intelligence`)
             } catch (error) {
-                setMessage('Error occured getting information about me!')
                 console.error(error)
+                setMessage('An error occurred while getting information about me!')
             }
         }
-        initialize()
-    }, [])
+        getMe()
+    }, [core40SDK])
 
     return (
-
-        <ComponentsProvider>
-            <Space p="xxxxxsmall" width="100%" height="15vh" around>
-                <Text p="xxxxxlarge" fontSize="xxxxxlarge" color="white">
-                    {message}
-                </Text>
-            </Space>
-        </ComponentsProvider>
+        <>
+            <ComponentsProvider>
+                <div align="center" width="100%" height="12vh" style={{ backgroundColor: "#131722" }}>
+                    <Text style={{ lineHeight: "12vh" }} fontSize="50px" color="#9B9EA3">
+                        {message}
+                    </Text>
+                </div>
+            </ComponentsProvider>
+        </>
     )
 }
 

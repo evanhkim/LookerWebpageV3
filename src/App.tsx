@@ -27,20 +27,13 @@ import { ExtensionProvider2 } from '@looker/extension-sdk-react'
 import { hot } from 'react-hot-loader/root'
 import { Looker40SDK } from '@looker/sdk'
 import { Router } from './Router'
+import { ExtensionProvider } from '@looker/extension-sdk-react'
 
 export const App: React.FC = hot(() => {
-  const [route, setRoute] = useState('')
-  const [routeState, setRouteState] = useState()
-
-  const onRouteChange = (route: string, routeState?: any) => {
-    setRoute(route)
-    setRouteState(routeState)
-  }
 
   return (
-    <ExtensionProvider2 onRouteChange={onRouteChange} type={Looker40SDK}>
-      {/* Render a Router Element Instance*/}
-      <Router />
-    </ExtensionProvider2>
+    <ExtensionProvider>
+      <Router />ƒ
+    </ExtensionProvider>
   )
 })
