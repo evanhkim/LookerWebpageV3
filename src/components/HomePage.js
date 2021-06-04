@@ -61,7 +61,7 @@ const dateTimeColor = {
 
 const boxStyle = {
   width: '23vw',
-  height: '50vh',
+  height: '390px',
   borderRadius: '10px',
   backgroundColor: '#2A2E39',
 }
@@ -132,7 +132,7 @@ class HomePage extends React.Component {
 
           {/* Time Display */}
           <Box style={{ width: '100%', height: '5vh', backgroundColor: "#3e8bcf", verticalAlign: "center" }}>
-            <div align="center" style={{ color: "#131722" }} >
+            <div align="center" style={{ color: "#dadfe8" }} >
               <Text style={{ fontWeight: "bold", fontSize: "27", verticalAlign: "center", lineHeight: "5vh" }}>
                 {datetime}
               </Text>
@@ -161,7 +161,7 @@ class HomePage extends React.Component {
                   Here are the top 10 undervalued bonds
                 </Text>
               </div>
-              <Box style={{ width: '100%', height: '35vh', borderRadius: '5px', backgroundColor: '#3B4346' }}>
+              <Box style={{ width: '100%', height: '282px', borderRadius: '5px', backgroundColor: '#3B4346' }}>
                 <div align="center" width="100%">
                   <iframe
                     frameBorder="0"
@@ -192,7 +192,7 @@ class HomePage extends React.Component {
                   />
                 </div>
               </Box>
-              <Space height="10vh" />
+              <Space height="100px" />
 
               {/* BUTTON GALLERY BELOW
                        wwwwwww

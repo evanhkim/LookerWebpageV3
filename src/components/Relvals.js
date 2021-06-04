@@ -44,16 +44,24 @@ const bgColor = {
 }
 
 class Relval extends React.Component {
+  
   render() {
     return (
       <>
-        <Menu />
         <ComponentsProvider>
+          <Menu />
           <Space style={bgColor} p="xxxxxlarge" width="100%" height="25vh" around>
             <Text p="xxxxxlarge" fontSize="xxxxxlarge" color="#9B9EA3">
               Relval Page
             </Text>
           </Space>
+
+          <iframe
+            frameBorder="0"
+            height="1000px"
+            width="100%"
+            src="https://relvalapp-dot-bi-model-development.wl.r.appspot.com/"
+          ></iframe>
         </ComponentsProvider>
       </>
     )
