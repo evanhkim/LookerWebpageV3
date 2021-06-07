@@ -71,6 +71,7 @@ class Model extends React.Component {
               Models
             </Text>
           </Space>
+
           <Flex width="100%" flexDirection="column" mr="large" style={bgColor}>
             {/*Price Prediction Model*/}
             <Flex justifyContent="space-around" flexWrap="wrap">

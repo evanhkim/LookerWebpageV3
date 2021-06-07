@@ -1,3 +1,16 @@
-/* .App {
-    background-color: #131722;
+/* div {
+    background-color: #131722;  
 } */
+/* 
+.bBidDV {
+    background: #131722;
+}
+
+.StyleDefender-sc-1kd51tv-0 bBidDV looker-components-reset {
+    background-color: #131722;
+    background: #131722;
+} */
+
+[data-reach-menu-item][data-selected] {
+    background: red;
+  }

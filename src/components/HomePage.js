@@ -131,9 +131,9 @@ class HomePage extends React.Component {
           <Message />
 
           {/* Time Display */}
-          <Box style={{ width: '100%', height: '5vh', backgroundColor: "#3e8bcf", verticalAlign: "center" }}>
+          <Box style={{ width: '100%', height: '3vh', backgroundColor: "#3e8bcf", verticalAlign: "center" }}>
             <div align="center" style={{ color: "#dadfe8" }} >
-              <Text style={{ fontWeight: "bold", fontSize: "27", verticalAlign: "center", lineHeight: "5vh" }}>
+              <Text style={{ fontSize: "20", verticalAlign: "center", lineHeight: "3vh" }}>
                 {datetime}
               </Text>
             </div>
@@ -205,11 +205,7 @@ class HomePage extends React.Component {
                 <Flex justifyContent="space-around" flexWrap="wrap">
                   {/*DASHBOARDS BUTTON*/}
                   <Box style={boxStyle}>
-                    <Link
-                      href="https://bondintelligence.cloud.looker.com/browse"
-                      target="_blank"
-                      sandbox="allow-scripts allow-modals allow-popups"
-                    >
+                    <Linker to={ROUTES.DASHBOARD_ROUTE} style={{ textDecoration: "none" }}>
                       <Flex justifyContent="space-around">
                         <DashboardsIcon style={iconStyle} size="340" />
                       </Flex>
@@ -218,7 +214,7 @@ class HomePage extends React.Component {
                           Dashboards
                         </Text>
                       </Flex>
-                    </Link>
+                    </Linker>
                   </Box>
 
                   {/*DATA DICT BUTTON*/}

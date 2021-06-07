@@ -33,7 +33,7 @@ export const App: React.FC = hot(() => {
 
   return (
     <ExtensionProvider>
-      <Router />ƒ
+      <Router />
     </ExtensionProvider>
   )
 })

@@ -40,6 +40,7 @@ import { ConfigurationData } from './types'
 
 // Import Class Components that will be rendered from different buttons on webpage
 import HomePage from './components/HomePage.js'
+import Dashboards from './components/Dashboards.js'
 import Screener from './components/Screener.js'
 import Model from './components/Models.js'
 import Etrade from './components/Etrades.js'
@@ -58,7 +59,8 @@ export enum ROUTES {
   ETRADE_ROUTE = '/etrade',
   INSIGHT_ROUTE = '/insight',
   MARKETDATA_ROUTE = '/marketdata',
-  FORECAST_ROUTE = '/forecast'
+  FORECAST_ROUTE = '/forecast',
+  DASHBOARD_ROUTE = '/dashboards'
 }
 
 export const Router = () => {
@@ -71,8 +73,11 @@ export const Router = () => {
 
           {/* Scroll Function that moves window to top of page before rendering page */}
           <ScrollToTop />
-          
+
           <Switch>
+            <Route path={ROUTES.DASHBOARD_ROUTE}>
+              <Dashboards />
+            </Route>
             <Route path={ROUTES.MODELS_ROUTE}>
               <Model />
             </Route>
