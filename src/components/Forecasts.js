@@ -49,7 +49,7 @@ const boxStyle = {
   width: '350px',
   height: '390px',
   borderRadius: '10px',
-  backgroundColor: '#2A2E39',
+  backgroundColor: '#1f2436',
 }
 
 class Forecast extends React.Component {

@@ -52,9 +52,9 @@ const bgColor = {
 
 const boxStyle = {
   width: '23vw',
-  height: '50vh',
+  height: '390px',
   borderRadius: '10px',
-  backgroundColor: '#2A2E39',
+  backgroundColor: '#1f2436',
 }
 
 class Model extends React.Component {
@@ -128,7 +128,7 @@ class Model extends React.Component {
                 </Link>
               </Box>
             </Flex>
-            <Space height="50px" />
+            <Space height="50px" style={bgColor}/>
           </Flex>
         </ComponentsProvider>
       </>

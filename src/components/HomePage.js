@@ -54,16 +54,11 @@ export const bgColor = {
   backgroundColor: "#131722"
 }
 
-const dateTimeColor = {
-  // backgroundColor: '#00B9F3' this is the old one
-  // backgroundColor: "#00a6f3"
-}
-
 const boxStyle = {
   width: '23vw',
   height: '390px',
   borderRadius: '10px',
-  backgroundColor: '#2A2E39',
+  backgroundColor: '#1f2436',
 }
 
 export const mainTextColor = {
@@ -181,7 +176,7 @@ class HomePage extends React.Component {
                   Here are the recommendations for you today
                 </Text>
               </div>
-              <Box style={{ width: '100%', height: '35vh', borderRadius: '5px', backgroundColor: '#3B4346' }}>
+              <Box style={{ width: '100%', height: '282px', borderRadius: '5px', backgroundColor: '#3B4346' }}>
                 <div align="center" width="100%">
                   <iframe
                     frameBorder="0"

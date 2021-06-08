@@ -27,6 +27,9 @@ import * as ReactDOM from 'react-dom'
 import { App } from './App'
 
 window.addEventListener('DOMContentLoaded', () => {
+  // document.getElementById("id").removeAttribute("style")
+  // document.getElementById("id").style.display = none
+  // document.getElementsByTagName("style").
   document.body.style.backgroundColor = '#131722'
   document.body.style.margin = "0"
   const root = document.createElement('div')

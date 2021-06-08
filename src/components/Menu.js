@@ -23,9 +23,6 @@
  */
 
 import React, { useEffect, useState, useContext, Component } from 'react'
-// import css from "file.css";
-// import { Menu as MenuTag, MenuButton, MenuList, MenuItem } from "@reach/menu-button";
-// import "@reach/menu-button/styles.css";
 import '../App.css'
 import { ExtensionContext } from '@looker/extension-sdk-react'
 import {
@@ -55,60 +52,44 @@ import {
   TrendingUp as ForecastsIcon
 } from '@styled-icons/material'
 
-const menuBackgroundColor = (
-  // "#37393E"
-  // "#4F5054"
-  "#29262A"
-  // "#84878D"
-  // "#39363b"
-  // "#4b494d"
-)
+const menuBackgroundColor = "#1f2436"
 
-// light grey/white
-// const buttonHighlightColor = "#d5d9db" 
-
-// Dark Green
-// const buttonHighlightColor = "#125f58"
-
-// Dark Blue
-const buttonHighlightColor = "#0b7ea6"
+const buttonHighlightColor = "#2A2E39"
 
 function highlightBackground(e) {
 
   if (e.target.children.length === 2) {
     e.target.style.backgroundColor = buttonHighlightColor
     e.target.children[0].style.backgroundColor = buttonHighlightColor
+    e.target.children[1].style.backgroundColor = buttonHighlightColor
     if (e.target.children[0].children.length > 0) {
       e.target.children[0].children[0].style.backgroundColor = buttonHighlightColor
     }
-    e.target.children[1].style.backgroundColor = buttonHighlightColor
     if (e.target.children[1].children.length > 0) {
       e.target.children[1].children[0].style.backgroundColor = buttonHighlightColor
       e.target.children[1].children[1].style.backgroundColor = buttonHighlightColor
     }
-  } else {
-    console.log("highlight")
-    e.target.style.backgroundColor = buttonHighlightColor
-  }
+  } 
 }
 
 function unHighlightBackground(e) {
 
-  e.target.style.backgroundColor = "#29262A"
   if (e.target.children.length === 2) {
-    e.target.children[0].style.backgroundColor = "#29262A"
+    e.target.style.backgroundColor = menuBackgroundColor
+    e.target.children[0].style.backgroundColor = menuBackgroundColor
+    e.target.children[1].style.backgroundColor = menuBackgroundColor
     if (e.target.children[0].children.length > 0) {
-      e.target.children[0].children[0].style.backgroundColor = "#29262A"
+      e.target.children[0].children[0].style.backgroundColor = menuBackgroundColor
     }
-    e.target.children[1].style.backgroundColor = "#29262A"
     if (e.target.children[1].children.length > 0) {
-      e.target.children[1].children[0].style.backgroundColor = "#29262A"
-      e.target.children[1].children[1].style.backgroundColor = "#29262A"
+      e.target.children[1].children[0].style.backgroundColor = menuBackgroundColor
+      e.target.children[1].children[1].style.backgroundColor = menuBackgroundColor
     }
   } else {
-    console.log("unhighlight!")
-    console.log(e.target.children)
-    e.target.style.backgroundColor = menuBackgroundColor
+    // console.log("4")
+    // console.log(e.target)
+    // console.log(e.target.children)
+    e.target.backgroundColor = menuBackgroundColor
   }
 }
 
@@ -127,29 +108,27 @@ class Menu extends React.Component {
             justifyContent="center"
             mx="auto"
             backgroundColor={menuBackgroundColor}
-            // height="8vh"
             height="50px"
-
           >
             <MenuList portal="false" children="false" type="none">
               <Flex flexDirection="row" >
                 <Linker
                   to={ROUTES.HOMEPAGE_ROUTE}
                   style={{
-                    backgroundColor: { menuBackgroundColor },
+                    backgroundColor: menuBackgroundColor,
                     textDecoration: 'none'
                   }}
                 >
-                  <MenuItem onMouseEnter={highlightBackground} onMouseLeave={unHighlightBackground} icon={<HomeIcon />} color="#9B9EA3" >
+                  <MenuItem onMouseOver={highlightBackground} onMouseLeave={unHighlightBackground} icon={<HomeIcon />} color="#9B9EA3" >
                     Homepage
                   </MenuItem>
                 </Linker>
 
-                {/* <Linker
+                <Linker
                   to={ROUTES.DASHBOARD_ROUTE}
                   style={{
-                    textDecoration: 'none',
-                    backgroundColor: {menuBackgroundColor}
+                    backgroundColor: menuBackgroundColor,
+                    textDecoration: 'none'
                   }}
                 >
                   <MenuItem onMouseOver={highlightBackground} onMouseLeave={unHighlightBackground} icon={<DashboardsIcon />} color="#9B9EA3" >
@@ -161,8 +140,8 @@ class Menu extends React.Component {
                   href="https://bondintelligence.cloud.looker.com/extensions/data_dictionary::data-dictionary/"
                   target="_blank"
                   style={{
-                    textDecoration: '#00FFFF',
-                    backgroundColor: {menuBackgroundColor}
+                    backgroundColor: menuBackgroundColor,
+                    textDecoration: 'none'
                   }}
                 >
                   <MenuItem onMouseOver={highlightBackground} onMouseLeave={unHighlightBackground} icon={<DataDictionaryIcon />} color="#9B9EA3" >
@@ -173,7 +152,7 @@ class Menu extends React.Component {
                 <Linker
                   to={ROUTES.MODELS_ROUTE}
                   style={{
-                    backgroundColor: {menuBackgroundColor},
+                    backgroundColor: menuBackgroundColor,
                     textDecoration: 'none'
                   }}
                 >
@@ -185,7 +164,7 @@ class Menu extends React.Component {
                 <Linker
                   to={ROUTES.SCREENER_ROUTE}
                   style={{
-                    backgroundColor: {menuBackgroundColor},
+                    backgroundColor: menuBackgroundColor,
                     textDecoration: 'none'
                   }}
                 >
@@ -197,7 +176,7 @@ class Menu extends React.Component {
                 <Linker
                   to={ROUTES.RELVAL_ROUTE}
                   style={{
-                    backgroundColor: {menuBackgroundColor},
+                    backgroundColor: menuBackgroundColor,
                     textDecoration: 'none'
                   }}
                 >
@@ -210,7 +189,7 @@ class Menu extends React.Component {
                 <Linker
                   to={ROUTES.ETRADE_ROUTE}
                   style={{
-                    backgroundColor: {menuBackgroundColor},
+                    backgroundColor: menuBackgroundColor,
                     textDecoration: 'none'
                   }}
                 >
@@ -222,7 +201,7 @@ class Menu extends React.Component {
                 <Linker
                   to={ROUTES.INSIGHT_ROUTE}
                   style={{
-                    backgroundColor: {menuBackgroundColor},
+                    backgroundColor: menuBackgroundColor,
                     textDecoration: 'none'
                   }}
                 >
@@ -234,7 +213,7 @@ class Menu extends React.Component {
                 <Linker
                   to={ROUTES.MARKETDATA_ROUTE}
                   style={{
-                    backgroundColor: {menuBackgroundColor},
+                    backgroundColor: menuBackgroundColor,
                     textDecoration: 'none'
                   }}
                 >
@@ -246,14 +225,14 @@ class Menu extends React.Component {
                 <Linker
                   to={ROUTES.FORECAST_ROUTE}
                   style={{
-                    backgroundColor: {menuBackgroundColor},
+                    backgroundColor: menuBackgroundColor,
                     textDecoration: 'none'
                   }}
                 >
                   <MenuItem onMouseOver={highlightBackground} onMouseLeave={unHighlightBackground} icon={<ForecastsIcon />} color="#9B9EA3" >
                     Forecasts
                   </MenuItem>
-                </Linker> */}
+                </Linker>
               </Flex>
             </MenuList>
           </Box>

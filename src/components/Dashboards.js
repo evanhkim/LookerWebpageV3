@@ -1,3 +1,27 @@
+/*
+ * The MIT License (MIT)
+ *
+ * Copyright (c) 2020 Looker Data Sciences, Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
 import React, { useContext, useState, useEffect } from 'react'
 import {
     Space,
@@ -26,11 +50,6 @@ export const bgColor = {
     backgroundColor: "#131722"
 }
 
-const dateTimeColor = {
-    // backgroundColor: '#00B9F3' this is the old one
-    // backgroundColor: "#00a6f3"
-}
-
 const boxStyle = {
     width: '400px',
     height: '300px',
@@ -42,7 +61,7 @@ export const mainTextColor = {
     color: "#9B9EA3"
 }
 
-export const buttonFont = {
+export const buttonLabelFont = {
     color: "#9B9EA3",
     fontSize: "30",
     textAlign: "center",
@@ -107,7 +126,7 @@ class Dashboards extends React.Component {
                                     />
                                 </Flex>
                                 <Flex justifyContent="space-around">
-                                    <Text style={buttonFont}>
+                                    <Text style={buttonLabelFont}>
                                         BoardEx
                                     </Text>
                                 </Flex>
@@ -134,7 +153,7 @@ class Dashboards extends React.Component {
                                     />
                                 </Flex>
                                 <Flex justifyContent="space-around" alignContent="center">
-                                    <Text style={buttonFont}>
+                                    <Text style={buttonLabelFont}>
                                         Bond Intelligence Insights
                                     </Text>
                                 </Flex>
@@ -161,7 +180,7 @@ class Dashboards extends React.Component {
                                     />
                                 </Flex>
                                 <Flex justifyContent="space-around">
-                                    <Text style={buttonFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                                    <Text style={buttonLabelFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
                                         Corp Forecast
                                     </Text>
                                 </Flex>
@@ -192,7 +211,7 @@ class Dashboards extends React.Component {
                                     />
                                 </Flex>
                                 <Flex justifyContent="space-around">
-                                    <Text style={buttonFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                                    <Text style={buttonLabelFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
                                         Corporate Bond Issuance
                                     </Text>
                                 </Flex>
@@ -219,7 +238,7 @@ class Dashboards extends React.Component {
                                     />
                                 </Flex>
                                 <Flex justifyContent="space-around">
-                                    <Text style={buttonFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                                    <Text style={buttonLabelFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
                                         Corporate Bond Redemption
                                     </Text>
                                 </Flex>
@@ -246,7 +265,7 @@ class Dashboards extends React.Component {
                                     />
                                 </Flex>
                                 <Flex justifyContent="space-around">
-                                    <Text style={buttonFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                                    <Text style={buttonLabelFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
                                         Corporate Bond Trades
                                     </Text>
                                 </Flex>
@@ -277,7 +296,7 @@ class Dashboards extends React.Component {
                                     />
                                 </Flex>
                                 <Flex justifyContent="space-around">
-                                    <Text style={buttonFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                                    <Text style={buttonLabelFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
                                         Corporate Bond Trades - TRACE
                                     </Text>
                                 </Flex>
@@ -304,7 +323,7 @@ class Dashboards extends React.Component {
                                     />
                                 </Flex>
                                 <Flex justifyContent="space-around">
-                                    <Text style={buttonFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                                    <Text style={buttonLabelFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
                                         Corporate Financial Fundamentals
                                     </Text>
                                 </Flex>
@@ -331,7 +350,7 @@ class Dashboards extends React.Component {
                                     />
                                 </Flex>
                                 <Flex justifyContent="space-around">
-                                    <Text style={buttonFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                                    <Text style={buttonLabelFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
                                         Corporate Financial Ratios
                                     </Text>
                                 </Flex>
@@ -362,7 +381,7 @@ class Dashboards extends React.Component {
                                     />
                                 </Flex>
                                 <Flex justifyContent="space-around">
-                                    <Text style={buttonFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                                    <Text style={buttonLabelFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
                                         Muni Forecast
                                     </Text>
                                 </Flex>
@@ -389,7 +408,7 @@ class Dashboards extends React.Component {
                                     />
                                 </Flex>
                                 <Flex justifyContent="space-around">
-                                    <Text style={buttonFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                                    <Text style={buttonLabelFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
                                         Municipal Bond Issuances
                                     </Text>
                                 </Flex>
@@ -416,7 +435,7 @@ class Dashboards extends React.Component {
                                     />
                                 </Flex>
                                 <Flex justifyContent="space-around" >
-                                    <Text style={buttonFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                                    <Text style={buttonLabelFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
                                         Municipal Bond Trades
                                     </Text>
                                 </Flex>
@@ -447,7 +466,7 @@ class Dashboards extends React.Component {
                                     />
                                 </Flex>
                                 <Flex justifyContent="space-around">
-                                    <Text style={buttonFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
+                                    <Text style={buttonLabelFont} onMouseOver={underlineText} onMouseLeave={noUnderline}>
                                         Sentiment Analysis
                                     </Text>
                                 </Flex>
@@ -455,7 +474,7 @@ class Dashboards extends React.Component {
                         </Link>
                     </Flex>
 
-                    <Space style={{ backgroundColor: "#131722" }} height="100px" />
+                    <Space style={bgColor} height="100px" />
                 </Flex>
             </ComponentsProvider>
         )
