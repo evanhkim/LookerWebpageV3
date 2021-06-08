@@ -51,7 +51,7 @@ class Screener extends React.Component {
       <>
         <ComponentsProvider>
           {/* Navigation Bar */}
-          <Menu/>
+          <Menu />
 
           <Space style={bgColor} p="xxxxxlarge" width="100%" height="25vh" around>
             <Text p="xxxxxlarge" fontSize="xxxxxlarge" color="#9B9EA3">
@@ -59,12 +59,14 @@ class Screener extends React.Component {
             </Text>
           </Space>
 
-          <iframe
-            width="100%"
-            frameBorder="0"
-            height="1200px"
-            src="https://bondintelligence.azurewebsites.net/bond-stock-screener/index.html"
-          />
+          <Box height="1200px" style={bgColor}>
+            <iframe
+              width="100%"
+              frameBorder="0"
+              height="1200px"
+              src="https://bondintelligence.azurewebsites.net/bond-stock-screener/index.html"
+            />
+          </Box>
         </ComponentsProvider>
       </>
     )

@@ -31,6 +31,8 @@ window.addEventListener('DOMContentLoaded', () => {
   // document.getElementById("id").style.display = none
   // document.getElementsByTagName("style").
   document.body.style.backgroundColor = '#131722'
+  //console.log(document.head.children)
+  // document.head.children[3].childNodes[0].[data]
   document.body.style.margin = "0"
   const root = document.createElement('div')
   document.body.appendChild(root)

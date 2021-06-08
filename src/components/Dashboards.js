@@ -54,7 +54,7 @@ const boxStyle = {
     width: '400px',
     height: '300px',
     borderRadius: '10px',
-    backgroundColor: '#2A2E39',
+    backgroundColor: '#1f2436',
 }
 
 export const mainTextColor = {

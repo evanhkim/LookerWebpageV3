@@ -54,13 +54,15 @@ class Insight extends React.Component {
               Insights
             </Text>
           </Space>
-          <iframe
-            src="https://francisco-autran.shinyapps.io/CorporateData/"
-            width="100%"
-            height="1570px"
-            frameBorder="0"
-            scrolling="no"
-          />
+          <Box height="1570px" style={bgColor}>
+            <iframe
+              src="https://francisco-autran.shinyapps.io/CorporateData/"
+              width="100%"
+              height="1570px"
+              frameBorder="0"
+              scrolling="no"
+            />
+          </Box>
         </ComponentsProvider>
       </>
     )

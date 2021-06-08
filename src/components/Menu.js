@@ -23,7 +23,7 @@
  */
 
 import React, { useEffect, useState, useContext, Component } from 'react'
-import '../App.css'
+// import '../App.css'
 import { ExtensionContext } from '@looker/extension-sdk-react'
 import {
   Space,
@@ -36,6 +36,7 @@ import {
   MenuList,
   MenuItem,
   MenuItemProps,
+  Menu as MenuHeader
 } from '@looker/components'
 import { ROUTES } from '../Router'
 import { Link as Linker, LinkProps } from 'react-router-dom'
@@ -49,7 +50,7 @@ import {
   MenuBook as DataDictionaryIcon,
   Insights as InsightsIcon,
   Analytics as MarketDataIcon,
-  TrendingUp as ForecastsIcon
+  TrendingUp as ForecastsIcon,
 } from '@styled-icons/material'
 
 const menuBackgroundColor = "#1f2436"
@@ -58,38 +59,78 @@ const buttonHighlightColor = "#2A2E39"
 
 function highlightBackground(e) {
 
-  if (e.target.children.length === 2) {
+  // console.log(e.target)
+  e.target.style.backgroundColor = buttonHighlightColor
+  if (e.target.children.length > 0) {
+    for (let k = 0; k < e.target.children.length; k++) {
+      e.target.children[k].style.backgroundColor = buttonHighlightColor
+      if (e.target.children[k].children.length > 0) {
+        for (let i = 0; i < e.target.children[k].children.length; i++) {
+          e.target.children[k].children[i].style.backgroundColor = buttonHighlightColor
+        }
+      }
+    }
+  } else {
     e.target.style.backgroundColor = buttonHighlightColor
-    e.target.children[0].style.backgroundColor = buttonHighlightColor
-    e.target.children[1].style.backgroundColor = buttonHighlightColor
-    if (e.target.children[0].children.length > 0) {
-      e.target.children[0].children[0].style.backgroundColor = buttonHighlightColor
+    var parent = e.target.parentNode
+    parent.style.backgroundColor = buttonHighlightColor
+    if (parent.children.length > 0) {
+      for (let j = 0; j < parent.children.length; j++) {
+        parent.children[j].style.backgroundColor = buttonHighlightColor
+      }
     }
-    if (e.target.children[1].children.length > 0) {
-      e.target.children[1].children[0].style.backgroundColor = buttonHighlightColor
-      e.target.children[1].children[1].style.backgroundColor = buttonHighlightColor
+
+    var grandparent = e.target.parentNode.parentNode
+    grandparent.style.backgroundColor = buttonHighlightColor
+    if (grandparent.children.length > 0) {
+      for (let p = 0; p < grandparent.children.length; p++) {
+        grandparent.children[p].style.backgroundColor = buttonHighlightColor
+        if (grandparent.children[p].children.length > 0) {
+          for (let s = 0; s < grandparent.children[p].children.length; s++) {
+            grandparent.children[p].children[s].style.backgroundColor = buttonHighlightColor
+          }
+        }
+      }
     }
-  } 
+  }
+
 }
 
 function unHighlightBackground(e) {
-
-  if (e.target.children.length === 2) {
-    e.target.style.backgroundColor = menuBackgroundColor
-    e.target.children[0].style.backgroundColor = menuBackgroundColor
-    e.target.children[1].style.backgroundColor = menuBackgroundColor
-    if (e.target.children[0].children.length > 0) {
-      e.target.children[0].children[0].style.backgroundColor = menuBackgroundColor
-    }
-    if (e.target.children[1].children.length > 0) {
-      e.target.children[1].children[0].style.backgroundColor = menuBackgroundColor
-      e.target.children[1].children[1].style.backgroundColor = menuBackgroundColor
+  
+  // console.log(e.target)
+  e.target.style.backgroundColor = menuBackgroundColor
+  if (e.target.children.length > 0) {
+    for (let k = 0; k < e.target.children.length; k++) {
+      e.target.children[k].style.backgroundColor = menuBackgroundColor
+      if (e.target.children[k].children.length > 0) {
+        for (let i = 0; i < e.target.children[k].children.length; i++) {
+          e.target.children[k].children[i].style.backgroundColor = menuBackgroundColor
+        }
+      }
     }
   } else {
-    // console.log("4")
-    // console.log(e.target)
-    // console.log(e.target.children)
-    e.target.backgroundColor = menuBackgroundColor
+    e.target.style.backgroundColor = menuBackgroundColor
+    var parent = e.target.parentNode
+    parent.style.backgroundColor = menuBackgroundColor
+    if (parent.children.length > 0) {
+      for (let j = 0; j < parent.children.length; j++) {
+        parent.children[j].style.backgroundColor = menuBackgroundColor
+      }
+    }
+
+    var grandparent = e.target.parentNode.parentNode
+    grandparent.style.backgroundColor = menuBackgroundColor
+    if (grandparent.children.length > 0) {
+      for (let p = 0; p < grandparent.children.length; p++) {
+        grandparent.children[p].style.backgroundColor = menuBackgroundColor
+        if (grandparent.children[p].children.length > 0) {
+          for (let s = 0; s < grandparent.children[p].children.length; s++) {
+            grandparent.children[p].children[s].style.backgroundColor = menuBackgroundColor
+          }
+        }
+      }
+    }
   }
 }
 
@@ -119,7 +160,7 @@ class Menu extends React.Component {
                     textDecoration: 'none'
                   }}
                 >
-                  <MenuItem onMouseOver={highlightBackground} onMouseLeave={unHighlightBackground} icon={<HomeIcon />} color="#9B9EA3" >
+                  <MenuItem onMouseEnter={highlightBackground} onMouseLeave={unHighlightBackground} icon={<HomeIcon />} color="#9B9EA3" >
                     Homepage
                   </MenuItem>
                 </Linker>
@@ -131,7 +172,7 @@ class Menu extends React.Component {
                     textDecoration: 'none'
                   }}
                 >
-                  <MenuItem onMouseOver={highlightBackground} onMouseLeave={unHighlightBackground} icon={<DashboardsIcon />} color="#9B9EA3" >
+                  <MenuItem onMouseEnter={highlightBackground} onMouseLeave={unHighlightBackground} icon={<DashboardsIcon />} color="#9B9EA3" >
                     Dashboards
                   </MenuItem>
                 </Linker>
@@ -144,7 +185,7 @@ class Menu extends React.Component {
                     textDecoration: 'none'
                   }}
                 >
-                  <MenuItem onMouseOver={highlightBackground} onMouseLeave={unHighlightBackground} icon={<DataDictionaryIcon />} color="#9B9EA3" >
+                  <MenuItem onMouseEnter={highlightBackground} onMouseLeave={unHighlightBackground} icon={<DataDictionaryIcon />} color="#9B9EA3" >
                     Data Dictionary
                   </MenuItem>
                 </Link>
@@ -156,7 +197,23 @@ class Menu extends React.Component {
                     textDecoration: 'none'
                   }}
                 >
-                  <MenuItem onMouseOver={highlightBackground} onMouseLeave={unHighlightBackground} icon={<ModelsIcon />} color="#9B9EA3" >
+                  {/* <MenuHeader
+                    content={
+                      <>
+                        <MenuItem icon={<ModelsIcon />} color="#9B9EA3">
+                          Models
+                        </MenuItem>
+                        <MenuItem icon={<ModelsIcon />} color="#9B9EA3">
+                          Models
+                        </MenuItem>
+                      </>
+                    }
+                  >
+                    <MenuItem icon={<ModelsIcon />} color="#9B9EA3">
+                      Models
+                    </MenuItem>
+                  </MenuHeader> */}
+                  <MenuItem onMouseEnter={highlightBackground} onMouseLeave={unHighlightBackground} icon={<ModelsIcon />} color="#9B9EA3" >
                     Models
                   </MenuItem>
                 </Linker>
@@ -168,7 +225,7 @@ class Menu extends React.Component {
                     textDecoration: 'none'
                   }}
                 >
-                  <MenuItem onMouseOver={highlightBackground} onMouseLeave={unHighlightBackground} icon={<ScreenerIcon />} color="#9B9EA3" >
+                  <MenuItem onMouseEnter={highlightBackground} onMouseLeave={unHighlightBackground} icon={<ScreenerIcon />} color="#9B9EA3" >
                     Screener
                   </MenuItem>
                 </Linker>
@@ -181,7 +238,7 @@ class Menu extends React.Component {
                   }}
                 >
 
-                  <MenuItem onMouseOver={highlightBackground} onMouseLeave={unHighlightBackground} icon={<RelValIcon />} color="#9B9EA3" >
+                  <MenuItem onMouseEnter={highlightBackground} onMouseLeave={unHighlightBackground} icon={<RelValIcon />} color="#9B9EA3" >
                     RelVal
                   </MenuItem>
                 </Linker>
@@ -193,7 +250,7 @@ class Menu extends React.Component {
                     textDecoration: 'none'
                   }}
                 >
-                  <MenuItem onMouseOver={highlightBackground} onMouseLeave={unHighlightBackground} icon={<EtradeIcon />} color="#9B9EA3" >
+                  <MenuItem onMouseEnter={highlightBackground} onMouseLeave={unHighlightBackground} icon={<EtradeIcon />} color="#9B9EA3" >
                     Etrade
                   </MenuItem>
                 </Linker>
@@ -205,7 +262,7 @@ class Menu extends React.Component {
                     textDecoration: 'none'
                   }}
                 >
-                  <MenuItem onMouseOver={highlightBackground} onMouseLeave={unHighlightBackground} icon={<InsightsIcon />} color="#9B9EA3" >
+                  <MenuItem onMouseEnter={highlightBackground} onMouseLeave={unHighlightBackground} icon={<InsightsIcon />} color="#9B9EA3" >
                     Insights
                   </MenuItem>
                 </Linker>
@@ -217,7 +274,7 @@ class Menu extends React.Component {
                     textDecoration: 'none'
                   }}
                 >
-                  <MenuItem onMouseOver={highlightBackground} onMouseLeave={unHighlightBackground} icon={<MarketDataIcon />} color="#9B9EA3" >
+                  <MenuItem onMouseEnter={highlightBackground} onMouseLeave={unHighlightBackground} icon={<MarketDataIcon />} color="#9B9EA3" >
                     Market Data
                   </MenuItem>
                 </Linker>
@@ -229,7 +286,7 @@ class Menu extends React.Component {
                     textDecoration: 'none'
                   }}
                 >
-                  <MenuItem onMouseOver={highlightBackground} onMouseLeave={unHighlightBackground} icon={<ForecastsIcon />} color="#9B9EA3" >
+                  <MenuItem onMouseEnter={highlightBackground} onMouseLeave={unHighlightBackground} icon={<ForecastsIcon />} color="#9B9EA3" >
                     Forecasts
                   </MenuItem>
                 </Linker>
