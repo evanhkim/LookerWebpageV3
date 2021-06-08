@@ -39,24 +39,30 @@ import { ROUTES } from '../Router'
 import { Link as Linker, LinkProps } from 'react-router-dom'
 import Menu from './Menu'
 
+const bgColor = {
+  backgroundColor: "#131722"
+}
+
 class Insight extends React.Component {
   render() {
     return (
       <>
         <ComponentsProvider>
           <Menu />
-          <Space p="large" width="100%" height="25vh" around>
+          <Space style={bgColor} p="large" width="100%" height="25vh" around>
             <Text p="xxxxxlarge" fontSize="xxxxxlarge" color="#9B9EA3">
               Insights
             </Text>
           </Space>
-          <iframe
-            src="https://francisco-autran.shinyapps.io/CorporateData/"
-            width="100%"
-            height="1570px"
-            frameBorder="0"
-            scrolling="no"
-          ></iframe>
+          <Box height="1570px" style={bgColor}>
+            <iframe
+              src="https://francisco-autran.shinyapps.io/CorporateData/"
+              width="100%"
+              height="1570px"
+              frameBorder="0"
+              scrolling="no"
+            />
+          </Box>
         </ComponentsProvider>
       </>
     )

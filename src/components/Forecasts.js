@@ -38,14 +38,18 @@ import {
 import { ROUTES } from '../Router'
 import { Link as Linker, LinkProps } from 'react-router-dom'
 import Menu from './Menu'
-import { StackedLineChart as ForecastsIcon, Gavel, Business, CorporateFare} from '@styled-icons/material'
+import { StackedLineChart as ForecastsIcon, Gavel, Business, CorporateFare, AccountBalance} from '@styled-icons/material'
 import { iconStyle } from './HomePage.js'
+
+const bgColor = {
+  backgroundColor: "#131722"
+}
 
 const boxStyle = {
   width: '350px',
   height: '390px',
   borderRadius: '10px',
-  backgroundColor: '#2A2E39',
+  backgroundColor: '#1f2436',
 }
 
 class Forecast extends React.Component {
@@ -54,12 +58,12 @@ class Forecast extends React.Component {
       <>
         <ComponentsProvider>
           <Menu />
-          <Space p="xxxxxlarge" width="100%" height="30vh" around>
+          <Space style={bgColor} p="xxxxxlarge" width="100%" height="25vh" around>
             <Text p="xxxxxlarge" fontSize="xxxxxlarge" color="#9B9EA3">
               Forecasts
             </Text>
           </Space>
-          <Flex flexDirection="column" mr="large">
+          <Flex style={bgColor} flexDirection="column" mr="large" width="100%">
             {/*Corp Forecast*/}
             <Flex justifyContent="space-around" flexWrap="wrap">
               <Box style={boxStyle}>
@@ -68,12 +72,6 @@ class Forecast extends React.Component {
                   target="_blank"
                   sandbox="allow-scripts allow-modals allow-popups"
                 >
-                  {/* <img
-                    id="dashboards"
-                    src="https://marketplace-api.looker.com/visualization-screenshots/report_table_icon.png"
-                    height="280"
-                    width="350"
-                  ></img> */}
                   <Flex justifyContent="space-around">
                     <Business style={iconStyle} size="340"/>
                     {/* <CorporateFare style={iconStyle} size="340"/> */}
@@ -91,14 +89,8 @@ class Forecast extends React.Component {
                   target="_blank"
                   sandbox="allow-scripts allow-modals allow-popups"
                 >
-                  {/* <img
-                    id="dashboards"
-                    src="https://marketplace-api.looker.com/visualization-screenshots/report_table_icon.png"
-                    height="280"
-                    width="350"
-                  ></img> */}
                   <Flex justifyContent="space-around">
-                    <Gavel style={iconStyle} size="340"/>
+                    <AccountBalance style={iconStyle} size="340"/>
                   </Flex>
                   <Flex justifyContent="space-around">
                     <Text style={{ color: '#9B9EA3', fontSize: "30"}}> Muni Forecast </Text>

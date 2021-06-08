@@ -40,6 +40,7 @@ import { ConfigurationData } from './types'
 
 // Import Class Components that will be rendered from different buttons on webpage
 import HomePage from './components/HomePage.js'
+import Dashboards from './components/Dashboards.js'
 import Screener from './components/Screener.js'
 import Model from './components/Models.js'
 import Etrade from './components/Etrades.js'
@@ -58,76 +59,25 @@ export enum ROUTES {
   ETRADE_ROUTE = '/etrade',
   INSIGHT_ROUTE = '/insight',
   MARKETDATA_ROUTE = '/marketdata',
-  FORECAST_ROUTE = '/forecast'
+  FORECAST_ROUTE = '/forecast',
+  DASHBOARD_ROUTE = '/dashboards'
 }
 
 export const Router = () => {
 
-  // const { core40SDK } = useContext(ExtensionContext)
-  // const [message, setMessage] = useState()
-
-  // useEffect(() => {
-  //   const initialize = async () => {
-  //     try {
-  //       const value = await core40SDK.ok(core40SDK.me())
-  //       setMessage(
-  //         `${value.display_name.split(' ')[0]}, Welcome to Bond Intelligence `
-  //       )
-  //     } catch (error) {
-  //       setMessage('Error occured getting information about me!')
-  //       console.error(error)
-  //     }
-  //   }
-  //   initialize()
-  // }, [])
-
-  const extensionContext = useContext<ExtensionContextData2<Looker40SDK>>(
-    ExtensionContext2
-  )
-  const { extensionSDK } = extensionContext
-  const [canPersistContextData, setCanPersistContextData] = useState<boolean>(
-    false
-  )
-  const [
-    configurationData,
-    setConfigurationData,
-  ] = useState<ConfigurationData>()
-
-  // Getting rid of useEffect() will screw up the format of the Market Overview Looks
-  useEffect(() => {
-
-    const initialize = async () => {
-      // Context requires Looker version 7.14.0. If not supported provide
-      // default configuration object and disable saving of context data.
-      let context
-      if (
-        intersects(
-          '>=7.14.0',
-          extensionSDK.lookerHostData?.lookerVersion || '7.0.0',
-          true
-        )
-      ) {
-        try {
-          context = await extensionSDK.getContextData()
-          setCanPersistContextData(true)
-        } catch (error) {
-          console.error(error)
-        }
-      }
-    }
-    initialize()
-  }, [])
-
   return (
     <>
       <ComponentsProvider>
-        {/* <Section> */}
         {/* This <Suspense> tag is needed to render the second part of Market Overview look (under graph) */}
         <Suspense fallback={<></>}>
 
           {/* Scroll Function that moves window to top of page before rendering page */}
           <ScrollToTop />
+
           <Switch>
+            <Route path={ROUTES.DASHBOARD_ROUTE}>
+              <Dashboards />
+            </Route>
             <Route path={ROUTES.MODELS_ROUTE}>
               <Model />
             </Route>
@@ -153,8 +103,8 @@ export const Router = () => {
               <HomePage />
             </Route>
           </Switch>
+
         </Suspense>
-        {/* </Section> */}
       </ComponentsProvider>
     </>
   )

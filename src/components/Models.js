@@ -39,15 +39,22 @@ import { ROUTES } from '../Router'
 import { Link as Linker, LinkProps } from 'react-router-dom'
 import Menu from './Menu'
 import { iconStyle } from './HomePage.js'
-import { ModelTraining as ModelsIcon, AttachMoney, Speed as RiskIcon, RequestQuote as PricePredictionIcon } from '@styled-icons/material'
+import { 
+  Speed as RiskIcon, 
+  RequestQuote as PricePredictionIcon 
+} from '@styled-icons/material'
 import mainTextColor from './HomePage.js'
 import buttonFont from './HomePage.js'
 
+const bgColor = {
+  backgroundColor: "#131722"
+}
+
 const boxStyle = {
   width: '23vw',
-  height: '50vh',
+  height: '390px',
   borderRadius: '10px',
-  backgroundColor: '#2A2E39',
+  backgroundColor: '#1f2436',
 }
 
 class Model extends React.Component {
@@ -59,12 +66,13 @@ class Model extends React.Component {
           {/* Navigation Bar */}
           <Menu />
 
-          <Space p="large" width="100%" height="25vh" around>
+          <Space style={bgColor} p="large" width="100%" height="25vh" around>
             <Text p="large" fontSize="xxxxxlarge" color="#9B9EA3">
               Models
             </Text>
           </Space>
-          <Flex flexDirection="column" mr="large">
+
+          <Flex width="100%" flexDirection="column" mr="large" style={bgColor}>
             {/*Price Prediction Model*/}
             <Flex justifyContent="space-around" flexWrap="wrap">
               <Box style={boxStyle}>
@@ -73,17 +81,11 @@ class Model extends React.Component {
                   target="_blank"
                   sandbox="allow-scripts allow-modals allow-popups"
                 >
-                  {/* <img
-                    id="dashboards"
-                    src="https://marketplace-api.looker.com/visualization-screenshots/report_table_icon.png"
-                    height="280"
-                    width="350"
-                  ></img> */}
                   <Flex justifyContent="space-around">
-                    <PricePredictionIcon style={iconStyle} size="340"/>
+                    <PricePredictionIcon style={iconStyle} size="340" />
                   </Flex>
                   <Flex justifyContent="space-around">
-                    <Text style={{ color: '#9B9EA3', fontSize: "30"}}>
+                    <Text style={{ color: '#9B9EA3', fontSize: "30" }}>
                       Price Prediction
                     </Text>
                   </Flex>
@@ -97,17 +99,11 @@ class Model extends React.Component {
                   target="_blank"
                   sandbox="allow-scripts allow-modals allow-popups"
                 >
-                  {/* <img
-                    id="dashboards"
-                    src="https://marketplace-api.looker.com/visualization-screenshots/report_table_icon.png"
-                    height="280"
-                    width="350"
-                  ></img> */}
                   <Flex justifyContent="space-around">
-                    <RiskIcon style={iconStyle} size="340"/>
+                    <RiskIcon style={iconStyle} size="340" />
                   </Flex>
                   <Flex justifyContent="space-around">
-                    <Text style={{ color: '#9B9EA3', fontSize: "30"}}>
+                    <Text style={{ color: '#9B9EA3', fontSize: "30" }}>
                       Corp Risk Prediction
                     </Text>
                   </Flex>
@@ -121,24 +117,18 @@ class Model extends React.Component {
                   target="_blank"
                   sandbox="allow-scripts allow-modals allow-popups"
                 >
-                  {/* <img
-                    id="dashboards"
-                    src="https://marketplace-api.looker.com/visualization-screenshots/report_table_icon.png"
-                    height="280"
-                    width="350"
-                  ></img> */}
                   <Flex justifyContent="space-around">
-                    <RiskIcon style={iconStyle} size="340"/>
+                    <RiskIcon style={iconStyle} size="340" />
                   </Flex>
                   <Flex justifyContent="space-around">
-                    <Text style={{ color: '#9B9EA3', fontSize: "30"  }}>
+                    <Text style={{ color: '#9B9EA3', fontSize: "30" }}>
                       Muni Risk Prediction
                     </Text>
                   </Flex>
                 </Link>
               </Box>
             </Flex>
-            <Space height="50px" />
+            <Space height="50px" style={bgColor}/>
           </Flex>
         </ComponentsProvider>
       </>

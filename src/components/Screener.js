@@ -41,26 +41,32 @@ import underlineText from './HomePage'
 import noUnderline from './HomePage'
 import Menu from './Menu'
 
+const bgColor = {
+  backgroundColor: "#131722"
+}
+
 class Screener extends React.Component {
   render() {
     return (
       <>
         <ComponentsProvider>
           {/* Navigation Bar */}
-          <Menu/>
+          <Menu />
 
-          <Space p="xxxxxlarge" width="100%" height="50vh" around>
+          <Space style={bgColor} p="xxxxxlarge" width="100%" height="25vh" around>
             <Text p="xxxxxlarge" fontSize="xxxxxlarge" color="#9B9EA3">
               Screener Page
             </Text>
           </Space>
 
-          <iframe
-            width="100%"
-            frameBorder="0"
-            height="1200px"
-            src="https://bondintelligence.azurewebsites.net/bond-stock-screener/index.html"
-          ></iframe>
+          <Box height="1200px" style={bgColor}>
+            <iframe
+              width="100%"
+              frameBorder="0"
+              height="1200px"
+              src="https://bondintelligence.azurewebsites.net/bond-stock-screener/index.html"
+            />
+          </Box>
         </ComponentsProvider>
       </>
     )

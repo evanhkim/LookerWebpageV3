@@ -23,9 +23,7 @@
  */
 
 import React, { useEffect, useState, useContext, Component } from 'react'
-// import css from "file.css";
-// import "@reach/menu-button/styles.css";
-// import './styles.css'
+// import '../App.css'
 import { ExtensionContext } from '@looker/extension-sdk-react'
 import {
   Space,
@@ -37,8 +35,8 @@ import {
   FlexItem,
   MenuList,
   MenuItem,
-  Menu as MenuHeader,
   MenuItemProps,
+  Menu as MenuHeader
 } from '@looker/components'
 import { ROUTES } from '../Router'
 import { Link as Linker, LinkProps } from 'react-router-dom'
@@ -52,8 +50,89 @@ import {
   MenuBook as DataDictionaryIcon,
   Insights as InsightsIcon,
   Analytics as MarketDataIcon,
-  TrendingUp as ForecastsIcon
+  TrendingUp as ForecastsIcon,
 } from '@styled-icons/material'
+
+const menuBackgroundColor = "#1f2436"
+
+const buttonHighlightColor = "#2A2E39"
+
+function highlightBackground(e) {
+
+  // console.log(e.target)
+  e.target.style.backgroundColor = buttonHighlightColor
+  if (e.target.children.length > 0) {
+    for (let k = 0; k < e.target.children.length; k++) {
+      e.target.children[k].style.backgroundColor = buttonHighlightColor
+      if (e.target.children[k].children.length > 0) {
+        for (let i = 0; i < e.target.children[k].children.length; i++) {
+          e.target.children[k].children[i].style.backgroundColor = buttonHighlightColor
+        }
+      }
+    }
+  } else {
+    e.target.style.backgroundColor = buttonHighlightColor
+    var parent = e.target.parentNode
+    parent.style.backgroundColor = buttonHighlightColor
+    if (parent.children.length > 0) {
+      for (let j = 0; j < parent.children.length; j++) {
+        parent.children[j].style.backgroundColor = buttonHighlightColor
+      }
+    }
+
+    var grandparent = e.target.parentNode.parentNode
+    grandparent.style.backgroundColor = buttonHighlightColor
+    if (grandparent.children.length > 0) {
+      for (let p = 0; p < grandparent.children.length; p++) {
+        grandparent.children[p].style.backgroundColor = buttonHighlightColor
+        if (grandparent.children[p].children.length > 0) {
+          for (let s = 0; s < grandparent.children[p].children.length; s++) {
+            grandparent.children[p].children[s].style.backgroundColor = buttonHighlightColor
+          }
+        }
+      }
+    }
+  }
+
+}
+
+function unHighlightBackground(e) {
+  
+  // console.log(e.target)
+  e.target.style.backgroundColor = menuBackgroundColor
+  if (e.target.children.length > 0) {
+    for (let k = 0; k < e.target.children.length; k++) {
+      e.target.children[k].style.backgroundColor = menuBackgroundColor
+      if (e.target.children[k].children.length > 0) {
+        for (let i = 0; i < e.target.children[k].children.length; i++) {
+          e.target.children[k].children[i].style.backgroundColor = menuBackgroundColor
+        }
+      }
+    }
+  } else {
+    e.target.style.backgroundColor = menuBackgroundColor
+    var parent = e.target.parentNode
+    parent.style.backgroundColor = menuBackgroundColor
+    if (parent.children.length > 0) {
+      for (let j = 0; j < parent.children.length; j++) {
+        parent.children[j].style.backgroundColor = menuBackgroundColor
+      }
+    }
+
+    var grandparent = e.target.parentNode.parentNode
+    grandparent.style.backgroundColor = menuBackgroundColor
+    if (grandparent.children.length > 0) {
+      for (let p = 0; p < grandparent.children.length; p++) {
+        grandparent.children[p].style.backgroundColor = menuBackgroundColor
+        if (grandparent.children[p].children.length > 0) {
+          for (let s = 0; s < grandparent.children[p].children.length; s++) {
+            grandparent.children[p].children[s].style.backgroundColor = menuBackgroundColor
+          }
+        }
+      }
+    }
+  }
+}
 
 class Menu extends React.Component {
   render() {
@@ -69,140 +148,145 @@ class Menu extends React.Component {
             width="100%"
             justifyContent="center"
             mx="auto"
-            // backgroundColor="#37393E"
-            // backgroundColor="#4F5054"
-            backgroundColor="#29262A"
-            // backgroundColor="#84878D"
-            // backgroundColor="#"
-            height="8vh"
+            backgroundColor={menuBackgroundColor}
+            height="50px"
           >
-            <MenuList type="none">
-              <Flex flexDirection="row">
+            <MenuList portal="false" children="false" type="none">
+              <Flex flexDirection="row" >
                 <Linker
                   to={ROUTES.HOMEPAGE_ROUTE}
                   style={{
-                    backgroundColor: '#29262A',
+                    backgroundColor: menuBackgroundColor,
                     textDecoration: 'none'
                   }}
                 >
-                  <MenuItem className="red-highlight" icon={<HomeIcon />} color="#9B9EA3" onSelect={() => { }}>
+                  <MenuItem onMouseEnter={highlightBackground} onMouseLeave={unHighlightBackground} icon={<HomeIcon />} color="#9B9EA3" >
                     Homepage
                   </MenuItem>
                 </Linker>
-                <Link
-                  href="https://bondintelligence.cloud.looker.com/browse"
-                  target="_blank"
+
+                <Linker
+                  to={ROUTES.DASHBOARD_ROUTE}
                   style={{
-                    textDecoration: 'none',
-                    backgroundColor: '#29262A'
+                    backgroundColor: menuBackgroundColor,
+                    textDecoration: 'none'
                   }}
                 >
-                  <MenuItem icon={<DashboardsIcon />} color="#9B9EA3">
+                  <MenuItem onMouseEnter={highlightBackground} onMouseLeave={unHighlightBackground} icon={<DashboardsIcon />} color="#9B9EA3" >
                     Dashboards
                   </MenuItem>
-                </Link>
+                </Linker>
+
                 <Link
                   href="https://bondintelligence.cloud.looker.com/extensions/data_dictionary::data-dictionary/"
                   target="_blank"
                   style={{
-                    textDecoration: '#00FFFF',
-                    backgroundColor: '#29262A'
+                    backgroundColor: menuBackgroundColor,
+                    textDecoration: 'none'
                   }}
                 >
-                  <MenuItem icon={<DataDictionaryIcon />} color="#9B9EA3">
+                  <MenuItem onMouseEnter={highlightBackground} onMouseLeave={unHighlightBackground} icon={<DataDictionaryIcon />} color="#9B9EA3" >
                     Data Dictionary
                   </MenuItem>
                 </Link>
+
                 <Linker
                   to={ROUTES.MODELS_ROUTE}
                   style={{
-                    backgroundColor: '#29262A',
+                    backgroundColor: menuBackgroundColor,
                     textDecoration: 'none'
                   }}
                 >
                   {/* <MenuHeader
                     content={
                       <>
-                        <MenuItem icon={<ModelsIcon />} color="#00D5FF">
+                        <MenuItem icon={<ModelsIcon />} color="#9B9EA3">
                           Models
                         </MenuItem>
-                        <MenuItem icon={<ModelsIcon />} color="#00D5FF">
+                        <MenuItem icon={<ModelsIcon />} color="#9B9EA3">
                           Models
                         </MenuItem>
                       </>
                     }
                   >
-                    <MenuItem icon={<ModelsIcon />} color="#00D5FF">
+                    <MenuItem icon={<ModelsIcon />} color="#9B9EA3">
                       Models
                     </MenuItem>
                   </MenuHeader> */}
-                  <MenuItem icon={<ModelsIcon />} color="#9B9EA3">
+                  <MenuItem onMouseEnter={highlightBackground} onMouseLeave={unHighlightBackground} icon={<ModelsIcon />} color="#9B9EA3" >
                     Models
                   </MenuItem>
                 </Linker>
+
                 <Linker
                   to={ROUTES.SCREENER_ROUTE}
                   style={{
-                    backgroundColor: '#29262A',
+                    backgroundColor: menuBackgroundColor,
                     textDecoration: 'none'
                   }}
                 >
-                  <MenuItem icon={<ScreenerIcon />} color="#9B9EA3">
+                  <MenuItem onMouseEnter={highlightBackground} onMouseLeave={unHighlightBackground} icon={<ScreenerIcon />} color="#9B9EA3" >
                     Screener
                   </MenuItem>
                 </Linker>
+
                 <Linker
                   to={ROUTES.RELVAL_ROUTE}
                   style={{
-                    backgroundColor: '#29262A',
+                    backgroundColor: menuBackgroundColor,
                     textDecoration: 'none'
                   }}
                 >
-                  <MenuItem icon={<RelValIcon />} color="#9B9EA3">
+
+                  <MenuItem onMouseEnter={highlightBackground} onMouseLeave={unHighlightBackground} icon={<RelValIcon />} color="#9B9EA3" >
                     RelVal
                   </MenuItem>
                 </Linker>
+
                 <Linker
                   to={ROUTES.ETRADE_ROUTE}
                   style={{
-                    backgroundColor: '#29262A',
+                    backgroundColor: menuBackgroundColor,
                     textDecoration: 'none'
                   }}
                 >
-                  <MenuItem icon={<EtradeIcon />} color="#9B9EA3">
+                  <MenuItem onMouseEnter={highlightBackground} onMouseLeave={unHighlightBackground} icon={<EtradeIcon />} color="#9B9EA3" >
                     Etrade
                   </MenuItem>
                 </Linker>
+
                 <Linker
                   to={ROUTES.INSIGHT_ROUTE}
                   style={{
-                    backgroundColor: '#29262A',
+                    backgroundColor: menuBackgroundColor,
                     textDecoration: 'none'
                   }}
                 >
-                  <MenuItem icon={<InsightsIcon />} color="#9B9EA3">
+                  <MenuItem onMouseEnter={highlightBackground} onMouseLeave={unHighlightBackground} icon={<InsightsIcon />} color="#9B9EA3" >
                     Insights
                   </MenuItem>
                 </Linker>
+
                 <Linker
                   to={ROUTES.MARKETDATA_ROUTE}
                   style={{
-                    backgroundColor: '#29262A',
+                    backgroundColor: menuBackgroundColor,
                     textDecoration: 'none'
                   }}
                 >
-                  <MenuItem icon={<MarketDataIcon />} color="#9B9EA3">
+                  <MenuItem onMouseEnter={highlightBackground} onMouseLeave={unHighlightBackground} icon={<MarketDataIcon />} color="#9B9EA3" >
                     Market Data
                   </MenuItem>
                 </Linker>
+
                 <Linker
                   to={ROUTES.FORECAST_ROUTE}
                   style={{
-                    backgroundColor: '#29262A',
+                    backgroundColor: menuBackgroundColor,
                     textDecoration: 'none'
                   }}
                 >
-                  <MenuItem icon={<ForecastsIcon />} color="#9B9EA3">
+                  <MenuItem onMouseEnter={highlightBackground} onMouseLeave={unHighlightBackground} icon={<ForecastsIcon />} color="#9B9EA3" >
                     Forecasts
                   </MenuItem>
                 </Linker>

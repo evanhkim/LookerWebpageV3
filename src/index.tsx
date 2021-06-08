@@ -27,16 +27,14 @@ import * as ReactDOM from 'react-dom'
 import { App } from './App'
 
 window.addEventListener('DOMContentLoaded', () => {
+  // document.getElementById("id").removeAttribute("style")
+  // document.getElementById("id").style.display = none
+  // document.getElementsByTagName("style").
   document.body.style.backgroundColor = '#131722'
+  //console.log(document.head.children)
+  // document.head.children[3].childNodes[0].[data]
   document.body.style.margin = '0'
   const root = document.createElement('div')
   document.body.appendChild(root)
-  /*
-  var bg = document.getElementsByClassName(
-    'StyleDefender-sc-1kd51tv-0 bBidDV looker-components-reset'
-  )
-  var realbg = bg[0]
-  realbg.setAttribute('background', '#131722')
-  */
   ReactDOM.render(<App />, root)
 })
