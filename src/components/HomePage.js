@@ -85,6 +85,7 @@ const buttonHighlightColor = "#2A2E39"
 
 function highlightBoxButtonBackground(e) {
 
+  console.log(e.target)
   let targ;
   let targetName = e.target.className
   switch (targetName) {
@@ -136,16 +137,6 @@ function highlightBoxButtonBackground(e) {
               if (targ.children[i].children[j].children[k].children.length > 0) {
                 for (let m = 0; m < targ.children[i].children[j].children[k].children.length; m++) {
                   targ.children[i].children[j].children[k].children[m].style.backgroundColor = buttonHighlightColor
-                  if (targ.children[i].children[j].children[k].children[m].children.length > 0) {
-                    for (let n = 0; n < targ.children[i].children[j].children[k].children[m].children.length; n++) {
-                      targ.children[i].children[j].children[k].children[m].children[n].style.backgroundColor = buttonHighlightColor
-                      if (targ.children[i].children[j].children[k].children[m].children[n].children.length > 0) {
-                        for (let p = p; n < targ.children[i].children[j].children[k].children[m].children[n].children.length; p++) {
-                          targ.children[i].children[j].children[k].children[m].children[n].children[p].style.backgroundColor = buttonHighlightColor
-                        }
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -209,16 +200,6 @@ function unhighlightBoxButtonBackground(e) {
               if (targ.children[i].children[j].children[k].children.length > 0) {
                 for (let m = 0; m < targ.children[i].children[j].children[k].children.length; m++) {
                   targ.children[i].children[j].children[k].children[m].style.backgroundColor = menuBackgroundColor
-                  if (targ.children[i].children[j].children[k].children[m].children.length > 0) {
-                    for (let n = 0; n < targ.children[i].children[j].children[k].children[m].children.length; n++) {
-                      targ.children[i].children[j].children[k].children[m].children[n].style.backgroundColor = menuBackgroundColor
-                      if (targ.children[i].children[j].children[k].children[m].children[n].children.length > 0) {
-                        for (let p = p; n < targ.children[i].children[j].children[k].children[m].children[n].children.length; p++) {
-                          targ.children[i].children[j].children[k].children[m].children[n].children[p].style.backgroundColor = menuBackgroundColor
-                        }
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -433,14 +414,18 @@ class HomePage extends React.Component {
                     href="https://bondintelligence.cloud.looker.com/extensions/data_dictionary::data-dictionary/"
                     target="_blank"
                     sandbox="allow-scripts allow-modals allow-popups"
-                    textDecoration="none"
+                    style={{ textDecoration: "none" }}
                   >
                     <Box className="box1" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                       <Flex justifyContent="space-around">
                         <DataDictionaryIcon style={iconStyle} size="340" />
                       </Flex>
                       <Flex justifyContent="space-around">
-                        <Text style={buttonFont} >
+                        <Text
+                          style={buttonFont}
+                          onMouseOver={underlineText}
+                          onMouseLeave={noUnderline}
+                        >
                           Data Dictionary
                         </Text>
                       </Flex>

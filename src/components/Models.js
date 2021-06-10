@@ -63,7 +63,6 @@ const buttonHighlightColor = "#2A2E39"
 
 function highlightBoxButtonBackground(e) {
 
-  console.log(e.target)
   let targ;
   let targetName = e.target.className
   switch (targetName) {
@@ -82,6 +81,10 @@ function highlightBoxButtonBackground(e) {
     default:
       targ = e.target.parentNode.parentNode.parentNode;
       break;
+  }
+
+  if (targ.className === "Link-sc-165dqum-1 lfXXSQ") {
+    targ = targ.parentNode
   }
 
   targ.style.backgroundColor = buttonHighlightColor
@@ -97,16 +100,6 @@ function highlightBoxButtonBackground(e) {
               if (targ.children[i].children[j].children[k].children.length > 0) {
                 for (let m = 0; m < targ.children[i].children[j].children[k].children.length; m++) {
                   targ.children[i].children[j].children[k].children[m].style.backgroundColor = buttonHighlightColor
-                  if (targ.children[i].children[j].children[k].children[m].children.length > 0) {
-                    for (let n = 0; n < targ.children[i].children[j].children[k].children[m].children.length; n++) {
-                      targ.children[i].children[j].children[k].children[m].children[n].style.backgroundColor = buttonHighlightColor
-                      if (targ.children[i].children[j].children[k].children[m].children[n].children.length > 0) {
-                        for (let p = p; n < targ.children[i].children[j].children[k].children[m].children[n].children.length; p++) {
-                          targ.children[i].children[j].children[k].children[m].children[n].children[p].style.backgroundColor = buttonHighlightColor
-                        }
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -119,7 +112,6 @@ function highlightBoxButtonBackground(e) {
 
 function unhighlightBoxButtonBackground(e) {
 
-  console.log(e.target)
   let targ;
   let targetName = e.target.className
   switch (targetName) {
@@ -140,6 +132,10 @@ function unhighlightBoxButtonBackground(e) {
       break;
   }
 
+  if (targ.className === "Link-sc-165dqum-1 lfXXSQ") {
+    targ = targ.parentNode
+  }
+
   targ.style.backgroundColor = menuBackgroundColor
   if (targ.children.length > 0) {
     for (let i = 0; i < targ.children.length; i++) {
@@ -153,16 +149,6 @@ function unhighlightBoxButtonBackground(e) {
               if (targ.children[i].children[j].children[k].children.length > 0) {
                 for (let m = 0; m < targ.children[i].children[j].children[k].children.length; m++) {
                   targ.children[i].children[j].children[k].children[m].style.backgroundColor = menuBackgroundColor
-                  if (targ.children[i].children[j].children[k].children[m].children.length > 0) {
-                    for (let n = 0; n < targ.children[i].children[j].children[k].children[m].children.length; n++) {
-                      targ.children[i].children[j].children[k].children[m].children[n].style.backgroundColor = menuBackgroundColor
-                      if (targ.children[i].children[j].children[k].children[m].children[n].children.length > 0) {
-                        for (let p = p; n < targ.children[i].children[j].children[k].children[m].children[n].children.length; p++) {
-                          targ.children[i].children[j].children[k].children[m].children[n].children[p].style.backgroundColor = menuBackgroundColor
-                        }
-                      }
-                    }
-                  }
                 }
               }
             }

@@ -122,6 +122,9 @@ function highlightBoxButtonBackground(e) {
         case "Box-sc-5738oh-0 gKGXwr box12":
             targ = e.target;
             break;
+        case "Link-sc-165dqum-1 lfXXSQ":
+            targ = e.target;
+            break;
         case "Flex-sc-1ak395a-0 dcdUyk":
             targ = e.target.parentNode.parentNode;
             break;
@@ -143,16 +146,6 @@ function highlightBoxButtonBackground(e) {
                             if (targ.children[i].children[j].children[k].children.length > 0) {
                                 for (let m = 0; m < targ.children[i].children[j].children[k].children.length; m++) {
                                     targ.children[i].children[j].children[k].children[m].style.backgroundColor = buttonHighlightColor
-                                    if (targ.children[i].children[j].children[k].children[m].children.length > 0) {
-                                        for (let n = 0; n < targ.children[i].children[j].children[k].children[m].children.length; n++) {
-                                            targ.children[i].children[j].children[k].children[m].children[n].style.backgroundColor = buttonHighlightColor
-                                            if (targ.children[i].children[j].children[k].children[m].children[n].children.length > 0) {
-                                                for (let p = p; n < targ.children[i].children[j].children[k].children[m].children[n].children.length; p++) {
-                                                    targ.children[i].children[j].children[k].children[m].children[n].children[p].style.backgroundColor = buttonHighlightColor
-                                                }
-                                            }
-                                        }
-                                    }
                                 }
                             }
                         }
@@ -207,6 +200,9 @@ function unhighlightBoxButtonBackground(e) {
         case "Box-sc-5738oh-0 gKGXwr box12":
             targ = e.target;
             break;
+        case "Link-sc-165dqum-1 lfXXSQ":
+            targ = e.target;
+            break;
         case "Flex-sc-1ak395a-0 dcdUyk":
             targ = e.target.parentNode.parentNode;
             break;
@@ -228,16 +224,6 @@ function unhighlightBoxButtonBackground(e) {
                             if (targ.children[i].children[j].children[k].children.length > 0) {
                                 for (let m = 0; m < targ.children[i].children[j].children[k].children.length; m++) {
                                     targ.children[i].children[j].children[k].children[m].style.backgroundColor = menuBackgroundColor
-                                    if (targ.children[i].children[j].children[k].children[m].children.length > 0) {
-                                        for (let n = 0; n < targ.children[i].children[j].children[k].children[m].children.length; n++) {
-                                            targ.children[i].children[j].children[k].children[m].children[n].style.backgroundColor = menuBackgroundColor
-                                            if (targ.children[i].children[j].children[k].children[m].children[n].children.length > 0) {
-                                                for (let p = p; n < targ.children[i].children[j].children[k].children[m].children[n].children.length; p++) {
-                                                    targ.children[i].children[j].children[k].children[m].children[n].children[p].style.backgroundColor = menuBackgroundColor
-                                                }
-                                            }
-                                        }
-                                    }
                                 }
                             }
                         }
