@@ -39,9 +39,9 @@ import { ROUTES } from '../Router'
 import { Link as Linker, LinkProps } from 'react-router-dom'
 import Menu from './Menu'
 import { iconStyle } from './HomePage.js'
-import { 
-  Speed as RiskIcon, 
-  RequestQuote as PricePredictionIcon 
+import {
+  Speed as RiskIcon,
+  RequestQuote as PricePredictionIcon
 } from '@styled-icons/material'
 import mainTextColor from './HomePage.js'
 import buttonFont from './HomePage.js'
@@ -55,6 +55,122 @@ const boxStyle = {
   height: '390px',
   borderRadius: '10px',
   backgroundColor: '#1f2436',
+}
+
+const menuBackgroundColor = "#1f2436"
+
+const buttonHighlightColor = "#2A2E39"
+
+function highlightBoxButtonBackground(e) {
+
+  console.log(e.target)
+  let targ;
+  let targetName = e.target.className
+  switch (targetName) {
+    case "Box-sc-5738oh-0 gKGXwr box0":
+      targ = e.target;
+      break;
+    case "Box-sc-5738oh-0 gKGXwr box1":
+      targ = e.target;
+      break;
+    case "Box-sc-5738oh-0 gKGXwr box2":
+      targ = e.target;
+      break;
+    case "Flex-sc-1ak395a-0 dcdUyk":
+      targ = e.target.parentNode.parentNode;
+      break;
+    default:
+      targ = e.target.parentNode.parentNode.parentNode;
+      break;
+  }
+
+  targ.style.backgroundColor = buttonHighlightColor
+  if (targ.children.length > 0) {
+    for (let i = 0; i < targ.children.length; i++) {
+      targ.children[i].style.backgroundColor = buttonHighlightColor
+      if (targ.children[i].children.length > 0) {
+        for (let j = 0; j < targ.children[i].children.length; j++) {
+          targ.children[i].children[j].style.backgroundColor = buttonHighlightColor
+          if (targ.children[i].children[j].children.length > 0) {
+            for (let k = 0; k < targ.children[i].children[j].children.length; k++) {
+              targ.children[i].children[j].children[k].style.backgroundColor = buttonHighlightColor
+              if (targ.children[i].children[j].children[k].children.length > 0) {
+                for (let m = 0; m < targ.children[i].children[j].children[k].children.length; m++) {
+                  targ.children[i].children[j].children[k].children[m].style.backgroundColor = buttonHighlightColor
+                  if (targ.children[i].children[j].children[k].children[m].children.length > 0) {
+                    for (let n = 0; n < targ.children[i].children[j].children[k].children[m].children.length; n++) {
+                      targ.children[i].children[j].children[k].children[m].children[n].style.backgroundColor = buttonHighlightColor
+                      if (targ.children[i].children[j].children[k].children[m].children[n].children.length > 0) {
+                        for (let p = p; n < targ.children[i].children[j].children[k].children[m].children[n].children.length; p++) {
+                          targ.children[i].children[j].children[k].children[m].children[n].children[p].style.backgroundColor = buttonHighlightColor
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+function unhighlightBoxButtonBackground(e) {
+
+  console.log(e.target)
+  let targ;
+  let targetName = e.target.className
+  switch (targetName) {
+    case "Box-sc-5738oh-0 gKGXwr box0":
+      targ = e.target;
+      break;
+    case "Box-sc-5738oh-0 gKGXwr box1":
+      targ = e.target;
+      break;
+    case "Box-sc-5738oh-0 gKGXwr box2":
+      targ = e.target;
+      break;
+    case "Flex-sc-1ak395a-0 dcdUyk":
+      targ = e.target.parentNode.parentNode;
+      break;
+    default:
+      targ = e.target.parentNode.parentNode.parentNode;
+      break;
+  }
+
+  targ.style.backgroundColor = menuBackgroundColor
+  if (targ.children.length > 0) {
+    for (let i = 0; i < targ.children.length; i++) {
+      targ.children[i].style.backgroundColor = menuBackgroundColor
+      if (targ.children[i].children.length > 0) {
+        for (let j = 0; j < targ.children[i].children.length; j++) {
+          targ.children[i].children[j].style.backgroundColor = menuBackgroundColor
+          if (targ.children[i].children[j].children.length > 0) {
+            for (let k = 0; k < targ.children[i].children[j].children.length; k++) {
+              targ.children[i].children[j].children[k].style.backgroundColor = menuBackgroundColor
+              if (targ.children[i].children[j].children[k].children.length > 0) {
+                for (let m = 0; m < targ.children[i].children[j].children[k].children.length; m++) {
+                  targ.children[i].children[j].children[k].children[m].style.backgroundColor = menuBackgroundColor
+                  if (targ.children[i].children[j].children[k].children[m].children.length > 0) {
+                    for (let n = 0; n < targ.children[i].children[j].children[k].children[m].children.length; n++) {
+                      targ.children[i].children[j].children[k].children[m].children[n].style.backgroundColor = menuBackgroundColor
+                      if (targ.children[i].children[j].children[k].children[m].children[n].children.length > 0) {
+                        for (let p = p; n < targ.children[i].children[j].children[k].children[m].children[n].children.length; p++) {
+                          targ.children[i].children[j].children[k].children[m].children[n].children[p].style.backgroundColor = menuBackgroundColor
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 class Model extends React.Component {
@@ -75,7 +191,7 @@ class Model extends React.Component {
           <Flex width="100%" flexDirection="column" mr="large" style={bgColor}>
             {/*Price Prediction Model*/}
             <Flex justifyContent="space-around" flexWrap="wrap">
-              <Box style={boxStyle}>
+              <Box className="box0" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground} >
                 <Link
                   href="https://bondintelligence.cloud.looker.com/explore/Fixed_Income/pricemodel"
                   target="_blank"
@@ -85,7 +201,7 @@ class Model extends React.Component {
                     <PricePredictionIcon style={iconStyle} size="340" />
                   </Flex>
                   <Flex justifyContent="space-around">
-                    <Text style={{ color: '#9B9EA3', fontSize: "30" }}>
+                    <Text className="text0" style={{ color: '#9B9EA3', fontSize: "30" }}>
                       Price Prediction
                     </Text>
                   </Flex>
@@ -93,7 +209,7 @@ class Model extends React.Component {
               </Box>
 
               {/*Corp Risk Prediction Model*/}
-              <Box style={boxStyle}>
+              <Box className="box1" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground} >
                 <Link
                   href="https://bondintelligence.cloud.looker.com/explore/Fixed_Income/risk_predicted_corp"
                   target="_blank"
@@ -103,7 +219,7 @@ class Model extends React.Component {
                     <RiskIcon style={iconStyle} size="340" />
                   </Flex>
                   <Flex justifyContent="space-around">
-                    <Text style={{ color: '#9B9EA3', fontSize: "30" }}>
+                    <Text className="text1" style={{ color: '#9B9EA3', fontSize: "30" }}>
                       Corp Risk Prediction
                     </Text>
                   </Flex>
@@ -111,7 +227,7 @@ class Model extends React.Component {
               </Box>
 
               {/*Muni Risk Prediction Model*/}
-              <Box style={boxStyle}>
+              <Box className="box2" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground} >
                 <Link
                   href="https://bondintelligence.cloud.looker.com/explore/Fixed_Income/risk_predicted_muni"
                   target="_blank"
@@ -121,14 +237,14 @@ class Model extends React.Component {
                     <RiskIcon style={iconStyle} size="340" />
                   </Flex>
                   <Flex justifyContent="space-around">
-                    <Text style={{ color: '#9B9EA3', fontSize: "30" }}>
+                    <Text className="text2" style={{ color: '#9B9EA3', fontSize: "30" }}>
                       Muni Risk Prediction
                     </Text>
                   </Flex>
                 </Link>
               </Box>
             </Flex>
-            <Space height="50px" style={bgColor}/>
+            <Space height="50px" style={bgColor} />
           </Flex>
         </ComponentsProvider>
       </>

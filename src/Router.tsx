@@ -47,7 +47,7 @@ import Etrade from './components/Etrades.js'
 import Forecast from './components/Forecasts.js'
 import MarketData from './components/MarketDatas.js'
 import Relval from './components/RelVals.js'
-import Insight from './components/insights.js'
+import Insight from './components/Insights.js'
 import ScrollToTop from './ScrollToTop.js'
 
 // URL Routes for Routing

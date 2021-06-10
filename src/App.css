@@ -10,8 +10,12 @@
     background: aqua;
 } */
 
-/* 
-.StyleDefender-sc-1kd51tv-0 bBidDV looker-components-reset {
+div.bBidDV {
+    background: #131722;
+    background-color: #131722;
+}
+
+/* div.StyleDefender-sc-1kd51tv-0-bBidDV-looker-components-reset {
     background-color: #131722;
     background: #131722;
 } */

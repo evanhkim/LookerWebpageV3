@@ -82,7 +82,7 @@ const boxStyle = {
     width: '23vw',
     height: '390px',
     borderRadius: '10px',
-    backgroundColor: '#2A2E39',
+    backgroundColor: '#1f2436',
   }
   
   function cursorHand(e) {

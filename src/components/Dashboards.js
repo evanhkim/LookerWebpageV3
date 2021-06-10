@@ -74,6 +74,180 @@ export const iconStyle = {
     color: '#9B9EA3',
 }
 
+const menuBackgroundColor = "#1f2436"
+
+const buttonHighlightColor = "#2A2E39"
+
+function highlightBoxButtonBackground(e) {
+
+    let targ;
+    let targetName = e.target.className
+    switch (targetName) {
+        case "Box-sc-5738oh-0 gKGXwr box0":
+            targ = e.target;
+            break;
+        case "Box-sc-5738oh-0 gKGXwr box1":
+            targ = e.target;
+            break;
+        case "Box-sc-5738oh-0 gKGXwr box2":
+            targ = e.target;
+            break;
+        case "Box-sc-5738oh-0 gKGXwr box3":
+            targ = e.target;
+            break;
+        case "Box-sc-5738oh-0 gKGXwr box4":
+            targ = e.target;
+            break;
+        case "Box-sc-5738oh-0 gKGXwr box5":
+            targ = e.target;
+            break;
+        case "Box-sc-5738oh-0 gKGXwr box6":
+            targ = e.target;
+            break;
+        case "Box-sc-5738oh-0 gKGXwr box7":
+            targ = e.target;
+            break;
+        case "Box-sc-5738oh-0 gKGXwr box8":
+            targ = e.target;
+            break;
+        case "Box-sc-5738oh-0 gKGXwr box9":
+            targ = e.target;
+            break;
+        case "Box-sc-5738oh-0 gKGXwr box10":
+            targ = e.target;
+            break;
+        case "Box-sc-5738oh-0 gKGXwr box11":
+            targ = e.target;
+            break;
+        case "Box-sc-5738oh-0 gKGXwr box12":
+            targ = e.target;
+            break;
+        case "Flex-sc-1ak395a-0 dcdUyk":
+            targ = e.target.parentNode.parentNode;
+            break;
+        default:
+            targ = e.target.parentNode.parentNode.parentNode;
+            break;
+    }
+
+    targ.style.backgroundColor = buttonHighlightColor
+    if (targ.children.length > 0) {
+        for (let i = 0; i < targ.children.length; i++) {
+            targ.children[i].style.backgroundColor = buttonHighlightColor
+            if (targ.children[i].children.length > 0) {
+                for (let j = 0; j < targ.children[i].children.length; j++) {
+                    targ.children[i].children[j].style.backgroundColor = buttonHighlightColor
+                    if (targ.children[i].children[j].children.length > 0) {
+                        for (let k = 0; k < targ.children[i].children[j].children.length; k++) {
+                            targ.children[i].children[j].children[k].style.backgroundColor = buttonHighlightColor
+                            if (targ.children[i].children[j].children[k].children.length > 0) {
+                                for (let m = 0; m < targ.children[i].children[j].children[k].children.length; m++) {
+                                    targ.children[i].children[j].children[k].children[m].style.backgroundColor = buttonHighlightColor
+                                    if (targ.children[i].children[j].children[k].children[m].children.length > 0) {
+                                        for (let n = 0; n < targ.children[i].children[j].children[k].children[m].children.length; n++) {
+                                            targ.children[i].children[j].children[k].children[m].children[n].style.backgroundColor = buttonHighlightColor
+                                            if (targ.children[i].children[j].children[k].children[m].children[n].children.length > 0) {
+                                                for (let p = p; n < targ.children[i].children[j].children[k].children[m].children[n].children.length; p++) {
+                                                    targ.children[i].children[j].children[k].children[m].children[n].children[p].style.backgroundColor = buttonHighlightColor
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+function unhighlightBoxButtonBackground(e) {
+
+    let targ;
+    let targetName = e.target.className
+    switch (targetName) {
+        case "Box-sc-5738oh-0 gKGXwr box0":
+            targ = e.target;
+            break;
+        case "Box-sc-5738oh-0 gKGXwr box1":
+            targ = e.target;
+            break;
+        case "Box-sc-5738oh-0 gKGXwr box2":
+            targ = e.target;
+            break;
+        case "Box-sc-5738oh-0 gKGXwr box3":
+            targ = e.target;
+            break;
+        case "Box-sc-5738oh-0 gKGXwr box4":
+            targ = e.target;
+            break;
+        case "Box-sc-5738oh-0 gKGXwr box5":
+            targ = e.target;
+            break;
+        case "Box-sc-5738oh-0 gKGXwr box6":
+            targ = e.target;
+            break;
+        case "Box-sc-5738oh-0 gKGXwr box7":
+            targ = e.target;
+            break;
+        case "Box-sc-5738oh-0 gKGXwr box8":
+            targ = e.target;
+            break;
+        case "Box-sc-5738oh-0 gKGXwr box9":
+            targ = e.target;
+            break;
+        case "Box-sc-5738oh-0 gKGXwr box10":
+            targ = e.target;
+            break;
+        case "Box-sc-5738oh-0 gKGXwr box11":
+            targ = e.target;
+            break;
+        case "Box-sc-5738oh-0 gKGXwr box12":
+            targ = e.target;
+            break;
+        case "Flex-sc-1ak395a-0 dcdUyk":
+            targ = e.target.parentNode.parentNode;
+            break;
+        default:
+            targ = e.target.parentNode.parentNode.parentNode;
+            break;
+    }
+
+    targ.style.backgroundColor = menuBackgroundColor
+    if (targ.children.length > 0) {
+        for (let i = 0; i < targ.children.length; i++) {
+            targ.children[i].style.backgroundColor = menuBackgroundColor
+            if (targ.children[i].children.length > 0) {
+                for (let j = 0; j < targ.children[i].children.length; j++) {
+                    targ.children[i].children[j].style.backgroundColor = menuBackgroundColor
+                    if (targ.children[i].children[j].children.length > 0) {
+                        for (let k = 0; k < targ.children[i].children[j].children.length; k++) {
+                            targ.children[i].children[j].children[k].style.backgroundColor = menuBackgroundColor
+                            if (targ.children[i].children[j].children[k].children.length > 0) {
+                                for (let m = 0; m < targ.children[i].children[j].children[k].children.length; m++) {
+                                    targ.children[i].children[j].children[k].children[m].style.backgroundColor = menuBackgroundColor
+                                    if (targ.children[i].children[j].children[k].children[m].children.length > 0) {
+                                        for (let n = 0; n < targ.children[i].children[j].children[k].children[m].children.length; n++) {
+                                            targ.children[i].children[j].children[k].children[m].children[n].style.backgroundColor = menuBackgroundColor
+                                            if (targ.children[i].children[j].children[k].children[m].children[n].children.length > 0) {
+                                                for (let p = p; n < targ.children[i].children[j].children[k].children[m].children[n].children.length; p++) {
+                                                    targ.children[i].children[j].children[k].children[m].children[n].children[p].style.backgroundColor = menuBackgroundColor
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 function underlineText(e) {
     e.target.style.textDecoration = 'underline'
     e.target.style.textDecorationColor = '#016CC7'
@@ -107,7 +281,7 @@ class Dashboards extends React.Component {
                     {/*ROW 1*/}
                     <Flex justifyContent="space-around" flexWrap="wrap">
                         {/*BoardEx BUTTON*/}
-                        <Box style={boxStyle}>
+                        <Box className="box0" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                             <Link
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/17?Company%20Name=&filter_config=%7B%22Company%20Name%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%22%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
                                 target="_blank"
@@ -134,7 +308,7 @@ class Dashboards extends React.Component {
                         </Box>
 
                         {/*Bond Intelligence Insights BUTTON*/}
-                        <Box style={boxStyle}>
+                        <Box className="box1" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                             <Link
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/6?CUSIP=035824AN1&filter_config=%7B%22CUSIP%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%22035824AN1%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
                                 target="_blank"
@@ -161,12 +335,13 @@ class Dashboards extends React.Component {
                         </Box>
 
                         {/*Corp Forecast BUTTON*/}
-                        <Link
-                            href="https://bondintelligence.cloud.looker.com/embed/dashboards/29?CUSIP=36962GXZ2&filter_config=%7B%22CUSIP%22:%5B%7B%22type%22:%22advanced%22,%22values%22:%5B%7B%22constant%22:%2236962GXZ2%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
-                            target="_blank"
-                            sandbox="allow-scripts allow-modals allow-popups"
-                        >
-                            <Box style={boxStyle}>
+                        <Box className="box2" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                            <Link
+                                href="https://bondintelligence.cloud.looker.com/embed/dashboards/29?CUSIP=36962GXZ2&filter_config=%7B%22CUSIP%22:%5B%7B%22type%22:%22advanced%22,%22values%22:%5B%7B%22constant%22:%2236962GXZ2%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
+                                target="_blank"
+                                sandbox="allow-scripts allow-modals allow-popups"
+                            >
+
                                 <Flex justifyContent="space-around">
                                     <img
                                         id="BoardEx"
@@ -184,20 +359,20 @@ class Dashboards extends React.Component {
                                         Corp Forecast
                                     </Text>
                                 </Flex>
-                            </Box>
-                        </Link>
+                            </Link>
+                        </Box>
                     </Flex>
                     <Space height="10vh" />
 
                     {/*Row 2*/}
                     <Flex justifyContent="space-around" flexWrap="wrap">
                         {/*Corporate Bond Issuance BUTTON*/}
-                        <Link
-                            href="https://bondintelligence.cloud.looker.com/embed/dashboards/10?edit=true&Complete%20CUSIP=00077DAF6&filter_config=%7B%22Complete%20CUSIP%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2200077DAF6%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
-                            target="_blank"
-                            sandbox="allow-scripts allow-modals allow-popups"
-                        >
-                            <Box style={boxStyle}>
+                        <Box className="box3" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                            <Link
+                                href="https://bondintelligence.cloud.looker.com/embed/dashboards/10?edit=true&Complete%20CUSIP=00077DAF6&filter_config=%7B%22Complete%20CUSIP%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2200077DAF6%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
+                                target="_blank"
+                                sandbox="allow-scripts allow-modals allow-popups"
+                            >
                                 <Flex justifyContent="space-around">
                                     <img
                                         id="BoardEx"
@@ -215,16 +390,16 @@ class Dashboards extends React.Component {
                                         Corporate Bond Issuance
                                     </Text>
                                 </Flex>
-                            </Box>
-                        </Link>
+                            </Link>
+                        </Box>
 
                         {/*Corporate Bond Redemption BUTTON*/}
-                        <Link
-                            href="https://bondintelligence.cloud.looker.com/embed/dashboards/7?CUSIP=247367AX3&filter_config=%7B%22CUSIP%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%22247367AX3%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
-                            target="_blank"
-                            sandbox="allow-scripts allow-modals allow-popups"
-                        >
-                            <Box style={boxStyle}>
+                        <Box className="box4" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                            <Link
+                                href="https://bondintelligence.cloud.looker.com/embed/dashboards/7?CUSIP=247367AX3&filter_config=%7B%22CUSIP%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%22247367AX3%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
+                                target="_blank"
+                                sandbox="allow-scripts allow-modals allow-popups"
+                            >
                                 <Flex justifyContent="space-around">
                                     <img
                                         id="BoardEx"
@@ -242,16 +417,16 @@ class Dashboards extends React.Component {
                                         Corporate Bond Redemption
                                     </Text>
                                 </Flex>
-                            </Box>
-                        </Link>
+                            </Link>
+                        </Box>
 
                         {/*Corporate Bond Trades BUTTON*/}
-                        <Link
-                            href="https://bondintelligence.cloud.looker.com/embed/dashboards/22?Cusip=02079KAC1&filter_config=%7B%22Cusip%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2202079KAC1%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
-                            target="_blank"
-                            sandbox="allow-scripts allow-modals allow-popups"
-                        >
-                            <Box style={boxStyle}>
+                        <Box className="box5" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                            <Link
+                                href="https://bondintelligence.cloud.looker.com/embed/dashboards/22?Cusip=02079KAC1&filter_config=%7B%22Cusip%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2202079KAC1%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
+                                target="_blank"
+                                sandbox="allow-scripts allow-modals allow-popups"
+                            >
                                 <Flex justifyContent="space-around">
                                     <img
                                         id="BoardEx"
@@ -269,20 +444,20 @@ class Dashboards extends React.Component {
                                         Corporate Bond Trades
                                     </Text>
                                 </Flex>
-                            </Box>
-                        </Link>
+                            </Link>
+                        </Box>
                     </Flex>
                     <Space height="10vh" />
 
                     {/*Row 3*/}
                     <Flex justifyContent="space-around" flexWrap="wrap">
                         {/*Corporate Bond Trades - TRACE BUTTON*/}
-                        <Link
-                            href="https://bondintelligence.cloud.looker.com/embed/dashboards/9?CUSIP=38259PAB8&filter_config=%7B%22CUSIP%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2238259PAB8%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
-                            target="_blank"
-                            sandbox="allow-scripts allow-modals allow-popups"
-                        >
-                            <Box style={boxStyle}>
+                        <Box className="box6" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                            <Link
+                                href="https://bondintelligence.cloud.looker.com/embed/dashboards/9?CUSIP=38259PAB8&filter_config=%7B%22CUSIP%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2238259PAB8%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
+                                target="_blank"
+                                sandbox="allow-scripts allow-modals allow-popups"
+                            >
                                 <Flex justifyContent="space-around">
                                     <img
                                         id="BoardEx"
@@ -300,16 +475,16 @@ class Dashboards extends React.Component {
                                         Corporate Bond Trades - TRACE
                                     </Text>
                                 </Flex>
-                            </Box>
-                        </Link>
+                            </Link>
+                        </Box>
 
                         {/*Corporate Financial Fundamentals BUTTON*/}
-                        <Link
-                            href="https://bondintelligence.cloud.looker.com/embed/dashboards/12?edit=true&Cusip=000361105&Datadate%20Year=2017&filter_config=%7B%22Cusip%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%22000361105%22%7D,%7B%7D%5D,%22id%22:4%7D%5D,%22Datadate%20Year%22:%5B%7B%22type%22:%22year%22,%22values%22:%5B%7B%22constant%22:%222017%22%7D,%7B%7D%5D,%22id%22:5%7D%5D%7D"
-                            target="_blank"
-                            sandbox="allow-scripts allow-modals allow-popups"
-                        >
-                            <Box style={boxStyle}>
+                        <Box className="box7" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                            <Link
+                                href="https://bondintelligence.cloud.looker.com/embed/dashboards/12?edit=true&Cusip=000361105&Datadate%20Year=2017&filter_config=%7B%22Cusip%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%22000361105%22%7D,%7B%7D%5D,%22id%22:4%7D%5D,%22Datadate%20Year%22:%5B%7B%22type%22:%22year%22,%22values%22:%5B%7B%22constant%22:%222017%22%7D,%7B%7D%5D,%22id%22:5%7D%5D%7D"
+                                target="_blank"
+                                sandbox="allow-scripts allow-modals allow-popups"
+                            >
                                 <Flex justifyContent="space-around">
                                     <img
                                         id="BoardEx"
@@ -327,16 +502,16 @@ class Dashboards extends React.Component {
                                         Corporate Financial Fundamentals
                                     </Text>
                                 </Flex>
-                            </Box>
-                        </Link>
+                            </Link>
+                        </Box>
 
                         {/*Corporate Financial Ratios BUTTON*/}
-                        <Link
-                            href="https://bondintelligence.cloud.looker.com/embed/dashboards/10?Cusip=00036110&filter_config=%7B%22Cusip%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2200036110%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
-                            target="_blank"
-                            sandbox="allow-scripts allow-modals allow-popups"
-                        >
-                            <Box style={boxStyle}>
+                        <Box className="box8" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                            <Link
+                                href="https://bondintelligence.cloud.looker.com/embed/dashboards/10?Cusip=00036110&filter_config=%7B%22Cusip%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2200036110%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
+                                target="_blank"
+                                sandbox="allow-scripts allow-modals allow-popups"
+                            >
                                 <Flex justifyContent="space-around">
                                     <img
                                         id="BoardEx"
@@ -354,20 +529,21 @@ class Dashboards extends React.Component {
                                         Corporate Financial Ratios
                                     </Text>
                                 </Flex>
-                            </Box>
-                        </Link>
+                            </Link>
+                        </Box>
                         <Space height="10vh" />
                     </Flex>
 
                     {/* ROW 4 */}
                     <Flex justifyContent="space-around" flexWrap="wrap">
                         {/*Muni Forecast BUTTON*/}
-                        <Link
-                            href="https://bondintelligence.cloud.looker.com/embed/dashboards/28?edit=true&CUSIP%20Parameter=01757LFH4&filter_config=%7B%22CUSIP%20Parameter%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2201757LFH4%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
-                            target="_blank"
-                            sandbox="allow-scripts allow-modals allow-popups"
-                        >
-                            <Box style={boxStyle}>
+                        <Box className="box9" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                            <Link
+                                href="https://bondintelligence.cloud.looker.com/embed/dashboards/28?edit=true&CUSIP%20Parameter=01757LFH4&filter_config=%7B%22CUSIP%20Parameter%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2201757LFH4%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
+                                target="_blank"
+                                sandbox="allow-scripts allow-modals allow-popups"
+                            >
+
                                 <Flex justifyContent="space-around">
                                     <img
                                         id="BoardEx"
@@ -385,16 +561,16 @@ class Dashboards extends React.Component {
                                         Muni Forecast
                                     </Text>
                                 </Flex>
-                            </Box>
-                        </Link>
+                            </Link>
+                        </Box>
 
                         {/*Municipal Bond Issuances BUTTON*/}
-                        <Link
-                            href="https://bondintelligence.cloud.looker.com/embed/dashboards/14?edit=true&cusip=09845N&filter_config=%7B%22cusip%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2209845N%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
-                            target="_blank"
-                            sandbox="allow-scripts allow-modals allow-popups"
-                        >
-                            <Box style={boxStyle}>
+                        <Box className="box10" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                            <Link
+                                href="https://bondintelligence.cloud.looker.com/embed/dashboards/14?edit=true&cusip=09845N&filter_config=%7B%22cusip%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2209845N%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
+                                target="_blank"
+                                sandbox="allow-scripts allow-modals allow-popups"
+                            >
                                 <Flex justifyContent="space-around">
                                     <img
                                         id="BoardEx"
@@ -412,16 +588,16 @@ class Dashboards extends React.Component {
                                         Municipal Bond Issuances
                                     </Text>
                                 </Flex>
-                            </Box>
-                        </Link>
+                            </Link>
+                        </Box>
 
                         {/*Municipal Bond Trades BUTTON*/}
-                        <Link
-                            href="https://bondintelligence.cloud.looker.com/embed/dashboards/16?edit=true&CUSIP=00037CKQ2&filter_config=%7B%22CUSIP%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2200037CKQ2%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
-                            target="_blank"
-                            sandbox="allow-scripts allow-modals allow-popups"
-                        >
-                            <Box style={boxStyle}>
+                        <Box className="box11" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                            <Link
+                                href="https://bondintelligence.cloud.looker.com/embed/dashboards/16?edit=true&CUSIP=00037CKQ2&filter_config=%7B%22CUSIP%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2200037CKQ2%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
+                                target="_blank"
+                                sandbox="allow-scripts allow-modals allow-popups"
+                            >
                                 <Flex justifyContent="space-around">
                                     <img
                                         id="BoardEx"
@@ -439,20 +615,20 @@ class Dashboards extends React.Component {
                                         Municipal Bond Trades
                                     </Text>
                                 </Flex>
-                            </Box>
-                        </Link>
+                            </Link>
+                        </Box>
                         <Space height="10vh" />
                     </Flex>
 
                     {/* ROW 5 */}
                     <Flex justifyContent="space-around" flexWrap="wrap">
                         {/*Sentiment Analysis BUTTON*/}
-                        <Link
-                            href="https://bondintelligence.cloud.looker.com/embed/dashboards/11?edit=true&Entity%20Name=%22Texas,%20TX,%20US%22&News%20Story%20ID=&filter_config=%7B%22Entity%20Name%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%22Texas%5C%5C,%20TX%5C%5C,%20US%22%7D,%7B%7D%5D,%22id%22:4%7D%5D,%22News%20Story%20ID%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%22%22%7D,%7B%7D%5D,%22id%22:5%7D%5D%7D"
-                            target="_blank"
-                            sandbox="allow-scripts allow-modals allow-popups"
-                        >
-                            <Box style={boxStyle}>
+                        <Box className="box12" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                            <Link
+                                href="https://bondintelligence.cloud.looker.com/embed/dashboards/11?edit=true&Entity%20Name=%22Texas,%20TX,%20US%22&News%20Story%20ID=&filter_config=%7B%22Entity%20Name%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%22Texas%5C%5C,%20TX%5C%5C,%20US%22%7D,%7B%7D%5D,%22id%22:4%7D%5D,%22News%20Story%20ID%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%22%22%7D,%7B%7D%5D,%22id%22:5%7D%5D%7D"
+                                target="_blank"
+                                sandbox="allow-scripts allow-modals allow-popups"
+                            >
                                 <Flex justifyContent="space-around">
                                     <img
                                         id="BoardEx"
@@ -470,8 +646,8 @@ class Dashboards extends React.Component {
                                         Sentiment Analysis
                                     </Text>
                                 </Flex>
-                            </Box>
-                        </Link>
+                            </Link>
+                        </Box>
                     </Flex>
 
                     <Space style={bgColor} height="100px" />

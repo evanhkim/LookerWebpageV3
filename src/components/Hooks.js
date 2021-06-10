@@ -24,7 +24,7 @@ export const Message = () => {
         <>
             <ComponentsProvider>
                 <div align="center" width="100%" height="12vh" style={{ backgroundColor: "#131722" }}>
-                    <Text style={{ lineHeight: "12vh" }} fontSize="50px" color="#9B9EA3">
+                    <Text style={{ lineHeight: "12vh", fontFamily: "Helvetica"}} fontSize="50px" color="#9B9EA3">
                         {message}
                     </Text>
                 </div>

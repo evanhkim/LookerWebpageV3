@@ -25,6 +25,7 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { App } from './App'
+import './App.css'
 
 window.addEventListener('DOMContentLoaded', () => {
   // document.getElementById("id").removeAttribute("style")
