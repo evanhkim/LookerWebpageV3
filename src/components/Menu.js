@@ -61,7 +61,7 @@ const buttonHighlightColor = "#2A2E39"
 function highlightBackground(e) {
 
   let targ = e.target.parentNode.parentNode.parentNode
-  if (targ.className === "Flex-sc-1ak395a-0 eKOpFd") {
+  if (targ.className.substring(0, 4) === "Flex") {
     let linkerClassName = e.target.parentNode.parentNode.className
     switch (linkerClassName) {
       case "link0":
@@ -69,9 +69,6 @@ function highlightBackground(e) {
         break;
       case "link1":
         targ = targ.children[1];
-        break;
-      case "Link-sc-165dqum-1 lfXXSQ": // Auto-generated for <Link> tags on Chrome
-        targ = targ.children[2];
         break;
       case "link3":
         targ = targ.children[3];
@@ -131,7 +128,7 @@ function highlightBackground(e) {
 function unhighlightBackground(e) {
 
   let targ = e.target.parentNode.parentNode.parentNode
-  if (targ.className === "Flex-sc-1ak395a-0 eKOpFd") {
+  if (targ.className.substring(0, 4) === "Flex") {
     let linkerClassName = e.target.parentNode.parentNode.className
     switch (linkerClassName) {
       case "link0":
@@ -139,9 +136,6 @@ function unhighlightBackground(e) {
         break;
       case "link1":
         targ = targ.children[1];
-        break;
-      case "Link-sc-165dqum-1 lfXXSQ": // Auto-generated for <Link> tags on Chrome
-        targ = targ.children[2];
         break;
       case "link3":
         targ = targ.children[3];

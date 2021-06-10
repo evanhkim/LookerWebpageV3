@@ -41,7 +41,6 @@ import Menu from './Menu'
 import { StackedLineChart as ForecastsIcon, Gavel, Business, CorporateFare, AccountBalance } from '@styled-icons/material'
 import { iconStyle } from './HomePage.js'
 
-
 const bgColor = {
   backgroundColor: "#131722"
 }
@@ -61,25 +60,27 @@ function highlightBoxButtonBackground(e) {
 
   let targ;
   let targetName = e.target.className
-  switch (targetName) {
-    case "Box-sc-5738oh-0 gKGXwr box0":
-      targ = e.target;
-      break;
-    case "Box-sc-5738oh-0 gKGXwr box1":
-      targ = e.target;
-      break;
-    case "Box-sc-5738oh-0 gKGXwr box2":
-      targ = e.target;
-      break;
-    case "Flex-sc-1ak395a-0 dcdUyk":
-      targ = e.target.parentNode.parentNode;
-      break;
-    default:
-      targ = e.target.parentNode.parentNode.parentNode;
-      break;
+  if (e.target.className.baseVal === undefined) {
+    switch (e.target.className.substring((e.target.className.length - 4), e.target.className.length)) {
+      case "box0":
+        targ = e.target;
+        break;
+      case "box1":
+        targ = e.target;
+        break;
+      default:
+        if (targetName.substring(0, 4) === "Flex") {
+          targ = e.target.parentNode
+        } else {
+          targ = e.target.parentNode.parentNode.parentNode
+        }
+        break;
+    }
+  } else {
+    targ = e.target.parentNode.parentNode.parentNode
   }
 
-  if (targ.className === "Link-sc-165dqum-1 lfXXSQ") {
+  if (targ.className.substring(0, 4) === "Link") {
     targ = targ.parentNode
   }
 
@@ -110,25 +111,27 @@ function unhighlightBoxButtonBackground(e) {
 
   let targ;
   let targetName = e.target.className
-  switch (targetName) {
-    case "Box-sc-5738oh-0 gKGXwr box0":
-      targ = e.target;
-      break;
-    case "Box-sc-5738oh-0 gKGXwr box1":
-      targ = e.target;
-      break;
-    case "Box-sc-5738oh-0 gKGXwr box2":
-      targ = e.target;
-      break;
-    case "Flex-sc-1ak395a-0 dcdUyk":
-      targ = e.target.parentNode.parentNode;
-      break;
-    default:
-      targ = e.target.parentNode.parentNode.parentNode;
-      break;
+  if (e.target.className.baseVal === undefined) {
+    switch (e.target.className.substring((e.target.className.length - 4), e.target.className.length)) {
+      case "box0":
+        targ = e.target;
+        break;
+      case "box1":
+        targ = e.target;
+        break;
+      default:
+        if (targetName.substring(0, 4) === "Flex") {
+          targ = e.target.parentNode
+        } else {
+          targ = e.target.parentNode.parentNode.parentNode
+        }
+        break;
+    }
+  } else {
+    targ = e.target.parentNode.parentNode.parentNode
   }
 
-  if (targ.className === "Link-sc-165dqum-1 lfXXSQ") {
+  if (targ.className.substring(0, 4) === "Link") {
     targ = targ.parentNode
   }
 

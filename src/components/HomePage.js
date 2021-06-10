@@ -85,43 +85,47 @@ const buttonHighlightColor = "#2A2E39"
 
 function highlightBoxButtonBackground(e) {
 
-  console.log(e.target)
   let targ;
   let targetName = e.target.className
-  switch (targetName) {
-    case "Box-sc-5738oh-0 gKGXwr box0":
-      targ = e.target;
-      break;
-    case "Box-sc-5738oh-0 gKGXwr box1":
-      targ = e.target;
-      break;
-    case "Box-sc-5738oh-0 gKGXwr box2":
-      targ = e.target;
-      break;
-    case "Box-sc-5738oh-0 gKGXwr box3":
-      targ = e.target;
-      break;
-    case "Box-sc-5738oh-0 gKGXwr box4":
-      targ = e.target;
-      break;
-    case "Box-sc-5738oh-0 gKGXwr box5":
-      targ = e.target;
-      break;
-    case "Box-sc-5738oh-0 gKGXwr box6":
-      targ = e.target;
-      break;
-    case "Box-sc-5738oh-0 gKGXwr box7":
-      targ = e.target;
-      break;
-    case "Box-sc-5738oh-0 gKGXwr box8":
-      targ = e.target;
-      break;
-    case "Flex-sc-1ak395a-0 dcdUyk":
-      targ = e.target.parentNode.parentNode;
-      break;
-    default:
-      targ = e.target.parentNode.parentNode.parentNode;
-      break;
+  if (e.target.className.baseVal === undefined) {
+    switch (e.target.className.substring((e.target.className.length - 4), e.target.className.length)) {
+      case "box0":
+        targ = e.target;
+        break;
+      case "box1":
+        targ = e.target;
+        break;
+      case "box2":
+        targ = e.target;
+        break;
+      case "box3":
+        targ = e.target;
+        break;
+      case "box4":
+        targ = e.target;
+        break;
+      case "box5":
+        targ = e.target;
+        break;
+      case "box6":
+        targ = e.target;
+        break;
+      case "box7":
+        targ = e.target;
+        break;
+      case "box8":
+        targ = e.target;
+        break;
+      default:
+        if (targetName.substring(0, 4) === "Flex") {
+          targ = e.target.parentNode.parentNode
+        } else {
+          targ = e.target.parentNode.parentNode.parentNode
+        }
+        break;
+    }
+  } else {
+    targ = e.target.parentNode.parentNode
   }
 
   targ.style.backgroundColor = buttonHighlightColor
@@ -151,40 +155,45 @@ function unhighlightBoxButtonBackground(e) {
 
   let targ;
   let targetName = e.target.className
-  switch (targetName) {
-    case "Box-sc-5738oh-0 gKGXwr box0":
-      targ = e.target;
-      break;
-    case "Box-sc-5738oh-0 gKGXwr box1":
-      targ = e.target;
-      break;
-    case "Box-sc-5738oh-0 gKGXwr box2":
-      targ = e.target;
-      break;
-    case "Box-sc-5738oh-0 gKGXwr box3":
-      targ = e.target;
-      break;
-    case "Box-sc-5738oh-0 gKGXwr box4":
-      targ = e.target;
-      break;
-    case "Box-sc-5738oh-0 gKGXwr box5":
-      targ = e.target;
-      break;
-    case "Box-sc-5738oh-0 gKGXwr box6":
-      targ = e.target;
-      break;
-    case "Box-sc-5738oh-0 gKGXwr box7":
-      targ = e.target;
-      break;
-    case "Box-sc-5738oh-0 gKGXwr box8":
-      targ = e.target;
-      break;
-    case "Flex-sc-1ak395a-0 dcdUyk":
-      targ = e.target.parentNode.parentNode;
-      break;
-    default:
-      targ = e.target.parentNode.parentNode.parentNode;
-      break;
+  if (e.target.className.baseVal === undefined) {
+    switch (e.target.className.substring((e.target.className.length - 4), e.target.className.length)) {
+      case "box0":
+        targ = e.target;
+        break;
+      case "box1":
+        targ = e.target;
+        break;
+      case "box2":
+        targ = e.target;
+        break;
+      case "box3":
+        targ = e.target;
+        break;
+      case "box4":
+        targ = e.target;
+        break;
+      case "box5":
+        targ = e.target;
+        break;
+      case "box6":
+        targ = e.target;
+        break;
+      case "box7":
+        targ = e.target;
+        break;
+      case "box8":
+        targ = e.target;
+        break;
+      default:
+        if (targetName.substring(0, 4) === "Flex") {
+          targ = e.target.parentNode.parentNode
+        } else {
+          targ = e.target.parentNode.parentNode.parentNode
+        }
+        break;
+    }
+  } else {
+    targ = e.target.parentNode.parentNode
   }
 
   targ.style.backgroundColor = menuBackgroundColor
@@ -394,7 +403,7 @@ class HomePage extends React.Component {
                   >
                     <Box className="box0" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                       <Flex justifyContent="space-around">
-                        <DashboardsIcon style={iconStyle} size="340" />
+                        <DashboardsIcon className="icon0" style={iconStyle} size="340" />
                       </Flex>
                       <Flex justifyContent="space-around">
                         <Text
@@ -418,7 +427,7 @@ class HomePage extends React.Component {
                   >
                     <Box className="box1" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                       <Flex justifyContent="space-around">
-                        <DataDictionaryIcon style={iconStyle} size="340" />
+                        <DataDictionaryIcon className="icon1" style={iconStyle} size="340" />
                       </Flex>
                       <Flex justifyContent="space-around">
                         <Text
@@ -439,7 +448,7 @@ class HomePage extends React.Component {
                   >
                     <Box className="box2" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                       <Flex justifyContent="space-around">
-                        <ModelsIcon style={iconStyle} size="340" />
+                        <ModelsIcon className="icon2" style={iconStyle} size="340" />
                       </Flex>
                       <Flex justifyContent="space-around">
                         <Text
@@ -464,7 +473,7 @@ class HomePage extends React.Component {
                   >
                     <Box className="box3" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                       <Flex justifyContent="space-around">
-                        <ScreenerIcon style={iconStyle} size="340" />
+                        <ScreenerIcon className="icon3" style={iconStyle} size="340" />
                       </Flex>
                       <Flex justifyContent="space-around">
                         <Text
@@ -485,7 +494,7 @@ class HomePage extends React.Component {
                   >
                     <Box className="box4" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                       <Flex justifyContent="space-around">
-                        <RelValIcon style={iconStyle} size="340" />
+                        <RelValIcon className="icon4" style={iconStyle} size="340" />
                       </Flex>
                       <Flex justifyContent="space-around">
                         <Text
@@ -506,7 +515,7 @@ class HomePage extends React.Component {
                   >
                     <Box className="box5" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                       <Flex justifyContent="space-around">
-                        <EtradeIcon style={iconStyle} size="340" />
+                        <EtradeIcon className="icon5" style={iconStyle} size="340" />
                       </Flex>
                       <Flex justifyContent="space-around">
                         <Text
@@ -531,7 +540,7 @@ class HomePage extends React.Component {
                   >
                     <Box className="box6" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                       <Flex justifyContent="space-around">
-                        <InsightsIcon style={iconStyle} size="340" />
+                        <InsightsIcon className="icon6" style={iconStyle} size="340" />
                       </Flex>
                       <Flex justifyContent="space-around">
                         <Text
@@ -552,7 +561,7 @@ class HomePage extends React.Component {
                   >
                     <Box className="box7" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                       <Flex justifyContent="space-around">
-                        <MarketDataIcon style={iconStyle} size="340" />
+                        <MarketDataIcon className="icon7" style={iconStyle} size="340" />
                       </Flex>
                       <Flex justifyContent="space-around">
                         <Text
@@ -573,7 +582,7 @@ class HomePage extends React.Component {
                   >
                     <Box className="box8" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                       <Flex justifyContent="space-around">
-                        <ForecastsIcon style={iconStyle} size="340" />
+                        <ForecastsIcon className="icon8" style={iconStyle} size="340" />
                       </Flex>
                       <Flex justifyContent="space-around">
                         <Text

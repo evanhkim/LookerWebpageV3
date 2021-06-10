@@ -82,55 +82,59 @@ function highlightBoxButtonBackground(e) {
 
     let targ;
     let targetName = e.target.className
-    switch (targetName) {
-        case "Box-sc-5738oh-0 gKGXwr box0":
-            targ = e.target;
-            break;
-        case "Box-sc-5738oh-0 gKGXwr box1":
-            targ = e.target;
-            break;
-        case "Box-sc-5738oh-0 gKGXwr box2":
-            targ = e.target;
-            break;
-        case "Box-sc-5738oh-0 gKGXwr box3":
-            targ = e.target;
-            break;
-        case "Box-sc-5738oh-0 gKGXwr box4":
-            targ = e.target;
-            break;
-        case "Box-sc-5738oh-0 gKGXwr box5":
-            targ = e.target;
-            break;
-        case "Box-sc-5738oh-0 gKGXwr box6":
-            targ = e.target;
-            break;
-        case "Box-sc-5738oh-0 gKGXwr box7":
-            targ = e.target;
-            break;
-        case "Box-sc-5738oh-0 gKGXwr box8":
-            targ = e.target;
-            break;
-        case "Box-sc-5738oh-0 gKGXwr box9":
-            targ = e.target;
-            break;
-        case "Box-sc-5738oh-0 gKGXwr box10":
-            targ = e.target;
-            break;
-        case "Box-sc-5738oh-0 gKGXwr box11":
-            targ = e.target;
-            break;
-        case "Box-sc-5738oh-0 gKGXwr box12":
-            targ = e.target;
-            break;
-        case "Link-sc-165dqum-1 lfXXSQ":
-            targ = e.target;
-            break;
-        case "Flex-sc-1ak395a-0 dcdUyk":
-            targ = e.target.parentNode.parentNode;
-            break;
-        default:
-            targ = e.target.parentNode.parentNode.parentNode;
-            break;
+    if (e.target.className.substring(0, 3) === "img") {
+        targ = e.target.parentNode.parentNode.parentNode
+    } else {
+        switch (e.target.className.substring((e.target.className.length - 4), e.target.className.length)) {
+            case "box0":
+                targ = e.target;
+                break;
+            case "box1":
+                targ = e.target;
+                break;
+            case "box2":
+                targ = e.target;
+                break;
+            case "box3":
+                targ = e.target;
+                break;
+            case "box4":
+                targ = e.target;
+                break;
+            case "box5":
+                targ = e.target;
+                break;
+            case "box6":
+                targ = e.target;
+                break;
+            case "box7":
+                targ = e.target;
+                break;
+            case "box8":
+                targ = e.target;
+                break;
+            case "box9":
+                targ = e.target;
+                break;
+            case "box10":
+                targ = e.target;
+                break;
+            case "box11":
+                targ = e.target;
+                break;
+            case "box12":
+                targ = e.target;
+                break;
+            default:
+                if (targetName.substring(0, 4) === "Flex") {
+                    targ = e.target.parentNode.parentNode
+                } else if (targetName.substring(0, 3) === "Box") {
+                    targ = e.target
+                } else {
+                    targ = e.target.parentNode.parentNode.parentNode
+                }
+                break;
+        }
     }
 
     targ.style.backgroundColor = buttonHighlightColor
@@ -160,55 +164,59 @@ function unhighlightBoxButtonBackground(e) {
 
     let targ;
     let targetName = e.target.className
-    switch (targetName) {
-        case "Box-sc-5738oh-0 gKGXwr box0":
-            targ = e.target;
-            break;
-        case "Box-sc-5738oh-0 gKGXwr box1":
-            targ = e.target;
-            break;
-        case "Box-sc-5738oh-0 gKGXwr box2":
-            targ = e.target;
-            break;
-        case "Box-sc-5738oh-0 gKGXwr box3":
-            targ = e.target;
-            break;
-        case "Box-sc-5738oh-0 gKGXwr box4":
-            targ = e.target;
-            break;
-        case "Box-sc-5738oh-0 gKGXwr box5":
-            targ = e.target;
-            break;
-        case "Box-sc-5738oh-0 gKGXwr box6":
-            targ = e.target;
-            break;
-        case "Box-sc-5738oh-0 gKGXwr box7":
-            targ = e.target;
-            break;
-        case "Box-sc-5738oh-0 gKGXwr box8":
-            targ = e.target;
-            break;
-        case "Box-sc-5738oh-0 gKGXwr box9":
-            targ = e.target;
-            break;
-        case "Box-sc-5738oh-0 gKGXwr box10":
-            targ = e.target;
-            break;
-        case "Box-sc-5738oh-0 gKGXwr box11":
-            targ = e.target;
-            break;
-        case "Box-sc-5738oh-0 gKGXwr box12":
-            targ = e.target;
-            break;
-        case "Link-sc-165dqum-1 lfXXSQ":
-            targ = e.target;
-            break;
-        case "Flex-sc-1ak395a-0 dcdUyk":
-            targ = e.target.parentNode.parentNode;
-            break;
-        default:
-            targ = e.target.parentNode.parentNode.parentNode;
-            break;
+    if (e.target.className.substring(0, 3) === "img") {
+        targ = e.target.parentNode.parentNode.parentNode
+    } else {
+        switch (e.target.className.substring((e.target.className.length - 4), e.target.className.length)) {
+            case "box0":
+                targ = e.target;
+                break;
+            case "box1":
+                targ = e.target;
+                break;
+            case "box2":
+                targ = e.target;
+                break;
+            case "box3":
+                targ = e.target;
+                break;
+            case "box4":
+                targ = e.target;
+                break;
+            case "box5":
+                targ = e.target;
+                break;
+            case "box6":
+                targ = e.target;
+                break;
+            case "box7":
+                targ = e.target;
+                break;
+            case "box8":
+                targ = e.target;
+                break;
+            case "box9":
+                targ = e.target;
+                break;
+            case "box10":
+                targ = e.target;
+                break;
+            case "box11":
+                targ = e.target;
+                break;
+            case "box12":
+                targ = e.target;
+                break;
+            default:
+                if (targetName.substring(0, 4) === "Flex") {
+                    targ = e.target.parentNode.parentNode
+                } else if (targetName.substring(0, 3) === "Box") {
+                    targ = e.target
+                } else {
+                    targ = e.target.parentNode.parentNode.parentNode
+                }
+                break;
+        }
     }
 
     targ.style.backgroundColor = menuBackgroundColor
@@ -276,6 +284,7 @@ class Dashboards extends React.Component {
                                 <Flex justifyContent="space-around">
                                     <img
                                         id="BoardEx"
+                                        className="img"
                                         width="360"
                                         height="170"
                                         src="https://drive.google.com/uc?id=1YDJFLmMSGbaVEu1TGYBJWh6bDP5dsF0V"
@@ -303,6 +312,7 @@ class Dashboards extends React.Component {
                                 <Flex justifyContent="space-around">
                                     <img
                                         id="BoardEx"
+                                        className="img"
                                         width="360"
                                         height="170"
                                         src="https://drive.google.com/uc?id=1tWwdqJYoLk4QEEcLoWDn5i4ZpCJkjbi-"
@@ -331,6 +341,7 @@ class Dashboards extends React.Component {
                                 <Flex justifyContent="space-around">
                                     <img
                                         id="BoardEx"
+                                        className="img"
                                         width="360"
                                         height="170"
                                         src="https://drive.google.com/uc?id=1XqEQsNZQQxO3nsjs8DtCkR6cZ5WdpFUI"
@@ -362,6 +373,7 @@ class Dashboards extends React.Component {
                                 <Flex justifyContent="space-around">
                                     <img
                                         id="BoardEx"
+                                        className="img"
                                         width="360"
                                         height="170"
                                         src="https://drive.google.com/uc?id=1px6zqxNbzvbAGIDjT-3-ha-EfIoRFRNI"
@@ -389,6 +401,7 @@ class Dashboards extends React.Component {
                                 <Flex justifyContent="space-around">
                                     <img
                                         id="BoardEx"
+                                        className="img"
                                         width="360"
                                         height="170"
                                         src="https://drive.google.com/uc?id=1ZLj6-B9EJ7n1AFCLfSrFeKGR3s_aC5dv"
@@ -416,6 +429,7 @@ class Dashboards extends React.Component {
                                 <Flex justifyContent="space-around">
                                     <img
                                         id="BoardEx"
+                                        className="img"
                                         width="360"
                                         height="170"
                                         src="https://drive.google.com/uc?id=162u8DQ7qWWJYY09kIckzwauaw7q9fH56"
@@ -447,6 +461,7 @@ class Dashboards extends React.Component {
                                 <Flex justifyContent="space-around">
                                     <img
                                         id="BoardEx"
+                                        className="img"
                                         width="360"
                                         height="170"
                                         src="https://drive.google.com/uc?id=1pwT868NRiTszfz09611zihknIgHXnidu"
@@ -474,6 +489,7 @@ class Dashboards extends React.Component {
                                 <Flex justifyContent="space-around">
                                     <img
                                         id="BoardEx"
+                                        className="img"
                                         width="360"
                                         height="170"
                                         src="https://drive.google.com/uc?id=1f1UpVjMlVOtm77CuBAUlh5-uWKYnmidx"
@@ -501,6 +517,7 @@ class Dashboards extends React.Component {
                                 <Flex justifyContent="space-around">
                                     <img
                                         id="BoardEx"
+                                        className="img"
                                         width="360"
                                         height="170"
                                         src="https://drive.google.com/uc?id=1-cTb8kbbEbd6P_CHqJ0ddVYVumdcoUwm"
@@ -533,6 +550,7 @@ class Dashboards extends React.Component {
                                 <Flex justifyContent="space-around">
                                     <img
                                         id="BoardEx"
+                                        className="img"
                                         width="360"
                                         height="170"
                                         src="https://drive.google.com/uc?id=1D645Z_qHkun__ejNqG0tGbJYB7I6Esbq"
@@ -560,6 +578,7 @@ class Dashboards extends React.Component {
                                 <Flex justifyContent="space-around">
                                     <img
                                         id="BoardEx"
+                                        className="img"
                                         width="360"
                                         height="170"
                                         src="https://drive.google.com/uc?id=1LpUx7Z29Yz7o-XT74TfZdk9Mx962bnJe"
@@ -587,6 +606,7 @@ class Dashboards extends React.Component {
                                 <Flex justifyContent="space-around">
                                     <img
                                         id="BoardEx"
+                                        className="img"
                                         width="360"
                                         height="170"
                                         src="https://drive.google.com/uc?id=1P6RaxlIiAEDGrZjfNNlaXJbZDy2jC9vJ"
@@ -618,6 +638,7 @@ class Dashboards extends React.Component {
                                 <Flex justifyContent="space-around">
                                     <img
                                         id="BoardEx"
+                                        className="img"
                                         width="360"
                                         height="170"
                                         src="https://drive.google.com/uc?id=1TNXsg07ZvhL5-7y1Lue74ce1zp6j9SSz"
