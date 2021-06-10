@@ -78,6 +78,16 @@ const menuBackgroundColor = "#1f2436"
 
 const buttonHighlightColor = "#2A2E39"
 
+function traverseDescendants(node, highlightColor) {
+
+    node.style.backgroundColor = highlightColor
+    if (node.children.length > 0) {
+        for (let i = 0; i < node.children.length; i++) {
+            traverseDescendants(node.children[i], highlightColor)
+        }
+    }
+}
+
 function highlightBoxButtonBackground(e) {
 
     let targ;
@@ -137,27 +147,7 @@ function highlightBoxButtonBackground(e) {
         }
     }
 
-    targ.style.backgroundColor = buttonHighlightColor
-    if (targ.children.length > 0) {
-        for (let i = 0; i < targ.children.length; i++) {
-            targ.children[i].style.backgroundColor = buttonHighlightColor
-            if (targ.children[i].children.length > 0) {
-                for (let j = 0; j < targ.children[i].children.length; j++) {
-                    targ.children[i].children[j].style.backgroundColor = buttonHighlightColor
-                    if (targ.children[i].children[j].children.length > 0) {
-                        for (let k = 0; k < targ.children[i].children[j].children.length; k++) {
-                            targ.children[i].children[j].children[k].style.backgroundColor = buttonHighlightColor
-                            if (targ.children[i].children[j].children[k].children.length > 0) {
-                                for (let m = 0; m < targ.children[i].children[j].children[k].children.length; m++) {
-                                    targ.children[i].children[j].children[k].children[m].style.backgroundColor = buttonHighlightColor
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+    traverseDescendants(targ, buttonHighlightColor)
 }
 
 function unhighlightBoxButtonBackground(e) {
@@ -219,27 +209,7 @@ function unhighlightBoxButtonBackground(e) {
         }
     }
 
-    targ.style.backgroundColor = menuBackgroundColor
-    if (targ.children.length > 0) {
-        for (let i = 0; i < targ.children.length; i++) {
-            targ.children[i].style.backgroundColor = menuBackgroundColor
-            if (targ.children[i].children.length > 0) {
-                for (let j = 0; j < targ.children[i].children.length; j++) {
-                    targ.children[i].children[j].style.backgroundColor = menuBackgroundColor
-                    if (targ.children[i].children[j].children.length > 0) {
-                        for (let k = 0; k < targ.children[i].children[j].children.length; k++) {
-                            targ.children[i].children[j].children[k].style.backgroundColor = menuBackgroundColor
-                            if (targ.children[i].children[j].children[k].children.length > 0) {
-                                for (let m = 0; m < targ.children[i].children[j].children[k].children.length; m++) {
-                                    targ.children[i].children[j].children[k].children[m].style.backgroundColor = menuBackgroundColor
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+    traverseDescendants(targ, menuBackgroundColor)
 }
 
 function underlineText(e) {
@@ -280,6 +250,7 @@ class Dashboards extends React.Component {
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/17?Company%20Name=&filter_config=%7B%22Company%20Name%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%22%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
                                 target="_blank"
                                 sandbox="allow-scripts allow-modals allow-popups"
+                                style={{ textDecorationColor: "#3281C5" }}
                             >
                                 <Flex justifyContent="space-around">
                                     <img
@@ -308,6 +279,7 @@ class Dashboards extends React.Component {
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/6?CUSIP=035824AN1&filter_config=%7B%22CUSIP%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%22035824AN1%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
                                 target="_blank"
                                 sandbox="allow-scripts allow-modals allow-popups"
+                                style={{ textDecorationColor: "#3281C5" }}
                             >
                                 <Flex justifyContent="space-around">
                                     <img
@@ -336,6 +308,7 @@ class Dashboards extends React.Component {
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/29?CUSIP=36962GXZ2&filter_config=%7B%22CUSIP%22:%5B%7B%22type%22:%22advanced%22,%22values%22:%5B%7B%22constant%22:%2236962GXZ2%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
                                 target="_blank"
                                 sandbox="allow-scripts allow-modals allow-popups"
+                                style={{ textDecorationColor: "#3281C5" }}
                             >
 
                                 <Flex justifyContent="space-around">
@@ -369,6 +342,7 @@ class Dashboards extends React.Component {
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/10?edit=true&Complete%20CUSIP=00077DAF6&filter_config=%7B%22Complete%20CUSIP%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2200077DAF6%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
                                 target="_blank"
                                 sandbox="allow-scripts allow-modals allow-popups"
+                                style={{ textDecorationColor: "#3281C5" }}
                             >
                                 <Flex justifyContent="space-around">
                                     <img
@@ -397,6 +371,7 @@ class Dashboards extends React.Component {
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/7?CUSIP=247367AX3&filter_config=%7B%22CUSIP%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%22247367AX3%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
                                 target="_blank"
                                 sandbox="allow-scripts allow-modals allow-popups"
+                                style={{ textDecorationColor: "#3281C5" }}
                             >
                                 <Flex justifyContent="space-around">
                                     <img
@@ -425,6 +400,7 @@ class Dashboards extends React.Component {
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/22?Cusip=02079KAC1&filter_config=%7B%22Cusip%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2202079KAC1%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
                                 target="_blank"
                                 sandbox="allow-scripts allow-modals allow-popups"
+                                style={{ textDecorationColor: "#3281C5" }}
                             >
                                 <Flex justifyContent="space-around">
                                     <img
@@ -457,6 +433,7 @@ class Dashboards extends React.Component {
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/9?CUSIP=38259PAB8&filter_config=%7B%22CUSIP%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2238259PAB8%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
                                 target="_blank"
                                 sandbox="allow-scripts allow-modals allow-popups"
+                                style={{ textDecorationColor: "#3281C5" }}
                             >
                                 <Flex justifyContent="space-around">
                                     <img
@@ -485,6 +462,7 @@ class Dashboards extends React.Component {
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/12?edit=true&Cusip=000361105&Datadate%20Year=2017&filter_config=%7B%22Cusip%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%22000361105%22%7D,%7B%7D%5D,%22id%22:4%7D%5D,%22Datadate%20Year%22:%5B%7B%22type%22:%22year%22,%22values%22:%5B%7B%22constant%22:%222017%22%7D,%7B%7D%5D,%22id%22:5%7D%5D%7D"
                                 target="_blank"
                                 sandbox="allow-scripts allow-modals allow-popups"
+                                style={{ textDecorationColor: "#3281C5" }}
                             >
                                 <Flex justifyContent="space-around">
                                     <img
@@ -513,6 +491,7 @@ class Dashboards extends React.Component {
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/10?Cusip=00036110&filter_config=%7B%22Cusip%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2200036110%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
                                 target="_blank"
                                 sandbox="allow-scripts allow-modals allow-popups"
+                                style={{ textDecorationColor: "#3281C5" }}
                             >
                                 <Flex justifyContent="space-around">
                                     <img
@@ -545,6 +524,7 @@ class Dashboards extends React.Component {
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/28?edit=true&CUSIP%20Parameter=01757LFH4&filter_config=%7B%22CUSIP%20Parameter%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2201757LFH4%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
                                 target="_blank"
                                 sandbox="allow-scripts allow-modals allow-popups"
+                                style={{ textDecorationColor: "#3281C5" }}
                             >
 
                                 <Flex justifyContent="space-around">
@@ -574,6 +554,7 @@ class Dashboards extends React.Component {
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/14?edit=true&cusip=09845N&filter_config=%7B%22cusip%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2209845N%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
                                 target="_blank"
                                 sandbox="allow-scripts allow-modals allow-popups"
+                                style={{ textDecorationColor: "#3281C5" }}
                             >
                                 <Flex justifyContent="space-around">
                                     <img
@@ -602,6 +583,7 @@ class Dashboards extends React.Component {
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/16?edit=true&CUSIP=00037CKQ2&filter_config=%7B%22CUSIP%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2200037CKQ2%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
                                 target="_blank"
                                 sandbox="allow-scripts allow-modals allow-popups"
+                                style={{ textDecorationColor: "#3281C5" }}
                             >
                                 <Flex justifyContent="space-around">
                                     <img
@@ -634,6 +616,7 @@ class Dashboards extends React.Component {
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/11?edit=true&Entity%20Name=%22Texas,%20TX,%20US%22&News%20Story%20ID=&filter_config=%7B%22Entity%20Name%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%22Texas%5C%5C,%20TX%5C%5C,%20US%22%7D,%7B%7D%5D,%22id%22:4%7D%5D,%22News%20Story%20ID%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%22%22%7D,%7B%7D%5D,%22id%22:5%7D%5D%7D"
                                 target="_blank"
                                 sandbox="allow-scripts allow-modals allow-popups"
+                                style={{ textDecorationColor: "#3281C5" }}
                             >
                                 <Flex justifyContent="space-around">
                                     <img

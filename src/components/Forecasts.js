@@ -56,6 +56,16 @@ const menuBackgroundColor = "#1f2436"
 
 const buttonHighlightColor = "#2A2E39"
 
+function traverseDescendants(node, highlightColor) {
+
+  node.style.backgroundColor = highlightColor
+  if (node.children.length > 0) {
+    for (let i = 0; i < node.children.length; i++) {
+      traverseDescendants(node.children[i], highlightColor)
+    }
+  }
+}
+
 function highlightBoxButtonBackground(e) {
 
   let targ;
@@ -84,27 +94,7 @@ function highlightBoxButtonBackground(e) {
     targ = targ.parentNode
   }
 
-  targ.style.backgroundColor = buttonHighlightColor
-  if (targ.children.length > 0) {
-    for (let i = 0; i < targ.children.length; i++) {
-      targ.children[i].style.backgroundColor = buttonHighlightColor
-      if (targ.children[i].children.length > 0) {
-        for (let j = 0; j < targ.children[i].children.length; j++) {
-          targ.children[i].children[j].style.backgroundColor = buttonHighlightColor
-          if (targ.children[i].children[j].children.length > 0) {
-            for (let k = 0; k < targ.children[i].children[j].children.length; k++) {
-              targ.children[i].children[j].children[k].style.backgroundColor = buttonHighlightColor
-              if (targ.children[i].children[j].children[k].children.length > 0) {
-                for (let m = 0; m < targ.children[i].children[j].children[k].children.length; m++) {
-                  targ.children[i].children[j].children[k].children[m].style.backgroundColor = buttonHighlightColor
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+  traverseDescendants(targ, buttonHighlightColor)
 }
 
 function unhighlightBoxButtonBackground(e) {
@@ -135,27 +125,7 @@ function unhighlightBoxButtonBackground(e) {
     targ = targ.parentNode
   }
 
-  targ.style.backgroundColor = menuBackgroundColor
-  if (targ.children.length > 0) {
-    for (let i = 0; i < targ.children.length; i++) {
-      targ.children[i].style.backgroundColor = menuBackgroundColor
-      if (targ.children[i].children.length > 0) {
-        for (let j = 0; j < targ.children[i].children.length; j++) {
-          targ.children[i].children[j].style.backgroundColor = menuBackgroundColor
-          if (targ.children[i].children[j].children.length > 0) {
-            for (let k = 0; k < targ.children[i].children[j].children.length; k++) {
-              targ.children[i].children[j].children[k].style.backgroundColor = menuBackgroundColor
-              if (targ.children[i].children[j].children[k].children.length > 0) {
-                for (let m = 0; m < targ.children[i].children[j].children[k].children.length; m++) {
-                  targ.children[i].children[j].children[k].children[m].style.backgroundColor = menuBackgroundColor
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+  traverseDescendants(targ, menuBackgroundColor)
 }
 
 class Forecast extends React.Component {
@@ -177,6 +147,7 @@ class Forecast extends React.Component {
                   href="https://bondintelligence.cloud.looker.com/embed/dashboards-next/29?CUSIP=36962GXZ2"
                   target="_blank"
                   sandbox="allow-scripts allow-modals allow-popups"
+                  style={{ textDecorationColor: "#3281C5" }}
                 >
                   <Flex justifyContent="space-around">
                     <Business style={iconStyle} size="340" />
@@ -194,6 +165,7 @@ class Forecast extends React.Component {
                   href="https://bondintelligence.cloud.looker.com/embed/dashboards-next/28?CUSIP%20Parameter=01757LFH4"
                   target="_blank"
                   sandbox="allow-scripts allow-modals allow-popups"
+                  style={{ textDecorationColor: "#3281C5" }}
                 >
                   <Flex justifyContent="space-around">
                     <AccountBalance style={iconStyle} size="340" />

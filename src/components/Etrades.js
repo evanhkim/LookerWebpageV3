@@ -59,6 +59,16 @@ const menuBackgroundColor = "#1f2436"
 
 const buttonHighlightColor = "#2A2E39"
 
+function traverseDescendants(node, highlightColor) {
+
+  node.style.backgroundColor = highlightColor
+  if (node.children.length > 0) {
+    for (let i = 0; i < node.children.length; i++) {
+      traverseDescendants(node.children[i], highlightColor)
+    }
+  }
+}
+
 function highlightBoxButtonBackground(e) {
 
   let targ;
@@ -87,27 +97,7 @@ function highlightBoxButtonBackground(e) {
     targ = targ.parentNode
   }
 
-  targ.style.backgroundColor = buttonHighlightColor
-  if (targ.children.length > 0) {
-    for (let i = 0; i < targ.children.length; i++) {
-      targ.children[i].style.backgroundColor = buttonHighlightColor
-      if (targ.children[i].children.length > 0) {
-        for (let j = 0; j < targ.children[i].children.length; j++) {
-          targ.children[i].children[j].style.backgroundColor = buttonHighlightColor
-          if (targ.children[i].children[j].children.length > 0) {
-            for (let k = 0; k < targ.children[i].children[j].children.length; k++) {
-              targ.children[i].children[j].children[k].style.backgroundColor = buttonHighlightColor
-              if (targ.children[i].children[j].children[k].children.length > 0) {
-                for (let m = 0; m < targ.children[i].children[j].children[k].children.length; m++) {
-                  targ.children[i].children[j].children[k].children[m].style.backgroundColor = buttonHighlightColor
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+  traverseDescendants(targ, buttonHighlightColor)
 }
 
 function unhighlightBoxButtonBackground(e) {
@@ -138,27 +128,7 @@ function unhighlightBoxButtonBackground(e) {
     targ = targ.parentNode
   }
 
-  targ.style.backgroundColor = menuBackgroundColor
-  if (targ.children.length > 0) {
-    for (let i = 0; i < targ.children.length; i++) {
-      targ.children[i].style.backgroundColor = menuBackgroundColor
-      if (targ.children[i].children.length > 0) {
-        for (let j = 0; j < targ.children[i].children.length; j++) {
-          targ.children[i].children[j].style.backgroundColor = menuBackgroundColor
-          if (targ.children[i].children[j].children.length > 0) {
-            for (let k = 0; k < targ.children[i].children[j].children.length; k++) {
-              targ.children[i].children[j].children[k].style.backgroundColor = menuBackgroundColor
-              if (targ.children[i].children[j].children[k].children.length > 0) {
-                for (let m = 0; m < targ.children[i].children[j].children[k].children.length; m++) {
-                  targ.children[i].children[j].children[k].children[m].style.backgroundColor = menuBackgroundColor
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+  traverseDescendants(targ, menuBackgroundColor)
 }
 
 const CUSIP_list = ["036015PL3", "036054BG8", "036054AN4", "036015PN9", "036054BM5", "036054BQ6", "036015PG4", "036090CA4", "036090CH9", "036090BW7", "036054AM6", "036090BV9", "036054BL7", "036015PM1", "036054AK0", "036054BP8", "036015PJ8", "036015PA7", "036015PH2", "036015NV3", "036054AL8", "036054AF1", "036015PD1", "036015PC3", "036054AG9", "036015PK5", "036054AY0", "036054AV6", "036054AJ3", "036054AH7", "036054BD5", "036054BB9", "036054BJ2", "036054AZ7", "036090CC0", "036090CG1", "036054AW4", "036090CJ5", "036090CB2", "036054AX2", "036090BY3", "036054AE4", "033393HG7", "033393HH5", "033393HZ5", "033393HY8", "033393HL6", "033393JN0", "033393JF7", "033393HQ5", "033455BC9", "033393HB8", "033393HF9", "033393HP7", "033393HJ1", "033393FS3", "033393HV4", "033393JJ9", "033393GH6", "033393FT1", "033393FR5", "033393HT9", "033393HR3", "033393HN2", "033452AD5", "033455BB1", "033393HM4", "033393JC4", "033393FY0", "033393JH3", "033455AY2", "033470BB0", "033393HK8", "033393JD2", "033393JG5", "033393GR4", "033393GE3", "033455AS5", "033393JM2", "033455BA3", "033393HX0", "033470BD6", "033393HW2", "033393JE0", "033455AV8", "033393HD4", "033393JL4", "033470BQ7", "033470BM6", "033470BW4", "033470AY1", "033470BP9", "033455BK1", "033470BE4", "033470BK0", "033470BV6", "033470BJ3", "033393GW3", "033393FV6", "033393GU7", "033470BS3", "033470BX2", "033393KD0", "033393JT7", "033393KL2", "033393JX8", "033393KK4", "033393FZ7", "033393KC2", "033393JP5", "033393GL7", "033393KG3", "033393GB9", "033393KB4", "033470BC8", "033393FU8", "033393KJ7", "033393JW0", "033393JR1", "033393JY6", "033393JQ3", "033393KF5", "010399AQ6", "01039WAZ5", "010399CS0", "010399CR2", "01039VAP9", "01039VAJ3", "01039VAD6", "010399BY8", "01039VAM6", "010399BX0", "010399CA9", "010399CQ4", "010230LD0", "010230LB4", "010230LE8", "010230KZ2", "010230KV1", "010230KW9", "010230LH1", "010230KX7", "013122SY3", "013122TC0", "013122TB2", "013122TE6", "013122QR0", "013122TG1", "013122SH0", "013141BM7", "038447ME5", "013122TD8", "013122TH9", "013141BU9", "013122UA2", "013122TF3", "013122SZ0", "013122SE7", "013122ST4", "013122TA4", "013141CV6", "013122SL1", "013141BS4", "013122SQ0", "013122QT6", "013141CZ7", "038447MT2", "013141DH6", "013122NU6", "013141CR5", "038439FH3", "013122TT3", "013122RE8", "013122TY2", "013141BT2", "038429KG0", "013122QY5", "013122TW6", "013122SG2", "013122TX4", "013141BY1", "013122SS6", "013122TS5", "013122QP4", "013141BQ8", "013122SW7", "013122SF4", "013122SM9", "013122SP2", "013122SD9", "013122QM1", "013122QQ2", "013122NN2", "013141BN5", "013122NW2", "013122QF6", "038433AH1", "038447MV7", "013122QU3", "038447MK1", "00072AAA8", "00083G7E8", "00083GRK2", "00083JAE8", "00083JAF5", "00083JDN5", "00083JEF1", "00083JES3", "00083JGR3", "00083JJV1", "00083JKM9", "00083JNP9", "00102EAA4", "00103XAC7", "001055AH5", "00163MAA2", "00175KAC8", "00176LDK4", "00176LDN8", "00176LDP3", "00176LDV0", "00176LEC1", "00185WAB2", "001957BE8", "001957BJ7", "00206RAM4", "00206RCA8", "00206RCC4", "00206RCW0", "00206RGJ5", "00206RHC9", "00209UAD4", "00209UAE2", "00209UAF9", "002546265", "002546349", "002546364", "002546414", "002546554", "00254ELY6", "00254EMT6", "002799AK0", "002824AK6", "002824BJ8", "00287YAG4", "00287YAK5", "00287YAN9", "003669AB4", "003831AG9", "004398AE3", "00439TAE7", "00440EAJ6", "004446AD2", "00507UAM3", "00687BAA3", "00753CAD4", "007634AA6", "00763MAN8", "007643AB5", "00772BAB7", "00817YAL2", "008252AG3", "00826KAC1", "00828DAN1", "00846UAD3", "008674AB9", "00912XAF1", "00912XAH7", "00912XAJ3", "00912XAL8", "00912XAS3", "009363AB8", "009363AG7", "009363AN2", "009367AD5", "01019A344", "01019A476", "01019A567", "01019A583", "01019A617", "01019A690", "01019M561", "01019M777", "01019MAC2", "01020G231", "01020G249", "01020G256", "01020G264", "01020G272", "01020G280", "01020G322", "01020G330", "01020G348", "01020G355", "01020G363", "01020G371", "01020G389", "01020G397", "01020G470", "010392EY0", "011588AB6", "011588AD2", "011588AE0", "014383AA1", "014383AC7", "01447UAA0", "01566MAB1", "016275AN9", "018581AD0", "018606AD5", "018803AE6", "018803AG1", "01958XBD8", "02003MAA2", "02003MBQ6", "020040AB7", "02005NAF7", "02005NAR1", "02005NAT7", "02005NAU4", "02005NBB5", "02051PAC2", "02209SAD5", "02209SAK9", "02265QAA6", "023586AJ9", "023608AE2", "023663AB3", "02376XAA7", "02377AAA6", "02503YAF0", "025537AF8", "025816BA6", "025816BG3", "025816BW8", "025818EM3", "0258M0BY4", "0258M0CW7", "0258M0CZ0", "0258M0DJ5", "0258M0EE5", "0258M0EG0", "02635PSP9", "02635PSQ7", "02635PSS3", "02635PTQ6", "026375AE5", "026375AM7", "02665WAB7", "02665WAC5", "02665WAT8", "02665WAV3", "02665WAW1", "02665WBK6", "02665WCE9", "026874AT4", "02687QBW7", "027126AC5", "029717AM7", "030096AH4", "03027XAC4", "03040WAB1", "03070QAF8", "031042AB0", "031162AG5", "031162AJ9", "032092AC2", "032095AG6", "03234AAC3", "032359AE1", "032420AC5", "032511BD8", "032803AB4", "03444RAA6", "034918AC6", "03512TAC5", "035229CA9", "035242AC0", "035242AD8", "03734PAC5", "037411AT2", "037411AU9", "037735CQ8", "037833AQ3", "037833BN9", "037833BQ2", "037833CB4", "03834AAA1", "038374AB0", "03841XAB0", "038522AG3", "038923AD0", "03938LAS3", "03938LAT1", "03938LAU8", "039483AH5", "04351LAA8", "04420QAD8", "04454CCB0", "04454CCW4"]
@@ -345,8 +315,7 @@ const Etrade = () => {
               // href="https://testlab.transficc.io/"
               target="_blank"
               sandbox="allow-scripts allow-modals allow-popups"
-              onClick={changePriceMaker}
-              onMouseOver={cursorHand}
+              style={{ textDecorationColor: "#3281C5" }}
             >
               <Flex justifyContent="space-around">
                 <PriceChange style={iconStyle} size="340" />
@@ -370,8 +339,7 @@ const Etrade = () => {
               // href="https://testlab.transficc.io/priceTaker"
               target="_blank"
               sandbox="allow-scripts allow-modals allow-popups"
-              onClick={changePriceTaker}
-              onMouseOver={cursorHand}
+              style={{ textDecorationColor: "#3281C5" }}
             >
               <Flex justifyContent="space-around">
                 <PriceCheck style={iconStyle} size="340" />

@@ -45,6 +45,7 @@ import {
 } from '@styled-icons/material'
 import mainTextColor from './HomePage.js'
 import buttonFont from './HomePage.js'
+import { color_collection } from '@looker/sdk/lib/4.0/funcs'
 
 const bgColor = {
   backgroundColor: "#131722"
@@ -60,6 +61,16 @@ const boxStyle = {
 const menuBackgroundColor = "#1f2436"
 
 const buttonHighlightColor = "#2A2E39"
+
+function traverseDescendants(node, highlightColor) {
+
+  node.style.backgroundColor = highlightColor
+  if (node.children.length > 0) {
+    for (let i = 0; i < node.children.length; i++) {
+      traverseDescendants(node.children[i], highlightColor)
+    }
+  }
+}
 
 function highlightBoxButtonBackground(e) {
 
@@ -92,27 +103,7 @@ function highlightBoxButtonBackground(e) {
     targ = targ.parentNode
   }
 
-  targ.style.backgroundColor = buttonHighlightColor
-  if (targ.children.length > 0) {
-    for (let i = 0; i < targ.children.length; i++) {
-      targ.children[i].style.backgroundColor = buttonHighlightColor
-      if (targ.children[i].children.length > 0) {
-        for (let j = 0; j < targ.children[i].children.length; j++) {
-          targ.children[i].children[j].style.backgroundColor = buttonHighlightColor
-          if (targ.children[i].children[j].children.length > 0) {
-            for (let k = 0; k < targ.children[i].children[j].children.length; k++) {
-              targ.children[i].children[j].children[k].style.backgroundColor = buttonHighlightColor
-              if (targ.children[i].children[j].children[k].children.length > 0) {
-                for (let m = 0; m < targ.children[i].children[j].children[k].children.length; m++) {
-                  targ.children[i].children[j].children[k].children[m].style.backgroundColor = buttonHighlightColor
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+  traverseDescendants(targ, buttonHighlightColor)
 }
 
 function unhighlightBoxButtonBackground(e) {
@@ -146,27 +137,7 @@ function unhighlightBoxButtonBackground(e) {
     targ = targ.parentNode
   }
 
-  targ.style.backgroundColor = menuBackgroundColor
-  if (targ.children.length > 0) {
-    for (let i = 0; i < targ.children.length; i++) {
-      targ.children[i].style.backgroundColor = menuBackgroundColor
-      if (targ.children[i].children.length > 0) {
-        for (let j = 0; j < targ.children[i].children.length; j++) {
-          targ.children[i].children[j].style.backgroundColor = menuBackgroundColor
-          if (targ.children[i].children[j].children.length > 0) {
-            for (let k = 0; k < targ.children[i].children[j].children.length; k++) {
-              targ.children[i].children[j].children[k].style.backgroundColor = menuBackgroundColor
-              if (targ.children[i].children[j].children[k].children.length > 0) {
-                for (let m = 0; m < targ.children[i].children[j].children[k].children.length; m++) {
-                  targ.children[i].children[j].children[k].children[m].style.backgroundColor = menuBackgroundColor
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+  traverseDescendants(targ, menuBackgroundColor)
 }
 
 class Model extends React.Component {
@@ -192,6 +163,7 @@ class Model extends React.Component {
                   href="https://bondintelligence.cloud.looker.com/explore/Fixed_Income/pricemodel"
                   target="_blank"
                   sandbox="allow-scripts allow-modals allow-popups"
+                  style={{ textDecorationColor: "#3281C5" }}
                 >
                   <Flex justifyContent="space-around">
                     <PricePredictionIcon style={iconStyle} size="340" />
@@ -210,6 +182,7 @@ class Model extends React.Component {
                   href="https://bondintelligence.cloud.looker.com/explore/Fixed_Income/risk_predicted_corp"
                   target="_blank"
                   sandbox="allow-scripts allow-modals allow-popups"
+                  style={{ textDecorationColor: "#3281C5" }}
                 >
                   <Flex justifyContent="space-around">
                     <RiskIcon style={iconStyle} size="340" />
@@ -228,6 +201,7 @@ class Model extends React.Component {
                   href="https://bondintelligence.cloud.looker.com/explore/Fixed_Income/risk_predicted_muni"
                   target="_blank"
                   sandbox="allow-scripts allow-modals allow-popups"
+                  style={{ textDecorationColor: "#3281C5" }}
                 >
                   <Flex justifyContent="space-around">
                     <RiskIcon style={iconStyle} size="340" />
