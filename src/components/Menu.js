@@ -57,6 +57,7 @@ const menuBackgroundColor = "#1f2436"
 
 const buttonHighlightColor = "#2A2E39"
 
+// Recursive function that traverses down all child branches of an element and styles everything below
 function traverseDescendants(node, highlightColor) {
 
   node.style.backgroundColor = highlightColor

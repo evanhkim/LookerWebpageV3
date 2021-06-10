@@ -83,6 +83,7 @@ const menuBackgroundColor = "#1f2436"
 
 const buttonHighlightColor = "#2A2E39"
 
+// Recursive function that traverses down all child branches of an element and styles everything below
 function traverseDescendants(node, highlightColor) {
 
   node.style.backgroundColor = highlightColor
@@ -95,35 +96,12 @@ function traverseDescendants(node, highlightColor) {
 
 function highlightBoxButtonBackground(e) {
 
+  console.log(e.target)
   let targ;
   let targetName = e.target.className
   if (e.target.className.baseVal === undefined) {
-    switch (e.target.className.substring((e.target.className.length - 4), e.target.className.length)) {
-      case "box0":
-        targ = e.target;
-        break;
-      case "box1":
-        targ = e.target;
-        break;
-      case "box2":
-        targ = e.target;
-        break;
-      case "box3":
-        targ = e.target;
-        break;
-      case "box4":
-        targ = e.target;
-        break;
-      case "box5":
-        targ = e.target;
-        break;
-      case "box6":
-        targ = e.target;
-        break;
-      case "box7":
-        targ = e.target;
-        break;
-      case "box8":
+    switch (e.target.className.substring((e.target.className.length - 3), e.target.className.length)) {
+      case "box":
         targ = e.target;
         break;
       default:
@@ -150,32 +128,8 @@ function unhighlightBoxButtonBackground(e) {
   let targ;
   let targetName = e.target.className
   if (e.target.className.baseVal === undefined) {
-    switch (e.target.className.substring((e.target.className.length - 4), e.target.className.length)) {
-      case "box0":
-        targ = e.target;
-        break;
-      case "box1":
-        targ = e.target;
-        break;
-      case "box2":
-        targ = e.target;
-        break;
-      case "box3":
-        targ = e.target;
-        break;
-      case "box4":
-        targ = e.target;
-        break;
-      case "box5":
-        targ = e.target;
-        break;
-      case "box6":
-        targ = e.target;
-        break;
-      case "box7":
-        targ = e.target;
-        break;
-      case "box8":
+    switch (e.target.className.substring((e.target.className.length - 3), e.target.className.length)) {
+      case "box":
         targ = e.target;
         break;
       default:
@@ -197,21 +151,74 @@ function unhighlightBoxButtonBackground(e) {
   traverseDescendants(targ, menuBackgroundColor)
 }
 
-//Function to style clickable text on mouse over
 function underlineText(e) {
-  e.target.style.textDecoration = 'underline'
-  e.target.style.textDecorationColor = '#3281C5'
-  e.target.style.cursor = 'pointer'
+
+  let targ;
+  let targetName = e.target.className
+  if (e.target.className.baseVal === undefined) {
+    switch (e.target.className.substring((e.target.className.length - 3), e.target.className.length)) {
+      case "box":
+        targ = e.target.parentNode;
+        break;
+      default:
+        if (targetName.substring(0, 4) === "Flex") {
+          targ = e.target.parentNode.parentNode
+        } else {
+          targ = e.target.parentNode.parentNode.parentNode
+        }
+        break;
+    }
+  } else {
+    if (e.target.className.baseVal.length > 0) {
+      targ = e.target.parentNode.parentNode.parentNode
+    } else {
+      targ = e.target.parentNode.parentNode.parentNode.parentNode
+    }
+  }
+
+  targ.style.textDecoration = "underline"
+  targ.style.textDecorationColor = "#3281C5"
+  targ.style.cursor = "pointer"
 }
 
-//Function to style clickable text on mouse exit (return to original)
-function noUnderline(e) {
-  e.target.style.textDecoration = 'none'
+function noUnderlineText(e) {
+
+  let targ;
+  let targetName = e.target.className
+  if (e.target.className.baseVal === undefined) {
+    switch (e.target.className.substring((e.target.className.length - 3), e.target.className.length)) {
+      case "box":
+        targ = e.target.parentNode;
+        break;
+      default:
+        if (targetName.substring(0, 4) === "Flex") {
+          targ = e.target.parentNode.parentNode
+        } else {
+          targ = e.target.parentNode.parentNode.parentNode
+        }
+        break;
+    }
+  } else {
+    if (e.target.className.baseVal.length > 0) {
+      targ = e.target.parentNode.parentNode.parentNode
+    } else {
+      targ = e.target.parentNode.parentNode.parentNode.parentNode
+    }
+  }
+
+  targ.style.textDecoration = "none"
 }
 
-//Function to make cursor a hand on mouse over
-function cursorHand(e) {
-  e.target.style.cursor = 'pointer'
+// Allows for calling two functions in a mouseEvent
+function underlineAndHighlight(e) {
+  underlineText(e);
+  highlightBoxButtonBackground(e);
+}
+
+// Allows for calling two functions in a mouseEvent
+function undoUnderlineAndHighlight(e) {
+  noUnderlineText(e);
+  unhighlightBoxButtonBackground(e);
 }
 
 var currentdate = new Date()
@@ -377,9 +384,9 @@ class HomePage extends React.Component {
                   {/*DASHBOARDS BUTTON*/}
                   <Linker
                     to={ROUTES.DASHBOARD_ROUTE}
-                    style={{ textDecorationColor: "#3281C5" }}
+                    style={{ textDecoration: "none" }}
                   >
-                    <Box className="box0" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                    <Box className="box" style={boxStyle} onMouseEnter={underlineAndHighlight} onMouseLeave={undoUnderlineAndHighlight}>
                       <Flex justifyContent="space-around">
                         <DashboardsIcon className="icon0" style={iconStyle} size="340" />
                       </Flex>
@@ -401,7 +408,7 @@ class HomePage extends React.Component {
                     sandbox="allow-scripts allow-modals allow-popups"
                     style={{ textDecorationColor: "#3281C5" }}
                   >
-                    <Box className="box1" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                    <Box className="box" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                       <Flex justifyContent="space-around">
                         <DataDictionaryIcon className="icon1" style={iconStyle} size="340" />
                       </Flex>
@@ -418,8 +425,9 @@ class HomePage extends React.Component {
                   {/*MODELS BUTTON*/}
                   <Linker
                     to={ROUTES.MODELS_ROUTE}
+                    style={{ textDecoration: "none" }}
                   >
-                    <Box className="box2" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                    <Box className="box" style={boxStyle} onMouseEnter={underlineAndHighlight} onMouseLeave={undoUnderlineAndHighlight}>
                       <Flex justifyContent="space-around">
                         <ModelsIcon className="icon2" style={iconStyle} size="340" />
                       </Flex>
@@ -440,9 +448,9 @@ class HomePage extends React.Component {
                   {/*SCREENER BUTTON*/}
                   <Linker
                     to={ROUTES.SCREENER_ROUTE}
-                    style={{ textDecorationColor: "#3281C5" }}
+                    style={{ textDecoration: "none" }}
                   >
-                    <Box className="box3" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                    <Box className="box" style={boxStyle} onMouseEnter={underlineAndHighlight} onMouseLeave={undoUnderlineAndHighlight}>
                       <Flex justifyContent="space-around">
                         <ScreenerIcon className="icon3" style={iconStyle} size="340" />
                       </Flex>
@@ -459,9 +467,9 @@ class HomePage extends React.Component {
                   {/*RELVAL BUTTON*/}
                   <Linker
                     to={ROUTES.RELVAL_ROUTE}
-                    style={{ textDecorationColor: "#3281C5" }}
+                    style={{ textDecoration: "none" }}
                   >
-                    <Box className="box4" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                    <Box className="box" style={boxStyle} onMouseEnter={underlineAndHighlight} onMouseLeave={undoUnderlineAndHighlight}>
                       <Flex justifyContent="space-around">
                         <RelValIcon className="icon4" style={iconStyle} size="340" />
                       </Flex>
@@ -478,9 +486,9 @@ class HomePage extends React.Component {
                   {/*ETRADE BUTTON*/}
                   <Linker
                     to={ROUTES.ETRADE_ROUTE}
-                    style={{ textDecorationColor: "#3281C5" }}
+                    style={{ textDecoration: "none" }}
                   >
-                    <Box className="box5" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                    <Box className="box" style={boxStyle} onMouseEnter={underlineAndHighlight} onMouseLeave={undoUnderlineAndHighlight}>
                       <Flex justifyContent="space-around">
                         <EtradeIcon className="icon5" style={iconStyle} size="340" />
                       </Flex>
@@ -501,9 +509,9 @@ class HomePage extends React.Component {
                   {/*INSIGHTS BUTTON*/}
                   <Linker
                     to={ROUTES.INSIGHT_ROUTE}
-                    style={{ textDecorationColor: "#3281C5" }}
+                    style={{ textDecoration: "none" }}
                   >
-                    <Box className="box6" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                    <Box className="box" style={boxStyle} onMouseEnter={underlineAndHighlight} onMouseLeave={undoUnderlineAndHighlight}>
                       <Flex justifyContent="space-around">
                         <InsightsIcon className="icon6" style={iconStyle} size="340" />
                       </Flex>
@@ -520,9 +528,9 @@ class HomePage extends React.Component {
                   {/*MARKET DATA BUTTON*/}
                   <Linker
                     to={ROUTES.MARKETDATA_ROUTE}
-                    style={{ textDecorationColor: "#3281C5" }}
+                    style={{ textDecoration: "none" }}
                   >
-                    <Box className="box7" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                    <Box className="box" style={boxStyle} onMouseEnter={underlineAndHighlight} onMouseLeave={undoUnderlineAndHighlight}>
                       <Flex justifyContent="space-around">
                         <MarketDataIcon className="icon7" style={iconStyle} size="340" />
                       </Flex>
@@ -539,9 +547,9 @@ class HomePage extends React.Component {
                   {/*FORECASTS BUTTON*/}
                   <Linker
                     to={ROUTES.FORECAST_ROUTE}
-                    style={{ textDecorationColor: "#3281C5" }}
+                    style={{ textDecoration: "none" }}
                   >
-                    <Box className="box8" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                    <Box className="box" style={boxStyle} onMouseEnter={underlineAndHighlight} onMouseLeave={undoUnderlineAndHighlight}>
                       <Flex justifyContent="space-around">
                         <ForecastsIcon className="icon8" style={iconStyle} size="340" />
                       </Flex>

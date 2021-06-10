@@ -78,6 +78,7 @@ const menuBackgroundColor = "#1f2436"
 
 const buttonHighlightColor = "#2A2E39"
 
+// Recursive function that traverses down all child branches of an element and styles everything below
 function traverseDescendants(node, highlightColor) {
 
     node.style.backgroundColor = highlightColor
@@ -95,44 +96,8 @@ function highlightBoxButtonBackground(e) {
     if (e.target.className.substring(0, 3) === "img") {
         targ = e.target.parentNode.parentNode.parentNode
     } else {
-        switch (e.target.className.substring((e.target.className.length - 4), e.target.className.length)) {
-            case "box0":
-                targ = e.target;
-                break;
-            case "box1":
-                targ = e.target;
-                break;
-            case "box2":
-                targ = e.target;
-                break;
-            case "box3":
-                targ = e.target;
-                break;
-            case "box4":
-                targ = e.target;
-                break;
-            case "box5":
-                targ = e.target;
-                break;
-            case "box6":
-                targ = e.target;
-                break;
-            case "box7":
-                targ = e.target;
-                break;
-            case "box8":
-                targ = e.target;
-                break;
-            case "box9":
-                targ = e.target;
-                break;
-            case "box10":
-                targ = e.target;
-                break;
-            case "box11":
-                targ = e.target;
-                break;
-            case "box12":
+        switch (e.target.className.substring((e.target.className.length - 3), e.target.className.length)) {
+            case "box":
                 targ = e.target;
                 break;
             default:
@@ -157,44 +122,8 @@ function unhighlightBoxButtonBackground(e) {
     if (e.target.className.substring(0, 3) === "img") {
         targ = e.target.parentNode.parentNode.parentNode
     } else {
-        switch (e.target.className.substring((e.target.className.length - 4), e.target.className.length)) {
-            case "box0":
-                targ = e.target;
-                break;
-            case "box1":
-                targ = e.target;
-                break;
-            case "box2":
-                targ = e.target;
-                break;
-            case "box3":
-                targ = e.target;
-                break;
-            case "box4":
-                targ = e.target;
-                break;
-            case "box5":
-                targ = e.target;
-                break;
-            case "box6":
-                targ = e.target;
-                break;
-            case "box7":
-                targ = e.target;
-                break;
-            case "box8":
-                targ = e.target;
-                break;
-            case "box9":
-                targ = e.target;
-                break;
-            case "box10":
-                targ = e.target;
-                break;
-            case "box11":
-                targ = e.target;
-                break;
-            case "box12":
+        switch (e.target.className.substring((e.target.className.length - 3), e.target.className.length)) {
+            case "box":
                 targ = e.target;
                 break;
             default:
@@ -245,7 +174,7 @@ class Dashboards extends React.Component {
                     {/*ROW 1*/}
                     <Flex justifyContent="space-around" flexWrap="wrap">
                         {/*BoardEx BUTTON*/}
-                        <Box className="box0" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                        <Box className="box" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                             <Link
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/17?Company%20Name=&filter_config=%7B%22Company%20Name%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%22%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
                                 target="_blank"
@@ -274,7 +203,7 @@ class Dashboards extends React.Component {
                         </Box>
 
                         {/*Bond Intelligence Insights BUTTON*/}
-                        <Box className="box1" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                        <Box className="box" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                             <Link
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/6?CUSIP=035824AN1&filter_config=%7B%22CUSIP%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%22035824AN1%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
                                 target="_blank"
@@ -303,7 +232,7 @@ class Dashboards extends React.Component {
                         </Box>
 
                         {/*Corp Forecast BUTTON*/}
-                        <Box className="box2" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                        <Box className="box" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                             <Link
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/29?CUSIP=36962GXZ2&filter_config=%7B%22CUSIP%22:%5B%7B%22type%22:%22advanced%22,%22values%22:%5B%7B%22constant%22:%2236962GXZ2%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
                                 target="_blank"
@@ -337,7 +266,7 @@ class Dashboards extends React.Component {
                     {/*Row 2*/}
                     <Flex justifyContent="space-around" flexWrap="wrap">
                         {/*Corporate Bond Issuance BUTTON*/}
-                        <Box className="box3" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                        <Box className="box" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                             <Link
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/10?edit=true&Complete%20CUSIP=00077DAF6&filter_config=%7B%22Complete%20CUSIP%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2200077DAF6%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
                                 target="_blank"
@@ -366,7 +295,7 @@ class Dashboards extends React.Component {
                         </Box>
 
                         {/*Corporate Bond Redemption BUTTON*/}
-                        <Box className="box4" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                        <Box className="box" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                             <Link
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/7?CUSIP=247367AX3&filter_config=%7B%22CUSIP%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%22247367AX3%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
                                 target="_blank"
@@ -395,7 +324,7 @@ class Dashboards extends React.Component {
                         </Box>
 
                         {/*Corporate Bond Trades BUTTON*/}
-                        <Box className="box5" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                        <Box className="box" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                             <Link
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/22?Cusip=02079KAC1&filter_config=%7B%22Cusip%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2202079KAC1%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
                                 target="_blank"
@@ -428,7 +357,7 @@ class Dashboards extends React.Component {
                     {/*Row 3*/}
                     <Flex justifyContent="space-around" flexWrap="wrap">
                         {/*Corporate Bond Trades - TRACE BUTTON*/}
-                        <Box className="box6" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                        <Box className="box" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                             <Link
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/9?CUSIP=38259PAB8&filter_config=%7B%22CUSIP%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2238259PAB8%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
                                 target="_blank"
@@ -457,7 +386,7 @@ class Dashboards extends React.Component {
                         </Box>
 
                         {/*Corporate Financial Fundamentals BUTTON*/}
-                        <Box className="box7" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                        <Box className="box" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                             <Link
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/12?edit=true&Cusip=000361105&Datadate%20Year=2017&filter_config=%7B%22Cusip%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%22000361105%22%7D,%7B%7D%5D,%22id%22:4%7D%5D,%22Datadate%20Year%22:%5B%7B%22type%22:%22year%22,%22values%22:%5B%7B%22constant%22:%222017%22%7D,%7B%7D%5D,%22id%22:5%7D%5D%7D"
                                 target="_blank"
@@ -486,7 +415,7 @@ class Dashboards extends React.Component {
                         </Box>
 
                         {/*Corporate Financial Ratios BUTTON*/}
-                        <Box className="box8" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                        <Box className="box" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                             <Link
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/10?Cusip=00036110&filter_config=%7B%22Cusip%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2200036110%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
                                 target="_blank"
@@ -519,7 +448,7 @@ class Dashboards extends React.Component {
                     {/* ROW 4 */}
                     <Flex justifyContent="space-around" flexWrap="wrap">
                         {/*Muni Forecast BUTTON*/}
-                        <Box className="box9" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                        <Box className="box" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                             <Link
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/28?edit=true&CUSIP%20Parameter=01757LFH4&filter_config=%7B%22CUSIP%20Parameter%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2201757LFH4%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
                                 target="_blank"
@@ -549,7 +478,7 @@ class Dashboards extends React.Component {
                         </Box>
 
                         {/*Municipal Bond Issuances BUTTON*/}
-                        <Box className="box10" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                        <Box className="box" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                             <Link
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/14?edit=true&cusip=09845N&filter_config=%7B%22cusip%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2209845N%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
                                 target="_blank"
@@ -578,7 +507,7 @@ class Dashboards extends React.Component {
                         </Box>
 
                         {/*Municipal Bond Trades BUTTON*/}
-                        <Box className="box11" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                        <Box className="box" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                             <Link
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/16?edit=true&CUSIP=00037CKQ2&filter_config=%7B%22CUSIP%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%2200037CKQ2%22%7D,%7B%7D%5D,%22id%22:2%7D%5D%7D"
                                 target="_blank"
@@ -611,7 +540,7 @@ class Dashboards extends React.Component {
                     {/* ROW 5 */}
                     <Flex justifyContent="space-around" flexWrap="wrap">
                         {/*Sentiment Analysis BUTTON*/}
-                        <Box className="box12" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
+                        <Box className="box" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground}>
                             <Link
                                 href="https://bondintelligence.cloud.looker.com/embed/dashboards/11?edit=true&Entity%20Name=%22Texas,%20TX,%20US%22&News%20Story%20ID=&filter_config=%7B%22Entity%20Name%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%22Texas%5C%5C,%20TX%5C%5C,%20US%22%7D,%7B%7D%5D,%22id%22:4%7D%5D,%22News%20Story%20ID%22:%5B%7B%22type%22:%22%3D%22,%22values%22:%5B%7B%22constant%22:%22%22%7D,%7B%7D%5D,%22id%22:5%7D%5D%7D"
                                 target="_blank"

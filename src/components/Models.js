@@ -62,6 +62,7 @@ const menuBackgroundColor = "#1f2436"
 
 const buttonHighlightColor = "#2A2E39"
 
+// Recursive function that traverses down all child branches of an element and styles everything below
 function traverseDescendants(node, highlightColor) {
 
   node.style.backgroundColor = highlightColor
@@ -77,14 +78,8 @@ function highlightBoxButtonBackground(e) {
   let targ;
   let targetName = e.target.className
   if (e.target.className.baseVal === undefined) {
-    switch (e.target.className.substring((e.target.className.length - 4), e.target.className.length)) {
-      case "box0":
-        targ = e.target;
-        break;
-      case "box1":
-        targ = e.target;
-        break;
-      case "box2":
+    switch (e.target.className.substring((e.target.className.length - 3), e.target.className.length)) {
+      case "box":
         targ = e.target;
         break;
       default:
@@ -111,14 +106,8 @@ function unhighlightBoxButtonBackground(e) {
   let targ;
   let targetName = e.target.className
   if (e.target.className.baseVal === undefined) {
-    switch (e.target.className.substring((e.target.className.length - 4), e.target.className.length)) {
-      case "box0":
-        targ = e.target;
-        break;
-      case "box1":
-        targ = e.target;
-        break;
-      case "box2":
+    switch (e.target.className.substring((e.target.className.length - 3), e.target.className.length)) {
+      case "box":
         targ = e.target;
         break;
       default:
@@ -158,7 +147,7 @@ class Model extends React.Component {
           <Flex width="100%" flexDirection="column" mr="large" style={bgColor}>
             {/*Price Prediction Model*/}
             <Flex justifyContent="space-around" flexWrap="wrap">
-              <Box className="box0" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground} >
+              <Box className="box" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground} >
                 <Link
                   href="https://bondintelligence.cloud.looker.com/explore/Fixed_Income/pricemodel"
                   target="_blank"
@@ -177,7 +166,7 @@ class Model extends React.Component {
               </Box>
 
               {/*Corp Risk Prediction Model*/}
-              <Box className="box1" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground} >
+              <Box className="box" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground} >
                 <Link
                   href="https://bondintelligence.cloud.looker.com/explore/Fixed_Income/risk_predicted_corp"
                   target="_blank"
@@ -196,7 +185,7 @@ class Model extends React.Component {
               </Box>
 
               {/*Muni Risk Prediction Model*/}
-              <Box className="box2" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground} >
+              <Box className="box" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground} >
                 <Link
                   href="https://bondintelligence.cloud.looker.com/explore/Fixed_Income/risk_predicted_muni"
                   target="_blank"

@@ -59,6 +59,7 @@ const menuBackgroundColor = "#1f2436"
 
 const buttonHighlightColor = "#2A2E39"
 
+// Recursive function that traverses down all child branches of an element and styles everything below
 function traverseDescendants(node, highlightColor) {
 
   node.style.backgroundColor = highlightColor
@@ -74,11 +75,8 @@ function highlightBoxButtonBackground(e) {
   let targ;
   let targetName = e.target.className
   if (e.target.className.baseVal === undefined) {
-    switch (e.target.className.substring((e.target.className.length - 4), e.target.className.length)) {
-      case "box0":
-        targ = e.target;
-        break;
-      case "box1":
+    switch (e.target.className.substring((e.target.className.length - 3), e.target.className.length)) {
+      case "box":
         targ = e.target;
         break;
       default:
@@ -105,11 +103,8 @@ function unhighlightBoxButtonBackground(e) {
   let targ;
   let targetName = e.target.className
   if (e.target.className.baseVal === undefined) {
-    switch (e.target.className.substring((e.target.className.length - 4), e.target.className.length)) {
-      case "box0":
-        targ = e.target;
-        break;
-      case "box1":
+    switch (e.target.className.substring((e.target.className.length - 3), e.target.className.length)) {
+      case "box":
         targ = e.target;
         break;
       default:
@@ -303,7 +298,7 @@ const Etrade = () => {
         <Space height="50px" style={bgColor} />
         {/* Part 2 */}
         <Flex justifyContent="space-around" flexWrap="wrap" style={bgColor}>
-          <Box className="box0" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground} >
+          <Box className="box" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground} >
             <Modal isOpen={priceMaker} style={{ overlay: { backgroundColor: '#1c2030' }, content: { outline: 'none' } }}>
               <Flex justifyContent="flex-end">
                 <Button maxwidth color="critical" onClick={changePriceMaker} onMouseOver={cursorHand}><Close /></Button>
@@ -327,7 +322,7 @@ const Etrade = () => {
               </Flex>
             </Link>
           </Box>
-          <Box className="box1" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground} >
+          <Box className="box" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground} >
             <Modal isOpen={priceTaker} style={{ overlay: { backgroundColor: '#1c2030' }, content: { outline: 'none' } }}>
               <Flex justifyContent="flex-end">
                 <Button maxwidth color="critical" onClick={changePriceTaker} onMouseOver={cursorHand}><Close /></Button>
