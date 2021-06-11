@@ -32,7 +32,7 @@ import {
   Flex,
   FlexItem,
   MenuList,
-  MenuItem
+  MenuItem,
 } from '@looker/components'
 import { ExtensionContext } from '@looker/extension-sdk-react'
 import { ROUTES } from '../Router'
@@ -41,14 +41,14 @@ import Menu from './Menu'
 import { iconStyle } from './HomePage.js'
 import {
   Speed as RiskIcon,
-  RequestQuote as PricePredictionIcon
+  RequestQuote as PricePredictionIcon,
 } from '@styled-icons/material'
 import mainTextColor from './HomePage.js'
 import buttonFont from './HomePage.js'
 import { color_collection } from '@looker/sdk/lib/4.0/funcs'
 
 const bgColor = {
-  backgroundColor: "#131722"
+  backgroundColor: '#131722',
 }
 
 const boxStyle = {
@@ -58,43 +58,46 @@ const boxStyle = {
   backgroundColor: '#1f2436',
 }
 
-const menuBackgroundColor = "#1f2436"
+const menuBackgroundColor = '#1f2436'
 
-const buttonHighlightColor = "#2A2E39"
+const buttonHighlightColor = '#2A2E39'
 
 // Recursive function that traverses down all child branches of an element and styles everything below
 function traverseDescendants(node, highlightColor) {
-
   node.style.backgroundColor = highlightColor
-  if (node.children.length > 0) {
-    for (let i = 0; i < node.children.length; i++) {
-      traverseDescendants(node.children[i], highlightColor)
-    }
-  }
+  // if (node.children.length > 0) {
+  //   for (let i = 0; i < node.children.length; i++) {
+  //     traverseDescendants(node.children[i], highlightColor)
+  //   }
+  // }
 }
 
 function highlightBoxButtonBackground(e) {
-
-  let targ;
+  let targ
   let targetName = e.target.className
   if (e.target.className.baseVal === undefined) {
-    switch (e.target.className.substring((e.target.className.length - 3), e.target.className.length)) {
-      case "box":
-        targ = e.target;
-        break;
+    switch (
+      e.target.className.substring(
+        e.target.className.length - 3,
+        e.target.className.length
+      )
+    ) {
+      case 'box':
+        targ = e.target
+        break
       default:
-        if (targetName.substring(0, 4) === "Flex") {
+        if (targetName.substring(0, 4) === 'Flex') {
           targ = e.target.parentNode
         } else {
           targ = e.target.parentNode.parentNode.parentNode
         }
-        break;
+        break
     }
   } else {
     targ = e.target.parentNode.parentNode.parentNode
   }
 
-  if (targ.className.substring(0, 4) === "Link") {
+  if (targ.className.substring(0, 4) === 'Link') {
     targ = targ.parentNode
   }
 
@@ -102,27 +105,31 @@ function highlightBoxButtonBackground(e) {
 }
 
 function unhighlightBoxButtonBackground(e) {
-
-  let targ;
+  let targ
   let targetName = e.target.className
   if (e.target.className.baseVal === undefined) {
-    switch (e.target.className.substring((e.target.className.length - 3), e.target.className.length)) {
-      case "box":
-        targ = e.target;
-        break;
+    switch (
+      e.target.className.substring(
+        e.target.className.length - 3,
+        e.target.className.length
+      )
+    ) {
+      case 'box':
+        targ = e.target
+        break
       default:
-        if (targetName.substring(0, 4) === "Flex") {
+        if (targetName.substring(0, 4) === 'Flex') {
           targ = e.target.parentNode
         } else {
           targ = e.target.parentNode.parentNode.parentNode
         }
-        break;
+        break
     }
   } else {
     targ = e.target.parentNode.parentNode.parentNode
   }
 
-  if (targ.className.substring(0, 4) === "Link") {
+  if (targ.className.substring(0, 4) === 'Link') {
     targ = targ.parentNode
   }
 
@@ -134,7 +141,6 @@ class Model extends React.Component {
     return (
       <>
         <ComponentsProvider>
-
           {/* Navigation Bar */}
           <Menu />
 
@@ -147,18 +153,26 @@ class Model extends React.Component {
           <Flex width="100%" flexDirection="column" mr="large" style={bgColor}>
             {/*Price Prediction Model*/}
             <Flex justifyContent="space-around" flexWrap="wrap">
-              <Box className="box" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground} >
+              <Box
+                className="box"
+                style={boxStyle}
+                onMouseEnter={highlightBoxButtonBackground}
+                onMouseLeave={unhighlightBoxButtonBackground}
+              >
                 <Link
                   href="https://bondintelligence.cloud.looker.com/explore/Fixed_Income/pricemodel"
                   target="_blank"
                   sandbox="allow-scripts allow-modals allow-popups"
-                  style={{ textDecorationColor: "#3281C5" }}
+                  style={{ textDecorationColor: '#3281C5' }}
                 >
                   <Flex justifyContent="space-around">
                     <PricePredictionIcon style={iconStyle} size="340" />
                   </Flex>
                   <Flex justifyContent="space-around">
-                    <Text className="text0" style={{ color: '#9B9EA3', fontSize: "30" }}>
+                    <Text
+                      className="text0"
+                      style={{ color: '#9B9EA3', fontSize: '30' }}
+                    >
                       Price Prediction
                     </Text>
                   </Flex>
@@ -166,18 +180,26 @@ class Model extends React.Component {
               </Box>
 
               {/*Corp Risk Prediction Model*/}
-              <Box className="box" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground} >
+              <Box
+                className="box"
+                style={boxStyle}
+                onMouseEnter={highlightBoxButtonBackground}
+                onMouseLeave={unhighlightBoxButtonBackground}
+              >
                 <Link
                   href="https://bondintelligence.cloud.looker.com/explore/Fixed_Income/risk_predicted_corp"
                   target="_blank"
                   sandbox="allow-scripts allow-modals allow-popups"
-                  style={{ textDecorationColor: "#3281C5" }}
+                  style={{ textDecorationColor: '#3281C5' }}
                 >
                   <Flex justifyContent="space-around">
                     <RiskIcon style={iconStyle} size="340" />
                   </Flex>
                   <Flex justifyContent="space-around">
-                    <Text className="text1" style={{ color: '#9B9EA3', fontSize: "30" }}>
+                    <Text
+                      className="text1"
+                      style={{ color: '#9B9EA3', fontSize: '30' }}
+                    >
                       Corp Risk Prediction
                     </Text>
                   </Flex>
@@ -185,18 +207,26 @@ class Model extends React.Component {
               </Box>
 
               {/*Muni Risk Prediction Model*/}
-              <Box className="box" style={boxStyle} onMouseEnter={highlightBoxButtonBackground} onMouseLeave={unhighlightBoxButtonBackground} >
+              <Box
+                className="box"
+                style={boxStyle}
+                onMouseEnter={highlightBoxButtonBackground}
+                onMouseLeave={unhighlightBoxButtonBackground}
+              >
                 <Link
                   href="https://bondintelligence.cloud.looker.com/explore/Fixed_Income/risk_predicted_muni"
                   target="_blank"
                   sandbox="allow-scripts allow-modals allow-popups"
-                  style={{ textDecorationColor: "#3281C5" }}
+                  style={{ textDecorationColor: '#3281C5' }}
                 >
                   <Flex justifyContent="space-around">
                     <RiskIcon style={iconStyle} size="340" />
                   </Flex>
                   <Flex justifyContent="space-around">
-                    <Text className="text2" style={{ color: '#9B9EA3', fontSize: "30" }}>
+                    <Text
+                      className="text2"
+                      style={{ color: '#9B9EA3', fontSize: '30' }}
+                    >
                       Muni Risk Prediction
                     </Text>
                   </Flex>
@@ -211,4 +241,4 @@ class Model extends React.Component {
   }
 }
 
-export default Model;
+export default Model
