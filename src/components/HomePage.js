@@ -47,9 +47,6 @@ import { ExtensionContext } from '@looker/extension-sdk-react'
 import { ExtensionProvider } from '@looker/extension-sdk-react'
 import {
   Link as RouterLink,
-  LinkProps,
-  Link as Linker,
-  BrowserRouter,
 } from 'react-router-dom'
 import { ROUTES } from '../Router.tsx'
 import { Message } from './Hooks.js'
@@ -72,6 +69,7 @@ export const mainTextColor = {
 
 export const buttonFont = {
   color: '#9B9EA3',
+  textAlign: "center",
   fontSize: '40',
 }
 
@@ -83,32 +81,17 @@ const menuBackgroundColor = '#1f2436'
 
 const buttonHighlightColor = '#2A2E39'
 
-// Recursive function that traverses down all child branches of an element and styles everything below
-function traverseDescendants(node, highlightColor) {
-  node.style.backgroundColor = highlightColor
-  // if (node.children.length > 0) {
-  //   for (let i = 0; i < node.children.length; i++) {
-  //     traverseDescendants(node.children[i], highlightColor)
-  //   }
-  // }
-}
-
 function highlightBoxButtonBackground(e) {
   console.log(e.target)
   let targ
-  let targetName = e.target.className
-  if (e.target.className.baseVal === undefined) {
-    switch (
-      e.target.className.substring(
-        e.target.className.length - 3,
-        e.target.className.length
-      )
-    ) {
+  let targName = e.target.className
+  if (targName.baseVal === undefined) {
+    switch (targName.substring(targName.length - 3, targName.length)) {
       case 'box':
         targ = e.target
         break
       default:
-        if (targetName.substring(0, 4) === 'Flex') {
+        if (targName.substring(0, 4) === 'Flex') {
           targ = e.target.parentNode
         } else {
           targ = e.target.parentNode.parentNode
@@ -122,25 +105,20 @@ function highlightBoxButtonBackground(e) {
       targ = e.target.parentNode.parentNode.parentNode
     }
   }
-  console.log(targ)
-  traverseDescendants(targ, buttonHighlightColor)
+
+  targ.style.backgroundColor = buttonHighlightColor
 }
 
 function unhighlightBoxButtonBackground(e) {
   let targ
-  let targetName = e.target.className
-  if (e.target.className.baseVal === undefined) {
-    switch (
-      e.target.className.substring(
-        e.target.className.length - 3,
-        e.target.className.length
-      )
-    ) {
+  let targName = e.target.className
+  if (targName.baseVal === undefined) {
+    switch (targName.substring(targName.length - 3, targName.length)) {
       case 'box':
         targ = e.target
         break
       default:
-        if (targetName.substring(0, 4) === 'Flex') {
+        if (targName.substring(0, 4) === 'Flex') {
           targ = e.target.parentNode
         } else {
           targ = e.target.parentNode.parentNode
@@ -155,24 +133,19 @@ function unhighlightBoxButtonBackground(e) {
     }
   }
 
-  traverseDescendants(targ, menuBackgroundColor)
+  targ.style.backgroundColor = menuBackgroundColor
 }
 
 function underlineText(e) {
   let targ
-  let targetName = e.target.className
-  if (e.target.className.baseVal === undefined) {
-    switch (
-      e.target.className.substring(
-        e.target.className.length - 3,
-        e.target.className.length
-      )
-    ) {
+  let targName = e.target.className
+  if (targName.baseVal === undefined) {
+    switch (targName.substring(targName.length - 3, targName.length)) {
       case 'box':
         targ = e.target.parentNode
         break
       default:
-        if (targetName.substring(0, 4) === 'Flex') {
+        if (targName.substring(0, 4) === 'Flex') {
           targ = e.target.parentNode.parentNode
         } else {
           targ = e.target.parentNode.parentNode.parentNode
@@ -194,19 +167,14 @@ function underlineText(e) {
 
 function noUnderlineText(e) {
   let targ
-  let targetName = e.target.className
-  if (e.target.className.baseVal === undefined) {
-    switch (
-      e.target.className.substring(
-        e.target.className.length - 3,
-        e.target.className.length
-      )
-    ) {
+  let targName = e.target.className
+  if (targName.baseVal === undefined) {
+    switch (targName.substring(targName.length - 3, targName.length)) {
       case 'box':
         targ = e.target.parentNode
         break
       default:
-        if (targetName.substring(0, 4) === 'Flex') {
+        if (targName.substring(0, 4) === 'Flex') {
           targ = e.target.parentNode.parentNode
         } else {
           targ = e.target.parentNode.parentNode.parentNode
@@ -397,7 +365,7 @@ class HomePage extends React.Component {
                 {/*TOP THREE BUTTONS*/}
                 <Flex justifyContent="space-around" flexWrap="wrap">
                   {/*DASHBOARDS BUTTON*/}
-                  <Linker
+                  <RouterLink
                     to={ROUTES.DASHBOARD_ROUTE}
                     style={{ textDecoration: 'none' }}
                   >
@@ -418,7 +386,7 @@ class HomePage extends React.Component {
                         <Text style={buttonFont}>Dashboards</Text>
                       </Flex>
                     </Box>
-                  </Linker>
+                  </RouterLink>
 
                   {/*DATA DICT BUTTON*/}
                   <Link
@@ -447,7 +415,7 @@ class HomePage extends React.Component {
                   </Link>
 
                   {/*MODELS BUTTON*/}
-                  <Linker
+                  <RouterLink
                     to={ROUTES.MODELS_ROUTE}
                     style={{ textDecoration: 'none' }}
                   >
@@ -468,14 +436,14 @@ class HomePage extends React.Component {
                         <Text style={buttonFont}>Models</Text>
                       </Flex>
                     </Box>
-                  </Linker>
+                  </RouterLink>
                 </Flex>
                 <Space height="10vh" />
 
                 {/*MIDDLE THREE BUTTONS*/}
                 <Flex justifyContent="space-around" flexWrap="wrap">
                   {/*SCREENER BUTTON*/}
-                  <Linker
+                  <RouterLink
                     to={ROUTES.SCREENER_ROUTE}
                     style={{ textDecoration: 'none' }}
                   >
@@ -496,10 +464,10 @@ class HomePage extends React.Component {
                         <Text style={buttonFont}>Screener</Text>
                       </Flex>
                     </Box>
-                  </Linker>
+                  </RouterLink>
 
                   {/*RELVAL BUTTON*/}
-                  <Linker
+                  <RouterLink
                     to={ROUTES.RELVAL_ROUTE}
                     style={{ textDecoration: 'none' }}
                   >
@@ -520,10 +488,10 @@ class HomePage extends React.Component {
                         <Text style={buttonFont}>RelVal</Text>
                       </Flex>
                     </Box>
-                  </Linker>
+                  </RouterLink>
 
                   {/*ETRADE BUTTON*/}
-                  <Linker
+                  <RouterLink
                     to={ROUTES.ETRADE_ROUTE}
                     style={{ textDecoration: 'none' }}
                   >
@@ -544,14 +512,14 @@ class HomePage extends React.Component {
                         <Text style={buttonFont}>Etrade</Text>
                       </Flex>
                     </Box>
-                  </Linker>
+                  </RouterLink>
                 </Flex>
                 <Space height="10vh" />
 
                 {/*BOTTOM THREE BUTTONS*/}
                 <Flex justifyContent="space-around" flexWrap="wrap">
                   {/*INSIGHTS BUTTON*/}
-                  <Linker
+                  <RouterLink
                     to={ROUTES.INSIGHT_ROUTE}
                     style={{ textDecoration: 'none' }}
                   >
@@ -572,10 +540,10 @@ class HomePage extends React.Component {
                         <Text style={buttonFont}>Insights</Text>
                       </Flex>
                     </Box>
-                  </Linker>
+                  </RouterLink>
 
                   {/*MARKET DATA BUTTON*/}
-                  <Linker
+                  <RouterLink
                     to={ROUTES.MARKETDATA_ROUTE}
                     style={{ textDecoration: 'none' }}
                   >
@@ -596,10 +564,10 @@ class HomePage extends React.Component {
                         <Text style={buttonFont}>Market Data</Text>
                       </Flex>
                     </Box>
-                  </Linker>
+                  </RouterLink>
 
                   {/*FORECASTS BUTTON*/}
-                  <Linker
+                  <RouterLink
                     to={ROUTES.FORECAST_ROUTE}
                     style={{ textDecoration: 'none' }}
                   >
@@ -620,7 +588,7 @@ class HomePage extends React.Component {
                         <Text style={buttonFont}>Forecasts</Text>
                       </Flex>
                     </Box>
-                  </Linker>
+                  </RouterLink>
                   <Space height="10vh" />
                 </Flex>
               </Flex>

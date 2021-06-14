@@ -62,31 +62,16 @@ const menuBackgroundColor = '#1f2436'
 
 const buttonHighlightColor = '#2A2E39'
 
-// Recursive function that traverses down all child branches of an element and styles everything below
-function traverseDescendants(node, highlightColor) {
-  node.style.backgroundColor = highlightColor
-  // if (node.children.length > 0) {
-  //   for (let i = 0; i < node.children.length; i++) {
-  //     traverseDescendants(node.children[i], highlightColor)
-  //   }
-  // }
-}
-
 function highlightBoxButtonBackground(e) {
   let targ
-  let targetName = e.target.className
-  if (e.target.className.baseVal === undefined) {
-    switch (
-      e.target.className.substring(
-        e.target.className.length - 3,
-        e.target.className.length
-      )
-    ) {
+  let targName = e.target.className
+  if (targName.baseVal === undefined) {
+    switch (targName.substring(targName.length - 3, targName.length)) {
       case 'box':
         targ = e.target
         break
       default:
-        if (targetName.substring(0, 4) === 'Flex') {
+        if (targName.substring(0, 4) === 'Flex') {
           targ = e.target.parentNode
         } else {
           targ = e.target.parentNode.parentNode.parentNode
@@ -101,24 +86,19 @@ function highlightBoxButtonBackground(e) {
     targ = targ.parentNode
   }
 
-  traverseDescendants(targ, buttonHighlightColor)
+  targ.style.backgroundColor = buttonHighlightColor
 }
 
 function unhighlightBoxButtonBackground(e) {
   let targ
-  let targetName = e.target.className
-  if (e.target.className.baseVal === undefined) {
-    switch (
-      e.target.className.substring(
-        e.target.className.length - 3,
-        e.target.className.length
-      )
-    ) {
+  let targName = e.target.className
+  if (targName.baseVal === undefined) {
+    switch (targName.substring(targName.length - 3, targName.length)) {
       case 'box':
         targ = e.target
         break
       default:
-        if (targetName.substring(0, 4) === 'Flex') {
+        if (targName.substring(0, 4) === 'Flex') {
           targ = e.target.parentNode
         } else {
           targ = e.target.parentNode.parentNode.parentNode
@@ -133,7 +113,7 @@ function unhighlightBoxButtonBackground(e) {
     targ = targ.parentNode
   }
 
-  traverseDescendants(targ, menuBackgroundColor)
+  targ.style.backgroundColor = menuBackgroundColor
 }
 
 class Model extends React.Component {
@@ -169,10 +149,7 @@ class Model extends React.Component {
                     <PricePredictionIcon style={iconStyle} size="340" />
                   </Flex>
                   <Flex justifyContent="space-around">
-                    <Text
-                      className="text0"
-                      style={{ color: '#9B9EA3', fontSize: '30' }}
-                    >
+                    <Text className="text0" style={{ color: '#9B9EA3', fontSize: "30", textAlign: "center" }}>
                       Price Prediction
                     </Text>
                   </Flex>
@@ -196,10 +173,7 @@ class Model extends React.Component {
                     <RiskIcon style={iconStyle} size="340" />
                   </Flex>
                   <Flex justifyContent="space-around">
-                    <Text
-                      className="text1"
-                      style={{ color: '#9B9EA3', fontSize: '30' }}
-                    >
+                    <Text className="text1" style={{ color: '#9B9EA3', fontSize: "30", textAlign: "center" }}>
                       Corp Risk Prediction
                     </Text>
                   </Flex>
@@ -223,10 +197,7 @@ class Model extends React.Component {
                     <RiskIcon style={iconStyle} size="340" />
                   </Flex>
                   <Flex justifyContent="space-around">
-                    <Text
-                      className="text2"
-                      style={{ color: '#9B9EA3', fontSize: '30' }}
-                    >
+                    <Text className="text2" style={{ color: '#9B9EA3', fontSize: "30", textAlign: "center" }}>
                       Muni Risk Prediction
                     </Text>
                   </Flex>

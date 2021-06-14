@@ -78,35 +78,20 @@ const menuBackgroundColor = '#1f2436'
 
 const buttonHighlightColor = '#2A2E39'
 
-// Recursive function that traverses down all child branches of an element and styles everything below
-function traverseDescendants(node, highlightColor) {
-  node.style.backgroundColor = highlightColor
-  // if (node.children.length > 0) {
-  //     for (let i = 0; i < node.children.length; i++) {
-  //         traverseDescendants(node.children[i], highlightColor)
-  //     }
-  // }
-}
-
 function highlightBoxButtonBackground(e) {
   let targ
-  let targetName = e.target.className
+  let targName = e.target.className
   if (e.target.className.substring(0, 3) === 'img') {
     targ = e.target.parentNode.parentNode.parentNode
   } else {
-    switch (
-      e.target.className.substring(
-        e.target.className.length - 3,
-        e.target.className.length
-      )
-    ) {
+    switch (targName.substring(targName.length - 3, targName.length)) {
       case 'box':
         targ = e.target
         break
       default:
-        if (targetName.substring(0, 4) === 'Flex') {
+        if (targName.substring(0, 4) === 'Flex') {
           targ = e.target.parentNode.parentNode
-        } else if (targetName.substring(0, 3) === 'Box') {
+        } else if (targName.substring(0, 3) === 'Box') {
           targ = e.target
         } else {
           targ = e.target.parentNode.parentNode.parentNode
@@ -115,28 +100,23 @@ function highlightBoxButtonBackground(e) {
     }
   }
 
-  traverseDescendants(targ, buttonHighlightColor)
+  targ.style.backgroundColor = buttonHighlightColor
 }
 
 function unhighlightBoxButtonBackground(e) {
   let targ
-  let targetName = e.target.className
+  let targName = e.target.className
   if (e.target.className.substring(0, 3) === 'img') {
     targ = e.target.parentNode.parentNode.parentNode
   } else {
-    switch (
-      e.target.className.substring(
-        e.target.className.length - 3,
-        e.target.className.length
-      )
-    ) {
+    switch (targName.substring(targName.length - 3, targName.length)) {
       case 'box':
         targ = e.target
         break
       default:
-        if (targetName.substring(0, 4) === 'Flex') {
+        if (targName.substring(0, 4) === 'Flex') {
           targ = e.target.parentNode.parentNode
-        } else if (targetName.substring(0, 3) === 'Box') {
+        } else if (targName.substring(0, 3) === 'Box') {
           targ = e.target
         } else {
           targ = e.target.parentNode.parentNode.parentNode
@@ -145,7 +125,7 @@ function unhighlightBoxButtonBackground(e) {
     }
   }
 
-  traverseDescendants(targ, menuBackgroundColor)
+  targ.style.backgroundColor = menuBackgroundColor
 }
 
 function underlineText(e) {
